@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="860px"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_round01"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="14dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="14dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140px">
+
+        <TextView
+            android:id="@+id/selectAButton"
+            android:layout_width="560px"
+            android:layout_height="94px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_next_yellow_button"
+            android:paddingLeft="18px"
+            android:paddingTop="16px"
+            android:paddingEnd="18px"
+            android:text="@string/Power_Distribution_Facility"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130px">
+
+        <TextView
+            android:id="@+id/selectBButton"
+            android:layout_width="560px"
+            android:layout_height="94px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_next_yellow_button"
+            android:paddingLeft="8px"
+            android:paddingTop="16px"
+            android:paddingEnd="8px"
+            android:text="@string/Power_Transmission_Facility"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140px">
+
+        <TextView
+            android:id="@+id/selectCButton"
+            android:layout_width="560px"
+            android:layout_height="94px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_next_yellow_button"
+            android:paddingLeft="48px"
+            android:paddingTop="16px"
+            android:paddingEnd="48px"
+            android:text="@string/Substation_Facility"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/itemEdit"
+        android:layout_width="match_parent"
+        android:layout_height="170px"
+        android:layout_marginLeft="80px"
+        android:layout_marginTop="8px"
+        android:layout_marginRight="80px"
+        android:layout_marginBottom="24px"
+        android:drawableRight="@drawable/diagv_label_kv"
+        android:focusedByDefault="true"
+        android:hint="100.0"
+        android:singleLine="true"
+        android:textAlignment="textEnd"
+        android:textColor="#455997"
+        android:textSize="100px" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/selectVolt0Button"
+            android:layout_width="380px"
+            android:layout_height="74px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_select_item_grey"
+            android:paddingLeft="48px"
+            android:paddingTop="8px"
+            android:paddingEnd="48px"
+            android:text="~50kV"
+            android:textAlignment="center"
+            android:textColor="#555555"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/selectVolt1Button"
+            android:layout_width="380px"
+            android:layout_height="74px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_select_item_grey"
+            android:paddingLeft="48px"
+            android:paddingTop="8px"
+            android:paddingEnd="48px"
+            android:text="~100kV"
+            android:textAlignment="center"
+            android:textColor="#555555"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/selectVolt2Button"
+            android:layout_width="380px"
+            android:layout_height="74px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_select_item_grey"
+            android:paddingLeft="48px"
+            android:paddingTop="8px"
+            android:paddingEnd="48px"
+            android:text="~200kV"
+            android:textAlignment="center"
+            android:textColor="#555555"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/selectVolt3Button"
+            android:layout_width="380px"
+            android:layout_height="74px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_select_item_grey"
+            android:paddingLeft="48px"
+            android:paddingTop="8px"
+            android:paddingEnd="48px"
+            android:text="200kV~"
+            android:textAlignment="center"
+            android:textColor="#555555"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/selectVolt4Button"
+            android:layout_width="380px"
+            android:layout_height="74px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_select_item_grey"
+            android:paddingLeft="48px"
+            android:paddingTop="8px"
+            android:paddingEnd="48px"
+            android:text="200kV~"
+            android:textAlignment="center"
+            android:textColor="#555555"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/selectVolt5Button"
+            android:layout_width="380px"
+            android:layout_height="74px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_select_item_grey"
+            android:paddingLeft="48px"
+            android:paddingTop="8px"
+            android:paddingEnd="48px"
+            android:text="200kV~"
+            android:textAlignment="center"
+            android:textColor="#555555"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+
+
+
+    <!--    저장-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:layout_marginLeft="32px"
+        android:layout_marginTop="48px"
+        android:layout_marginRight="32px"
+        android:background="#888888" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130px">
+
+        <TextView
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="130px"
+            android:layout_centerInParent="true"
+            android:paddingLeft="64px"
+            android:paddingTop="40px"
+            android:paddingRight="64px"
+            android:text="@string/Save"
+            android:textColor="#333333"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>

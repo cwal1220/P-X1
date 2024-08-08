@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StatusJudgView.DiagMixFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="64px">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Multiplex_Diagnosis"
+            android:textColor="#294597"
+            android:textSize="72px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4px"
+            android:layout_marginTop="24px"
+            android:layout_marginBottom="24px"
+            android:background="#333333" />
+
+
+        <LinearLayout
+            android:id="@+id/page_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="60px"
+                        android:layout_marginTop="120px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Load_wave_file"
+                        android:textColor="#222222"
+                        android:textSize="50px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/waveLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="2019210.wav"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openWaveButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+            <!--2 사진 불러오기 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="60px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/itemOpenPicTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Load_Picture"
+                        android:textColor="#222222"
+                        android:textSize="50px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/videoLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="2019210.wav"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openImageButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+            <!--3 열화상 판정 방식-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="60px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="600px"
+                        android:layout_height="120px"
+                        android:layout_marginStart="180px"
+                        android:layout_marginTop="8px"
+                        android:gravity="center_vertical"
+                        android:text="@string/Method_of_Thermal_Image_Diagnosis"
+                        android:textColor="#222222"
+                        android:textSize="46px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/ondoTypeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="3상 비교"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openOndoTypeButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+            <!--4 설비 전압 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="60px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Facility_Voltage"
+                        android:textColor="#222222"
+                        android:textSize="50px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/itemVoltLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="송전 전압 22.9"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openVoltButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+            <!--5 기자재 선택  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="60px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="5"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Select_Facility"
+                        android:textColor="#222222"
+                        android:textSize="50px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/equipmentLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="현수애자"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openEquipmentButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+            <!--6 진단 기준 온도  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="80px"
+                        android:layout_marginStart="60px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="6"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Diagnostic_Reference_TEMP"
+                        android:textColor="#222222"
+                        android:textSize="50px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/baseOndoLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="10.5C"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openOndoBaseButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/page_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!--6 온도 포인트 리스트 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="60px"
+                        android:layout_marginTop="120px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="7"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Point_TEMP"
+                        android:textColor="#222222"
+                        android:textSize="50px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/ondoListLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="2019210.wav"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openOndoListButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+            <!--8 설비 재질 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="60px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="8"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Facility_Material"
+                        android:textColor="#222222"
+                        android:textSize="50px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/materialLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="사기"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openMaterialButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+            <!--9 불량 유형-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="60px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="9"
+                        android:textColor="#ffffff"
+                        android:textSize="90px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Kind_of_Defect"
+                        android:textColor="#222222"
+                        android:textSize="48px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/faultTypeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="과열"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openFaultTypeButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+            <!--10 설비 거리 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="190px"
+                android:layout_marginStart="32px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <View
+                        android:layout_width="4px"
+                        android:layout_height="50px"
+                        android:layout_marginStart="60px"
+                        android:background="#003f74"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="124px"
+                        android:layout_height="124px"
+                        android:layout_marginTop="30px"
+                        android:layout_weight="1"
+                        android:background="@drawable/diag_number_circle"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center"
+                        android:text="10"
+                        android:textColor="#ffffff"
+                        android:textSize="84px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180px"
+                        android:layout_marginTop="48px"
+                        android:text="@string/Distance"
+                        android:textColor="#222222"
+                        android:textSize="48px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/distanceLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190px"
+                        android:layout_marginTop="116px"
+                        android:text="12.5m"
+                        android:textColor="#33c3ff"
+                        android:textSize="34px"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/openDistanceButton"
+                    android:layout_width="200px"
+                    android:layout_height="120px"
+                    android:layout_gravity="center"
+                    android:paddingTop="25px"
+                    android:paddingBottom="25px"
+                    android:src="@drawable/diagv_item_sel"
+                    tools:layout_editor_absoluteX="274dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/nextButton"
+            android:layout_width="540px"
+            android:layout_height="150px"
+            android:layout_gravity="center"
+            android:layout_marginBottom="48px"
+            android:layout_weight="0"
+            android:background="@drawable/shape_next_yellow_button"
+            android:gravity="center"
+            android:text="@string/Check_result"
+            android:textColor="#ffffff"
+            android:textSize="64px"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </LinearLayout>
+</FrameLayout>

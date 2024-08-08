@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="780px"
+    android:layout_height="1100px"
+    android:background="@drawable/layout_round01"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="14dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="14dp">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="580px"
+        android:layout_marginLeft="32px"
+        android:layout_marginTop="32px"
+        android:layout_marginRight="32px"
+        android:layout_marginBottom="32px"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginLeft="32px"
+        android:layout_marginTop="8px"
+        android:layout_marginRight="32px"
+        android:layout_marginBottom="8px"
+        android:background="#555555" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/itemEdit"
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:layout_marginLeft="56px"
+        android:layout_marginTop="32px"
+        android:layout_marginRight="56px"
+        android:layout_marginBottom="16px"
+        android:drawableRight="@drawable/diagv_label_ondogiho"
+        android:focusedByDefault="true"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:textAlignment="textEnd"
+        android:textColor="#455997"
+        android:textSize="100px" />
+
+
+    <!--    저장-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:layout_marginLeft="32px"
+        android:layout_marginTop="32px"
+        android:layout_marginRight="32px"
+        android:background="#888888" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+
+        <TextView
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="150px"
+            android:layout_centerInParent="true"
+            android:paddingLeft="64px"
+            android:paddingTop="40px"
+            android:paddingRight="64px"
+            android:text="저장"
+            android:textColor="#333333"
+            android:textSize="42px" />
+    </RelativeLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>

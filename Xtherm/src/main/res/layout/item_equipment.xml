@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="310px"
+    android:layout_height="355px"
+    android:paddingLeft="24px"
+    android:paddingTop="24px"
+    android:paddingRight="24px"
+    android:paddingBottom="4px">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/equipCardView"
+        android:layout_width="260px"
+        android:layout_height="240px"
+        app:cardCornerRadius="40px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardBackgroundColor="#aaaaaa"
+        app:contentPadding="2px"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:cardCornerRadius="38px"
+            >
+            <ImageView
+                android:id="@+id/resultPicture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8px"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="8px"
+        android:gravity="center|top"
+        android:includeFontPadding="false"
+        android:paddingLeft="16px"
+        android:paddingRight="16px"
+        android:text="videofilename.jpg"
+        android:textColor="#1364D6"
+        android:textSize="32px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/equipCardView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

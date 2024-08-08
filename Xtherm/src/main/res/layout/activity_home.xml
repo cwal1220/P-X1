@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8ae9ef"
+    tools:context=".HomeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/mainImage"
+            android:layout_width="1100px"
+            android:layout_height="1291px"
+            android:layout_marginTop="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:srcCompat="@drawable/homev_img_main" />
+
+        <ImageView
+            android:id="@+id/home_levelImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainImage"
+            app:layout_constraintEnd_toEndOf="@+id/mainImage"
+            app:layout_constraintStart_toStartOf="@+id/mainImage"
+            app:layout_constraintTop_toTopOf="@+id/mainImage"
+            app:srcCompat="@drawable/homev_lv00" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="80px"
+            android:layout_marginTop="32px"
+            android:text="REALTIME"
+            android:textColor="#166EE5"
+            android:textSize="48px"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/label_real_db2"
+            app:layout_constraintHorizontal_bias="0.42"
+            app:layout_constraintStart_toStartOf="@+id/label_real_db"
+            app:layout_constraintTop_toBottomOf="@+id/label_real_db" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42px"
+            android:text="@string/AVG_dB"
+            android:textColor="#5275d9"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/button_camera5"
+            app:layout_constraintStart_toEndOf="@+id/button_camera5"
+            app:layout_constraintTop_toTopOf="@+id/button_camera5" />
+
+        <ImageView
+            android:id="@+id/button_camera5"
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:layout_marginBottom="32px"
+            android:paddingTop="14dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainImage"
+            app:layout_constraintStart_toStartOf="@+id/button_cameraMix" />
+
+        <TextView
+            android:id="@+id/avrdBText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="__._"
+            android:textColor="#5275d9"
+            android:textSize="48px"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/button_camera5"
+            app:layout_constraintEnd_toEndOf="@+id/button_camera5"
+            app:layout_constraintStart_toStartOf="@+id/button_camera5"
+            app:layout_constraintTop_toTopOf="@+id/button_camera5"
+            app:layout_constraintVertical_bias="0.4" />
+
+        <ImageView
+            android:id="@+id/button_camera4"
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:paddingTop="14dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainImage"
+            app:layout_constraintStart_toStartOf="@+id/button_cameraReal"
+            app:layout_constraintTop_toTopOf="@+id/mainImage"
+            app:layout_constraintVertical_bias="0.77" />
+
+        <ImageView
+            android:id="@+id/button_cameraOndo"
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:paddingTop="14dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainImage"
+            app:layout_constraintEnd_toEndOf="@+id/mainImage"
+            app:layout_constraintHorizontal_bias="0.72"
+            app:layout_constraintStart_toStartOf="@+id/mainImage"
+            app:layout_constraintTop_toTopOf="@+id/mainImage" />
+
+        <ImageView
+            android:id="@+id/button_cameraReal"
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:padding="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainImage"
+            app:layout_constraintEnd_toEndOf="@+id/mainImage"
+            app:layout_constraintHorizontal_bias="0.64"
+            app:layout_constraintStart_toStartOf="@+id/mainImage"
+            app:layout_constraintTop_toTopOf="@+id/mainImage"
+            app:layout_constraintVertical_bias="0.23000002" />
+
+        <ImageView
+            android:id="@+id/button_cameraMix"
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:layout_marginTop="32px"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/mainImage"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mainImage" />
+
+        <TextView
+            android:id="@+id/text_tempCamInfo"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:text="TempCam"
+            android:textColor="#64B4FA"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_webCamInfo" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42px"
+            android:text="@string/Visual_Image"
+            android:textColor="#5275d9"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/button_cameraReal"
+            app:layout_constraintStart_toEndOf="@+id/button_cameraReal"
+            app:layout_constraintTop_toTopOf="@+id/button_cameraReal" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42px"
+            android:text="@string/Thermal_Image"
+            android:textColor="#5275d9"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/button_cameraOndo"
+            app:layout_constraintStart_toEndOf="@+id/button_cameraOndo"
+            app:layout_constraintTop_toTopOf="@+id/button_cameraOndo" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42px"
+            android:text="@string/Diagnosis"
+            android:textColor="#5275d9"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/button_camera4"
+            app:layout_constraintStart_toEndOf="@+id/button_camera4"
+            app:layout_constraintTop_toTopOf="@+id/button_camera4" />
+
+        <TextView
+            android:id="@+id/label_real_db2"
+            android:layout_width="110px"
+            android:layout_height="90px"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="6px"
+            android:text="dB"
+            android:textAlignment="viewStart"
+            android:textColor="#166EE5"
+            android:textSize="56px"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/label_real_db"
+            app:layout_constraintStart_toEndOf="@+id/label_real_db" />
+
+        <TextView
+            android:id="@+id/label_real_db"
+            android:layout_width="310px"
+            android:layout_height="160px"
+            android:layout_marginStart="24px"
+            android:text="-"
+            android:textAlignment="textEnd"
+            android:textColor="#166EE5"
+            android:textSize="96px"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/mainImage"
+            app:layout_constraintStart_toStartOf="@+id/mainImage"
+            app:layout_constraintTop_toTopOf="@+id/mainImage"
+            app:layout_constraintVertical_bias="0.49" />
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42px"
+            android:text="@string/Multiplex_Diagnosis"
+            android:textColor="#5275d9"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/button_cameraMix"
+            app:layout_constraintStart_toEndOf="@+id/button_cameraMix"
+            app:layout_constraintTop_toTopOf="@+id/button_cameraMix" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/waveformView"
+            app:layout_constraintTop_toTopOf="@+id/waveformView"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/homev_wave_bg" />
+
+        <com.inspeco.wave.WaveformView
+            android:id="@+id/waveformView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainImage"
+            app:mode="RECORDING" />
+
+
+        <TextView
+            android:id="@+id/text_webCamInfo"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:text="WebCam"
+            android:textColor="#64B4FA"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/hv_gpsText"
+                android:layout_width="200px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="N 37.21246 \nW 127.12456"
+                android:textSize="30px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/hv_gpsIcon"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/hv_gpsText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_icon_gps" />
+
+            <ImageView
+                android:id="@+id/hv_wifiIcon"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/hv_gpsIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_icon_wifi0" />
+
+
+            <ImageView
+                android:id="@+id/hv_deviceIcon"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/hv_wifiIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_icon_device0" />
+
+            <ImageView
+                android:id="@+id/hv_humiIcon"
+                android:layout_width="56px"
+                android:layout_height="56px"
+                android:layout_marginEnd="124px"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/hv_deviceIcon"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_icon_humi" />
+
+            <TextView
+                android:id="@+id/hv_humiText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15px"
+                android:layout_weight="1"
+                android:text="54%"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/hv_humiIcon"
+                app:layout_constraintStart_toEndOf="@+id/hv_humiIcon"
+                app:layout_constraintTop_toTopOf="@+id/hv_humiIcon"
+                app:layout_constraintVertical_bias="0.538" />
+
+            <ImageView
+                android:id="@+id/menuButton"
+                android:layout_width="72px"
+                android:layout_height="72px"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_icon_menu" />
+
+            <ImageView
+                android:id="@+id/hv_ondoIcon"
+                android:layout_width="56px"
+                android:layout_height="56px"
+                android:layout_marginEnd="120px"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintEnd_toStartOf="@+id/hv_humiIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_icon_ondo" />
+
+            <TextView
+                android:id="@+id/hv_ondoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8px"
+                android:layout_weight="1"
+                android:text="32.C"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/hv_ondoIcon"
+                app:layout_constraintStart_toEndOf="@+id/hv_ondoIcon"
+                app:layout_constraintTop_toTopOf="@+id/hv_ondoIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/screenShotLayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#F2FFFFFF"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_alarm"
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:layout_marginBottom="32dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/label_real_db"
+            app:layout_constraintEnd_toEndOf="@+id/textView9"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:srcCompat="@drawable/mainv_alram" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Progress Dialog 의 deprecated 에 의하여 UI 에 구현 -->
+    <RelativeLayout
+        android:id="@+id/layout_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#7f000000"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="306dp"
+            android:layout_height="148.4dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/layout_round01"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="visible">
+
+            <ProgressBar
+                android:id="@+id/progress_rec"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="247dp"
+                android:layout_height="23.3dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/progress_drawable" />
+
+            <TextView
+                android:id="@+id/txt_progress_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18.2dp"
+                android:includeFontPadding="false"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_file_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6.2dp"
+                android:includeFontPadding="false"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <include
+        layout="@layout/menu_drawer"
+        android:visibility="visible" />
+</androidx.drawerlayout.widget.DrawerLayout>

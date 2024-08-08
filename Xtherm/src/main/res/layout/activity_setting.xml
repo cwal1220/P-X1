@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StatusJudgView.DiagActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="140px"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/tabBgSet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tabSet"
+                android:layout_width="wrap_content"
+                android:layout_height="120px"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="20px"
+                app:srcCompat="@drawable/set_icon_tab1" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabBgMix"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tabCameraMix"
+                android:layout_width="wrap_content"
+                android:layout_height="120px"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="20px"
+                app:srcCompat="@drawable/diagv_menu_mixcamb" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabBgReal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tabCameraReal"
+                android:layout_width="wrap_content"
+                android:layout_height="120px"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="28px"
+                app:srcCompat="@drawable/diagv_menu_realcamb" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabBgOndo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tabCameraOndo"
+                android:layout_width="wrap_content"
+                android:layout_height="120px"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="24px"
+                app:srcCompat="@drawable/diagv_menu_ondocamb" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/cam_menu_holder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:paddingLeft="100px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

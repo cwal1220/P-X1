@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/base_layout"
+        android:layout_width="950px"
+        android:layout_height="match_parent"
+        android:layout_marginStart="48px"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/set_alram_titleLayer"
+                android:layout_width="match_parent"
+                android:layout_height="90px"
+                android:layout_marginLeft="16px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/backButton"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="1px"
+                    android:layout_marginEnd="20.0dip"
+                    android:padding="14px"
+                    app:srcCompat="@drawable/setv_icon_left" />
+
+                <TextView
+                    android:layout_width="650px"
+                    android:layout_height="90px"
+                    android:gravity="center_vertical"
+                    android:text="@string/Alarm_Setting"
+                    android:textColor="#ff408cc3"
+                    android:textSize="24.0sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/set_alram_title_line"
+                android:layout_width="match_parent"
+                android:layout_height="2.0dip"
+                android:layout_below="@+id/set_alram_titleLayer"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="72px"
+                android:layout_marginTop="10.0dip"
+                android:layout_marginEnd="35.0dip"
+                android:background="#ff303030" />
+
+            <!--    1 -->
+            <LinearLayout
+                android:id="@+id/set_alram_item1"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_below="@+id/set_alram_title_line"
+                android:layout_marginLeft="94px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="750px"
+                    android:layout_height="100px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="700px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:text="@string/Alarm_Function_Active"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/value_item1"
+                        android:layout_width="600px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="2px"
+                        android:text="활성"
+                        android:textColor="#03B4E6"
+                        android:textSize="34px" />
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+
+            </LinearLayout>
+
+
+            <!--   2 -->
+            <LinearLayout
+                android:id="@+id/set_alram_item2"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_below="@+id/set_alram_item1"
+                android:layout_marginLeft="94px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="750px"
+                    android:layout_height="100px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="700px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:text="@string/Criteria_dB_for_Alarm"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/value_item2"
+                        android:layout_width="600px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="2px"
+                        android:text="활성"
+                        android:textColor="#03B4E6"
+                        android:textSize="34px" />
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+
+            </LinearLayout>
+
+
+
+            <!--   3 -->
+            <LinearLayout
+                android:id="@+id/set_alram_item3"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_below="@+id/set_alram_item2"
+                android:layout_marginLeft="94px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="750px"
+                    android:layout_height="100px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="700px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:text="@string/Temp_for_Alram"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/value_item3"
+                        android:layout_width="600px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="2px"
+                        android:text="활성"
+                        android:textColor="#03B4E6"
+                        android:textSize="34px" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+
+            </LinearLayout>
+
+            <!--   4 -->
+            <LinearLayout
+                android:id="@+id/set_alram_item4"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_below="@+id/set_alram_item3"
+                android:layout_marginLeft="94px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="750px"
+                    android:layout_height="100px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="700px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:text="@string/Duration_of_reference_dB"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/value_item4"
+                        android:layout_width="600px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="2px"
+                        android:text="활성"
+                        android:textColor="#03B4E6"
+                        android:textSize="34px" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+
+            <!-- 5 -->
+            <LinearLayout
+                android:id="@+id/set_alram_item5"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_below="@+id/set_alram_item4"
+                android:layout_marginLeft="94px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="750px"
+                    android:layout_height="100px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="700px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:text="@string/Alarm_Duration"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/value_item5"
+                        android:layout_width="600px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="2px"
+                        android:text="활성"
+                        android:textColor="#03B4E6"
+                        android:textSize="34px" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+
+            <!-- 6 -->
+            <LinearLayout
+                android:id="@+id/set_alram_item6"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_below="@+id/set_alram_item5"
+                android:layout_marginLeft="94px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="750px"
+                    android:layout_height="100px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="700px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:text="@string/Vibration_Active"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/value_item6"
+                        android:layout_width="600px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="2px"
+                        android:text="활성"
+                        android:textColor="#03B4E6"
+                        android:textSize="34px" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+            <!-- 7 -->
+            <LinearLayout
+                android:id="@+id/set_alram_item7"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_below="@+id/set_alram_item6"
+                android:layout_marginLeft="94px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="750px"
+                    android:layout_height="100px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="700px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:text="@string/Sound_Active"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/value_item7"
+                        android:layout_width="600px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="2px"
+                        android:text="활성"
+                        android:textColor="#03B4E6"
+                        android:textSize="34px" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+            <!-- 7 -->
+            <LinearLayout
+                android:id="@+id/set_alram_item8"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_below="@+id/set_alram_item7"
+                android:layout_marginLeft="94px"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="750px"
+                    android:layout_height="100px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="700px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:text="@string/Icon_Active"
+                        android:textSize="18.0sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/value_item8"
+                        android:layout_width="600px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="2px"
+                        android:text="활성"
+                        android:textColor="#03B4E6"
+                        android:textSize="34px" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

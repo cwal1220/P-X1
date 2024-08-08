@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerView"
+    android:layout_gravity="start"
+    android:layout_width="820px"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/menuTitle"
+            android:layout_width="match_parent"
+            android:layout_height="230px"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="64px"
+            android:gravity="center_vertical"
+            android:paddingTop="16px"
+            android:text="@string/Menu"
+            android:textColor="#0f2974"
+            android:textSize="72px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/camModeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="64px"
+            android:layout_marginTop="32px"
+            android:gravity="center_vertical"
+            android:paddingTop="16px"
+            android:text="@string/Image_mode"
+            android:textColor="#0f2974"
+            android:textSize="54px" />
+
+        <View
+            android:layout_width="730px"
+            android:layout_height="4px"
+            android:background="#aaaaaa" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="160px">
+
+            <ImageView
+                android:id="@+id/buttonCameraMix"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="64px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_mixcam" />
+
+            <ImageView
+                android:id="@+id/buttonCameraReal"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="92px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonCameraMix"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_realcam" />
+
+            <ImageView
+                android:id="@+id/buttonCameraOndo"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="92px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonCameraReal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_ondocam" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--자료저장-->
+        <TextView
+            android:id="@+id/dataTitle"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="64px"
+            android:layout_marginTop="32px"
+            android:gravity="center_vertical"
+            android:paddingTop="16px"
+            android:text="@string/Storage_Data"
+            android:textColor="#0f2974"
+            android:textSize="54px" />
+
+        <View
+            android:layout_width="730px"
+            android:layout_height="4px"
+            android:background="#aaaaaa" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="160px">
+
+            <ImageView
+                android:id="@+id/buttonScreenCapture"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="64px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_screencap" />
+
+            <ImageView
+                android:id="@+id/buttonRecordWave"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="64px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonScreenCapture"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_recordwave" />
+
+            <ImageView
+                android:id="@+id/buttonGallery"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="64px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonRecordWave"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_gallery" />
+
+            <ImageView
+                android:id="@+id/buttonFolder"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="64px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonGallery"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_folder" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- 조작 -->
+        <TextView
+            android:id="@+id/controlTitle"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="64px"
+            android:layout_marginTop="32px"
+            android:gravity="center_vertical"
+            android:paddingTop="16px"
+            android:text="@string/Control"
+            android:textColor="#0f2974"
+            android:textSize="54px" />
+
+        <View
+            android:layout_width="730px"
+            android:layout_height="4px"
+            android:background="#aaaaaa" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="160px">
+
+            <ImageView
+                android:id="@+id/buttonMute"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="64px"
+                android:padding="8px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_mute" />
+
+            <ImageView
+                android:id="@+id/buttonLock"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="92px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonMute"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_lock" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- 상태 진단 -->
+        <TextView
+            android:id="@+id/reportTitle"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="64px"
+            android:layout_marginTop="32px"
+            android:gravity="center_vertical"
+            android:paddingTop="16px"
+            android:text="@string/DiagnosisST"
+            android:textColor="#0f2974"
+            android:textSize="54px" />
+
+        <View
+            android:layout_width="730px"
+            android:layout_height="4px"
+            android:background="#aaaaaa" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="160px">
+
+            <ImageView
+                android:id="@+id/buttonDiag"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="64px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_diag" />
+
+            <ImageView
+                android:id="@+id/buttonReport"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="92px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonDiag"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_report" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- 기타 -->
+        <TextView
+            android:id="@+id/etcTitle"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="64px"
+            android:layout_marginTop="32px"
+            android:gravity="center_vertical"
+            android:paddingTop="16px"
+            android:text="@string/Etc"
+            android:textColor="#0f2974"
+            android:textSize="54px" />
+
+        <View
+            android:layout_width="730px"
+            android:layout_height="4px"
+            android:background="#aaaaaa" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="160px">
+
+            <ImageView
+                android:id="@+id/buttonSetting"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="64px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_setting" />
+
+            <ImageView
+                android:id="@+id/buttonShare"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="92px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSetting"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_share" />
+
+            <ImageView
+                android:id="@+id/buttonPdf"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:layout_marginStart="92px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonShare"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/homev_menu_pdf" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

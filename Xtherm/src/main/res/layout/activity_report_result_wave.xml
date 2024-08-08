@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReportView.ReportMixResultActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/reportView"
+        android:layout_width="match_parent"
+        android:layout_height="1690px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/titleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="146px"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="58px"
+                android:text="초음파 진단 보고서"
+                android:textColor="#ff408cc3"
+                android:textSize="54px"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="140px"
+                android:layout_marginRight="70px"
+                android:background="#ff303030" />
+
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="1510px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="24px"
+            android:layout_marginRight="40px"
+            android:background="@drawable/shape_report_bg"
+            android:elevation="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleLayout">
+
+            <com.l_github.derlio.waveform.SimpleWaveformView
+                android:id="@+id/reportWaveformView"
+                android:layout_width="800px"
+                android:layout_height="140px"
+                android:layout_marginStart="30px"
+                android:layout_marginTop="14px"
+                app:layout_constraintStart_toEndOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="140px"
+                android:layout_marginStart="16px"
+                android:layout_marginTop="28px"
+                android:layout_marginEnd="16px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="280px"
+                    android:layout_height="128px"
+                    android:layout_marginStart="16px"
+                    android:background="@drawable/shape_report_panel_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:gravity="center|left"
+                        android:text="@string/Date"
+                        android:textColor="#333333"
+                        android:textSize="32px" />
+
+                    <TextView
+                        android:id="@+id/dateLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="55px"
+                        android:gravity="center"
+                        android:text="2020-10-30"
+                        android:textColor="#333333"
+                        android:textSize="40px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="128px"
+                    android:layout_marginStart="28px"
+                    android:layout_marginEnd="28px"
+                    android:background="@drawable/shape_report_panel_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                    app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:gravity="center|left"
+                        android:text="@string/Line_Name"
+                        android:textColor="#333333"
+                        android:textSize="32px" />
+
+                    <TextView
+                        android:id="@+id/lineNameLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="84px"
+                        android:gravity="center"
+                        android:text="가나1234 454928"
+                        android:textColor="#333333"
+                        android:textSize="32px" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="300px"
+                    android:layout_height="128px"
+                    android:layout_marginEnd="16px"
+                    android:background="@drawable/shape_report_panel_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="8px"
+                        android:gravity="center|left"
+                        android:text="@string/Pole_Number"
+                        android:textColor="#333333"
+                        android:textSize="32px" />
+
+                    <TextView
+                        android:id="@+id/poleNoLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="55px"
+                        android:gravity="center"
+                        android:text="44885772"
+                        android:textColor="#333333"
+                        android:textSize="40px" />
+
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="514px"
+                android:layout_marginStart="16px"
+                android:layout_marginTop="8px"
+                android:layout_marginEnd="16px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="514px"
+                    android:layout_marginStart="16px"
+                    android:layout_marginEnd="28px"
+                    android:background="@drawable/shape_report_panel_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <!--  기자재 종류-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="102px"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="240px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="right|center_vertical"
+                                android:text="@string/Kind_of_Equipment"
+                                android:textColor="#333333"
+                                android:textSize="34px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="102px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="20px"
+                                android:layout_marginTop="20px"
+                                android:layout_marginEnd="20px"
+                                android:layout_marginBottom="20px"
+                                android:background="@drawable/shape_next_yellow_button"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#ffffff"
+                                android:textSize="40px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/eqipmentLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="24px"
+                                android:layout_marginRight="92px"
+                                android:gravity="left|center_vertical"
+                                android:text="현수애자"
+                                android:textColor="#40acc9"
+                                android:textSize="32px" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <!-- 설비 재질-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="102px"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="240px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="right|center_vertical"
+                                android:text="@string/Equipment_Material"
+                                android:textColor="#333333"
+                                android:textSize="34px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="102px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="20px"
+                                android:background="@drawable/shape_next_yellow_button"
+                                android:gravity="center"
+                                android:text="2"
+                                android:textColor="#ffffff"
+                                android:textSize="40px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/materialLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="24px"
+                                android:layout_marginRight="92px"
+                                android:gravity="left|center_vertical"
+                                android:text="설비 전압"
+                                android:textColor="#40acc9"
+                                android:textSize="32px" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <!-- 3 설비거리 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="102px"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="240px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="right|center_vertical"
+                                android:text="@string/Equipment_Voltage"
+                                android:textColor="#333333"
+                                android:textSize="34px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="102px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="20px"
+                                android:background="@drawable/shape_next_yellow_button"
+                                android:gravity="center"
+                                android:text="3"
+                                android:textColor="#ffffff"
+                                android:textSize="40px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/voltLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="24px"
+                                android:layout_marginRight="92px"
+                                android:gravity="left|center_vertical"
+                                android:text="현수애자"
+                                android:textColor="#40acc9"
+                                android:textSize="32px" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                    <!-- 설비 거리 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="102px"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="240px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="right|center_vertical"
+                                android:text="@string/Distance"
+                                android:textColor="#333333"
+                                android:textSize="34px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="102px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="20px"
+                                android:background="@drawable/shape_next_yellow_button"
+                                android:gravity="center"
+                                android:text="4"
+                                android:textColor="#ffffff"
+                                android:textSize="40px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/distanceLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="24px"
+                                android:layout_marginRight="92px"
+                                android:gravity="left|center_vertical"
+                                android:text="현수애자"
+                                android:textColor="#40acc9"
+                                android:textSize="32px" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                    <!--  기자재 종류-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="102px"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="240px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="right|center_vertical"
+                                android:text="@string/Kind_of_Defect"
+                                android:textColor="#333333"
+                                android:textSize="34px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="102px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="20px"
+                                android:background="@drawable/shape_next_yellow_button"
+                                android:gravity="center"
+                                android:text="5"
+                                android:textColor="#ffffff"
+                                android:textSize="40px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/faultLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="24px"
+                                android:layout_marginRight="92px"
+                                android:gravity="left|center_vertical"
+                                android:text="현수애자"
+                                android:textColor="#40acc9"
+                                android:textSize="32px" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--날씨, 온도, 습도, gps Panel-->
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="290px"
+                    android:layout_height="514px"
+                    android:layout_marginEnd="16px"
+                    android:background="@drawable/shape_report_panel_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--날씨-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="104px"
+                        android:layout_marginTop="16px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:gravity="center"
+                            android:text="@string/Weather"
+                            android:textColor="#333333"
+                            android:textSize="32px" />
+
+                        <TextView
+                            android:id="@+id/weatherLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="60px"
+                            android:layout_marginTop="40px"
+                            android:gravity="center"
+                            android:text="맑음"
+                            android:textColor="#40acc9"
+                            android:textSize="45px" />
+                    </RelativeLayout>
+
+
+                    <!--온도-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="104px"
+                        android:layout_marginTop="8px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:gravity="center"
+                            android:text="@string/TEMP"
+                            android:textColor="#333333"
+                            android:textSize="32px" />
+
+                        <TextView
+                            android:id="@+id/ondoLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="60px"
+                            android:layout_marginTop="40px"
+                            android:gravity="center"
+                            android:text="20.8c"
+                            android:textColor="#40acc9"
+                            android:textSize="45px" />
+                    </RelativeLayout>
+
+                    <!-- 습도 -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="104px"
+                        android:layout_marginTop="8px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:gravity="center"
+                            android:text="@string/Humidity"
+                            android:textColor="#333333"
+                            android:textSize="32px" />
+
+                        <TextView
+                            android:id="@+id/humiLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="60px"
+                            android:layout_marginTop="40px"
+                            android:gravity="center"
+                            android:text="35%"
+                            android:textColor="#40acc9"
+                            android:textSize="45px" />
+                    </RelativeLayout>
+
+
+                    <!-- 습도 -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="130px"
+                        android:layout_marginTop="8px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:gravity="center"
+                            android:text="GPS"
+                            android:textColor="#333333"
+                            android:textSize="32px" />
+
+                        <TextView
+                            android:id="@+id/gpsLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="120px"
+                            android:layout_marginTop="38px"
+                            android:gravity="center"
+                            android:text="N 27\nW 127"
+                            android:textColor="#40acc9"
+                            android:textSize="34px" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_marginStart="32px"
+                android:layout_marginTop="16px"
+                android:layout_marginEnd="32px"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="512px"
+                    android:layout_height="300px"
+                    app:cardCornerRadius="32px"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+                    <ImageView
+                        android:id="@+id/resultPicture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="512px"
+                    android:layout_height="300px"
+                    android:layout_marginLeft="30px"
+                    app:cardCornerRadius="32px"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+                    <ImageView
+                        android:id="@+id/resultPicture2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_marginStart="32px"
+                android:layout_marginTop="32px"
+                android:layout_marginEnd="32px"
+                android:background="@drawable/shape_report_panel_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+                <TextView
+                    android:id="@+id/resultIcon"
+                    android:layout_width="208px"
+                    android:layout_height="200px"
+                    android:background="@drawable/shape_result_4"
+                    android:gravity="center"
+                    android:text="치명"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="50px"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="670px"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="24px"
+                    android:layout_marginBottom="8px"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Diagnosis_Result"
+                        android:textColor="#ff408cc3"
+                        android:textSize="38px" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="0px"
+                        android:layout_marginTop="8px"
+                        android:layout_marginRight="5px"
+                        android:background="#ff505050" />
+
+                    <TextView
+                        android:id="@+id/resultMsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12px"
+                        android:layout_marginTop="8px"
+                        android:text="지금 즉시 점검해야 합니다."
+                        android:textColor="#ff408cc3"
+                        android:textSize="38px" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="142px"
+                        android:layout_marginTop="8px">
+
+
+                        <TextView
+                            android:id="@+id/resultText2A"
+                            android:layout_width="wrap_content"
+                            android:layout_height="42px"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="2px"
+                            android:gravity="center_vertical"
+                            android:text="검출 dB: 15"
+                            android:textColor="#680000"
+                            android:textSize="34px"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/resultText2B"
+                            android:layout_width="620px"
+                            android:layout_height="90px"
+                            android:maxLines="3"
+                            android:text="불량내용 의견"
+                            android:textColor="#40acc9"
+                            android:textSize="30px"
+                            app:layout_constraintStart_toStartOf="@+id/resultText2A"
+                            app:layout_constraintTop_toBottomOf="@+id/resultText2A" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="220px"
+                android:layout_height="100px"
+                android:layout_marginStart="20px"
+                android:layout_marginTop="32px"
+                android:background="@drawable/shape_report_wavetbg"
+                android:gravity="center"
+                android:text="@string/WAVE_FORM"
+                android:textColor="#fff"
+                android:textSize="36px"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="700px"
+        android:layout_height="100px"
+        android:layout_marginTop="14px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportView">
+
+        <TextView
+            android:id="@+id/saveAsButton"
+            android:layout_width="320px"
+            android:layout_height="92px"
+            android:layout_marginStart="92px"
+            android:background="@drawable/shape_report_button"
+            android:elevation="5px"
+            android:gravity="center"
+            android:text="@string/Save_as"
+            android:textColor="#333333"
+            android:textSize="38px"
+            app:layout_constraintStart_toEndOf="@+id/saveReportButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/saveReportButton"
+            android:layout_width="280px"
+            android:layout_height="92px"
+            android:background="@drawable/shape_report_button"
+            android:elevation="5px"
+            android:gravity="center"
+            android:text="@string/Save_Report"
+            android:textColor="#333333"
+            android:textSize="38px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff000000"
+    tools:context=".XTerm.TempCamActivity">
+
+
+    <LinearLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="@dimen/dp_70"
+        android:layout_height="match_parent"
+        android:background="@mipmap/backleft"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_gray"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:text="IRON GRAY"
+        app:layout_constraintStart_toStartOf="@+id/button_whitehot"
+        app:layout_constraintTop_toBottomOf="@+id/button_three" />
+
+    <Button
+        android:id="@+id/button_three"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:text="Primary"
+        app:layout_constraintStart_toStartOf="@+id/button_whitehot"
+        app:layout_constraintTop_toBottomOf="@+id/button_rainbow2" />
+
+    <Button
+        android:id="@+id/button_rainbow2"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:text="Rainbow 2"
+        app:layout_constraintStart_toStartOf="@+id/button_whitehot"
+        app:layout_constraintTop_toBottomOf="@+id/button_rainbow1" />
+
+    <Button
+        android:id="@+id/button_rainbow1"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:text="Rainbow 1"
+        app:layout_constraintStart_toStartOf="@+id/button_whitehot"
+        app:layout_constraintTop_toBottomOf="@+id/button_blackhot" />
+
+    <Button
+        android:id="@+id/button_blackhot"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:text="Black Hot"
+        app:layout_constraintStart_toStartOf="@+id/button_whitehot"
+        app:layout_constraintTop_toBottomOf="@+id/button_whitehot" />
+
+
+    <com.serenegiant.widget.UVCCameraTextureView
+        android:id="@+id/camera_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="160dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/menu_layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SurfaceView
+        android:id="@+id/surface_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_whitehot"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="White Hot"
+        app:layout_constraintStart_toEndOf="@+id/camera_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

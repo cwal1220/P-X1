@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="140px">
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16px"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:textColor="#1364D6"
+        android:textSize="48px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bottomLine"
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginStart="8px"
+        android:layout_marginEnd="8px"
+        android:background="#bbbbbb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nameLabel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/dragHandle"-->
+<!--        android:layout_width="110px"-->
+<!--        android:layout_height="110px"-->
+<!--        android:layout_marginEnd="2px"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/ic_drag_handle" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

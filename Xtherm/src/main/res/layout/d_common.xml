@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="720px"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_round01"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="14dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="14dp">
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:textColor="#888888"
+        android:textSize="38px"
+        tools:text="Connecting Error !" />
+
+    <TextView
+        android:id="@+id/txt_msg"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:layout_marginTop="48px"
+        android:layout_marginBottom="24px"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="#1364D6"
+        android:textSize="52px"
+        tools:text="MSG ..." />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:layout_marginTop="20px"
+        android:background="#555555" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12px"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/confirmButton"
+            android:layout_width="200px"
+            android:layout_height="36.3dp"
+            android:layout_marginEnd="64px"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="YES"
+            android:textColor="#000000"
+            android:textSize="42px" />
+
+        <TextView
+            android:id="@+id/cancelButton"
+            android:layout_width="200px"
+            android:layout_height="36.3dp"
+            android:layout_marginStart="64px"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="NO"
+            android:textColor="#000000"
+            android:textSize="42px" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

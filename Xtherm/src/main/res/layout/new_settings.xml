@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#1B1B1B"
+    android:fadingEdge="horizontal"
+    android:scrollbars="horizontal">
+
+    <RelativeLayout
+        android:layout_width="450px"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@id/title_thermography_settings_bg"
+            android:layout_width="266.0dip"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1.0dip"
+            android:background="#ff303030" />
+
+        <TextView
+            android:id="@+id/title_thermography_settings_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="@string/Thermal_imaging_settings"
+            android:textColor="#ff408cc3"
+            android:textSize="16.0sp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/title_thermography_settings_bg"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+        <TextView
+            android:id="@+id/title_correction"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_thermography_settings_bg"
+            android:layout_marginLeft="24.0dip"
+            android:text="@string/Correction"
+            android:textColor="#ffcbcbcb"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/correction_text"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_correction"
+            android:layout_marginLeft="24.0dip"
+            android:text="0"
+            android:textColor="#ffa0a0a0"
+            android:textSize="14.0sp" />
+
+        <SeekBar
+            android:id="@+id/correction_seekbar"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_correction"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toRightOf="@id/correction_text"
+            android:max="60"
+            android:maxHeight="1.0dip"
+            android:minHeight="1.0dip"
+            android:progressDrawable="@drawable/layer_progress"
+            android:thumb="@drawable/shape_circle" />
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/correction_text"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+        <TextView
+            android:id="@+id/title_reflection"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/correction_text"
+            android:layout_marginLeft="24.0dip"
+            android:text="@string/Reflection"
+            android:textColor="#ffcbcbcb"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/reflection_text"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_reflection"
+            android:layout_marginLeft="24.0dip"
+            android:text="25°C"
+            android:textColor="#ffa0a0a0"
+            android:textSize="14.0sp" />
+
+        <SeekBar
+            android:id="@+id/reflection_seekbar"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_reflection"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toRightOf="@id/reflection_text"
+            android:max="50"
+            android:maxHeight="1.0dip"
+            android:minHeight="1.0dip"
+            android:progressDrawable="@drawable/layer_progress"
+            android:thumb="@drawable/shape_circle" />
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/reflection_text"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+        <TextView
+            android:id="@+id/title_amb_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/reflection_text"
+            android:layout_marginLeft="24.0dip"
+            android:text="@string/Amb_temp"
+            android:textColor="#ffcbcbcb"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/amb_temp_text"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_amb_temp"
+            android:layout_marginLeft="24.0dip"
+            android:text="25°C"
+            android:textColor="#ffa0a0a0"
+            android:textSize="14.0sp" />
+
+        <SeekBar
+            android:id="@+id/amb_temp_seekbar"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_amb_temp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toRightOf="@id/amb_temp_text"
+            android:max="50"
+            android:maxHeight="1.0dip"
+            android:minHeight="1.0dip"
+            android:progressDrawable="@drawable/layer_progress"
+            android:thumb="@drawable/shape_circle" />
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/amb_temp_text"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+        <TextView
+            android:id="@+id/title_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/amb_temp_text"
+            android:layout_marginLeft="24.0dip"
+            android:text="@string/Humidity"
+            android:textColor="#ffcbcbcb"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/humidity_text"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_humidity"
+            android:layout_marginLeft="24.0dip"
+            android:text="0.45"
+            android:textColor="#ffa0a0a0"
+            android:textSize="14.0sp" />
+
+        <SeekBar
+            android:id="@+id/humidity_seekbar"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_humidity"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toRightOf="@id/humidity_text"
+            android:max="100"
+            android:maxHeight="1.0dip"
+            android:minHeight="1.0dip"
+            android:progressDrawable="@drawable/layer_progress"
+            android:thumb="@drawable/shape_circle" />
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/humidity_text"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+        <TextView
+            android:id="@+id/title_emissivity"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/humidity_text"
+            android:layout_marginLeft="24.0dip"
+            android:text="@string/title_emissivity"
+            android:textColor="#ffcbcbcb"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@id/emissivity_text"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_emissivity"
+            android:layout_marginLeft="24.0dip"
+            android:text="0.95"
+            android:textColor="#ffa0a0a0"
+            android:textSize="14.0sp" />
+
+        <SeekBar
+            android:id="@id/emissivity_seekbar"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_emissivity"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toRightOf="@id/emissivity_text"
+            android:max="100"
+            android:maxHeight="1.0dip"
+            android:minHeight="1.0dip"
+            android:progressDrawable="@drawable/layer_progress"
+            android:thumb="@drawable/shape_circle" />
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/emissivity_text"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+        <TextView
+            android:id="@+id/title_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/emissivity_text"
+            android:layout_marginLeft="24.0dip"
+            android:text="@string/Distance"
+            android:textColor="#ffcbcbcb"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/distance_text"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_distance"
+            android:layout_marginLeft="24.0dip"
+            android:text="3"
+            android:textColor="#ffa0a0a0"
+            android:textSize="14.0sp" />
+
+        <SeekBar
+            android:id="@+id/distance_seekbar"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:layout_below="@id/title_distance"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toRightOf="@id/distance_text"
+            android:max="20"
+            android:maxHeight="1.0dip"
+            android:minHeight="1.0dip"
+            android:progressDrawable="@drawable/layer_progress"
+            android:thumb="@drawable/shape_circle" />
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/distance_text"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="80dp"
+            android:layout_height="78px"
+            android:layout_below="@id/distance_text"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="#ff303030"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/Save"
+            android:textColor="#ffcbcbcb"
+            android:textSize="16.0sp" />
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/distance_text"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+
+        <ImageView
+            android:id="@id/title_others_bg"
+            android:layout_width="266.0dip"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/save_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1.0dip"
+            android:background="#ff303030" />
+
+
+        <ImageView
+            android:layout_width="266.0dip"
+            android:layout_height="1.0dip"
+            android:layout_below="@id/title_others_bg"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+
+        <Button
+            android:id="@+id/shut_button"
+            android:layout_width="120dp"
+            android:layout_height="78px"
+            android:layout_below="@id/save_button"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="#ff303030"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/Thermal_correction"
+            android:textColor="#ffcbcbcb"
+            android:textSize="16.0sp" />
+
+    </RelativeLayout>
+
+</ScrollView>

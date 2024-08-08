@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/resultPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#105101"
+    tools:context=".StatusJudgView.ResultMixActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="132px"
+        android:layout_marginTop="0px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/saveUdrButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32px"
+            android:background="@drawable/shape_next_grey_button2"
+            android:paddingLeft="24px"
+            android:paddingTop="14px"
+            android:paddingRight="24px"
+            android:paddingBottom="14px"
+            android:text="@string/Save"
+            android:textColor="#333333"
+            android:textSize="42px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/finishButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.653" />
+
+        <TextView
+            android:id="@+id/finishButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32px"
+            android:background="@drawable/shape_next_grey_button2"
+            android:paddingLeft="24px"
+            android:paddingTop="14px"
+            android:paddingRight="24px"
+            android:paddingBottom="14px"
+            android:text="@string/Quit"
+            android:textColor="#333333"
+            android:textSize="42px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.619" />
+
+        <ImageView
+            android:id="@+id/backImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16px"
+            android:paddingTop="24px"
+            android:paddingRight="16px"
+            android:paddingBottom="24px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_left_white" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2px"
+            android:text="@string/Thermal_Image_Diagnosis_Result"
+            android:textColor="#FFFFFF"
+            android:textSize="46px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/backImageButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="565px"
+        android:layout_marginTop="64px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <TextView
+            android:id="@+id/deviceOndoLabel"
+            android:layout_width="220px"
+            android:layout_height="62px"
+            android:text="66.0C"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="48px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <ImageView
+            android:id="@+id/meterImage"
+            android:layout_width="1009px"
+            android:layout_height="585px"
+            android:layout_marginTop="-10px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/resultv_meter_ondo1" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@string/Facility_TEMP"
+            android:textColor="#ffffff"
+            android:textSize="32px"
+            app:layout_constraintEnd_toEndOf="@+id/faceImage2"
+            app:layout_constraintStart_toStartOf="@+id/faceImage2"
+            app:layout_constraintTop_toBottomOf="@+id/faceImage" />
+
+        <ImageView
+            android:id="@+id/faceImage2"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_marginTop="32px"
+            android:layout_marginEnd="80px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/resultv_ondo" />
+
+        <ImageView
+            android:id="@+id/faceImage"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_marginStart="32px"
+            android:layout_marginTop="2px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/resultv_face1" />
+
+        <ImageView
+            android:id="@+id/meterPointer"
+            android:layout_width="600px"
+            android:layout_height="600px"
+            android:layout_marginTop="100px"
+            android:rotation="0"
+            app:layout_constraintEnd_toEndOf="@+id/meterImage"
+            app:layout_constraintStart_toStartOf="@+id/meterImage"
+            app:layout_constraintTop_toTopOf="@+id/meterImage"
+            app:srcCompat="@drawable/resultv_meter_pointer" />
+
+        <TextView
+            android:id="@+id/msgLabel"
+            android:layout_width="380px"
+            android:layout_height="130px"
+            android:layout_marginBottom="28px"
+            android:gravity="center|center_horizontal"
+            android:text="치명\n즉시교체"
+            android:textColor="#333333"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="@+id/meterImage"
+            app:layout_constraintEnd_toEndOf="@+id/meterImage"
+            app:layout_constraintStart_toStartOf="@+id/meterImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="970px"
+        android:layout_height="548px"
+        app:cardCornerRadius="32px"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+        <ImageView
+            android:id="@+id/resultPicture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0px"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="1040px"
+        android:layout_height="400px"
+        android:layout_marginTop="64px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <LinearLayout
+            android:layout_width="480px"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8px"
+            android:layout_marginEnd="1dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text="@string/Pattern_Method"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+
+                <TextView
+                    android:id="@+id/ondoPatternLabel"
+                    android:layout_width="320px"
+                    android:layout_height="92px"
+                    android:layout_weight="1"
+                    android:text=": 온도패턴법"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ondoMaxTitleLabel"
+                    android:layout_width="150px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text="포인트A"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+
+                <TextView
+                    android:id="@+id/ondoMaxValueLabel"
+                    android:layout_width="320px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text=": 26"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ondoMinTitleLabel"
+                    android:layout_width="150px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text="포인트B"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+
+                <TextView
+                    android:id="@+id/ondoMinValueLabel"
+                    android:layout_width="320px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text=": 20"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ondoDiffTitle"
+                    android:layout_width="160px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text="@string/Difference_of_TEMP"
+                    android:textColor="#ffffff"
+                    android:textSize="32px" />
+
+                <TextView
+                    android:id="@+id/ondoDiffLabel"
+                    android:layout_width="320px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text=": 11.2"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/waveHumiLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대기열"
+            android:textColor="#ffffff"
+            android:textSize="42px"
+            app:layout_constraintStart_toStartOf="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            tools:text="26C" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="64px"
+            android:layout_height="94px"
+            android:layout_marginStart="160px"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            app:srcCompat="@drawable/resultv_icon_humi" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16px"
+            android:text="@string/Humidity"
+            android:textColor="#ffffff"
+            android:textSize="30px"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+        <TextView
+            android:id="@+id/waveOndoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대기열"
+            android:textColor="#ffffff"
+            android:textSize="42px"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            tools:text="26C" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="64px"
+            android:layout_height="94px"
+            android:layout_marginStart="16px"
+            android:layout_marginTop="16px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/resultv_icon_ondo" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16px"
+            android:text="@string/TEMP"
+            android:textColor="#ffffff"
+            android:textSize="30px"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+        <LinearLayout
+            android:layout_width="640px"
+            android:layout_height="match_parent"
+            android:layout_marginTop="135px"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text="@string/Equipment"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+
+                <TextView
+                    android:id="@+id/equipmentLabel"
+                    android:layout_width="400px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text=": LP애자"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text="Material"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+
+                <TextView
+                    android:id="@+id/materialLabel"
+                    android:layout_width="400px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text=": 자기"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68px"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="150px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text="불량유형"
+                    android:textColor="#ffffff"
+                    android:textSize="40px" />
+
+                <TextView
+                    android:id="@+id/faultTypeLabel"
+                    android:layout_width="400px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text=": 자기"
+                    android:textColor="#ffffff"
+                    android:textSize="40px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70px"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="150px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text="상태"
+                    android:textColor="#ffffff"
+                    android:textSize="40px" />
+
+                <TextView
+                    android:id="@+id/msgLabel2"
+                    android:layout_width="400px"
+                    android:layout_height="72px"
+                    android:layout_weight="1"
+                    android:text=": 자기"
+                    android:textColor="#ffffff"
+                    android:textSize="40px" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="1020px"
+        android:layout_height="5px"
+        android:background="#eaeaea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/resultPicture"-->
+<!--        android:layout_width="1020px"-->
+<!--        android:layout_height="640px"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"-->
+<!--        app:srcCompat="@drawable/bg_progress_recording" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

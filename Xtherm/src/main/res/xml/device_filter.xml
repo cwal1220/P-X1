@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<usb>
+</usb>
+<!--<usb-device class="239" subclass="2" />	&lt;!&ndash; all device of UVC &ndash;&gt;-->
+<!--<usb-device class="146" subclass="1" />	&lt;!&ndash; Inspeco Cam &ndash;&gt;-->
+

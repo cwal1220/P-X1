@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="900px"
+    android:layout_height="match_parent"
+    tools:context=".SettingView.SetCam3Fragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/set_cam3_titleLayer"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="650px"
+                android:layout_height="wrap_content"
+                android:text="@string/Multiplex_Image_Setting"
+                android:textColor="#ff408cc3"
+                android:textSize="24.0sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fset_cam3_close"
+                android:layout_width="80dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20.0dip"
+                android:padding="3px"
+                android:text="X"
+                android:textAlignment="center"
+                android:textColor="#ffbbbbcc"
+                android:textSize="26.0sp" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/set_title_line"
+            android:layout_width="match_parent"
+            android:layout_height="2.0dip"
+            android:layout_below="@+id/set_cam3_titleLayer"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginLeft="35.0dip"
+            android:layout_marginEnd="35.0dip"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+<!--        다화상 1 -->
+        <LinearLayout
+            android:id="@+id/set_cam3_item1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_title_line"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_ondo_range" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Set_TEMP_Range"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+
+        </LinearLayout>
+
+        <!--   다화상 2 -->
+        <LinearLayout
+            android:id="@+id/set_cam3_item1b"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam3_item1"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_ondo_checkbase" />
+
+            <TextView
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/OverlayTemp_OpacitySetting"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+
+        <!--  다화상 4-->
+        <LinearLayout
+            android:id="@+id/set_cam3_item4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam3_item1b"
+
+            android:layout_marginLeft="30.0dip"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_distance" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Setting_the_measurement_distance"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+
+        <!--  열화상 4 팔레트-->
+        <LinearLayout
+            android:id="@+id/set_cam3_paletteItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam3_item4"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_palette" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Pallet_Settings"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+
+        <!--  다화상 오버레이 4-->
+        <LinearLayout
+            android:id="@+id/set_cam3_arrangeItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam3_paletteItem"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_userbtn" />
+
+            <TextView
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Thermal_Overlay_Setting"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+
+        <!--  다화상 온도 옵셋 설정-->
+        <LinearLayout
+            android:id="@+id/set_cam3_ondoItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam3_arrangeItem"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/set_icon_tab1" />
+
+            <TextView
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Temp_Offset_Setting"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+
+        <!--  온도 모드 설정 20~120, 0~600-->
+        <LinearLayout
+            android:id="@+id/set_cam3_ondoMode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam3_ondoItem"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_ondocf" />
+
+            <TextView
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Temp_Mode_Setting"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</androidx.core.widget.NestedScrollView>

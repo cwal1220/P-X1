@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="500px"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_round01"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="14dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="14dp">
+
+
+    <TextView
+        android:id="@+id/dp_sel_01"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:layout_marginTop="12px"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/Rainbow"
+        android:textColor="#49589B"
+        android:textSize="40px"
+        android:textStyle="bold" />
+
+
+    <View
+        android:id="@+id/dp_divider1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="12px"
+        android:background="#090909" />
+
+    <TextView
+        android:id="@+id/dp_sel_02"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:layout_marginTop="12px"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Amber"
+        android:textColor="#49589B"
+        android:textSize="40px"
+        android:textStyle="bold" />
+
+
+    <View
+        android:id="@+id/dp_divider2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="12px"
+        android:background="#090909" />
+
+    <TextView
+        android:id="@+id/dp_sel_03"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:layout_marginTop="12px"
+        android:layout_marginBottom="12px"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="White"
+        android:textColor="#49589B"
+        android:textSize="40px"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="900px"
+    android:layout_height="match_parent"
+    tools:context=".SettingView.SetBaseFragment">
+
+    <LinearLayout
+        android:id="@+id/base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/set_base_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/set_base_titleLayer"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="650px"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Base_Setting"
+                    android:textColor="#ff408cc3"
+                    android:textSize="24.0sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/set_title_line"
+                android:layout_width="match_parent"
+                android:layout_height="2.0dip"
+                android:layout_below="@+id/set_base_titleLayer"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="35.0dip"
+                android:layout_marginTop="10.0dip"
+                android:layout_marginEnd="35.0dip"
+                android:background="#ff303030" />
+
+            <!--        열화상 1 -->
+            <LinearLayout
+                android:id="@+id/set_base_item1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/set_title_line"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_alram" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    android:layout_weight="1"
+                    android:text="@string/Alarm_Setting"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+
+            </LinearLayout>
+
+
+            <!--   2 -->
+            <LinearLayout
+                android:id="@+id/set_base_item2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/set_base_item1"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_userbtn" />
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    android:layout_weight="1"
+                    android:text="사용자 지정 버튼"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+
+            </LinearLayout>
+
+            <!--   3 -->
+            <LinearLayout
+                android:id="@+id/set_base_item3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/set_base_item1"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_dateformat" />
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    android:layout_weight="1"
+                    android:text="@string/Set_Wave_File_name"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+
+            </LinearLayout>
+
+            <!--   4 팔레트-->
+            <LinearLayout
+                android:id="@+id/set_base_item4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/set_base_item3"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_recordtime1" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    android:layout_weight="1"
+                    android:text="@string/Set_Wave_Recording_Time"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+            <!-- 5 -->
+            <LinearLayout
+                android:id="@+id/set_base_item5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/set_base_item4"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_recordtime2" />
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    android:layout_weight="1"
+                    android:text="@string/Set_Video_Recording_Time"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+
+            <!-- 6 -->
+            <LinearLayout
+                android:id="@+id/set_base_item6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/set_base_item5"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_ondocf" />
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    android:layout_weight="1"
+                    android:text="@string/Fahrenheit_Celsius_Setting"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+            <!-- 7 -->
+            <LinearLayout
+                android:id="@+id/set_base_item7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/set_base_item6"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_mainwave" />
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    android:layout_weight="1"
+                    android:text="메인 메뉴 웨이브 폼"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+
+            <!-- 8 -->
+            <LinearLayout
+                android:id="@+id/set_base_item8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/set_base_item6"
+                android:layout_marginLeft="30.0dip"
+                android:layout_marginTop="30.0dip"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_reset" />
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    android:layout_weight="1"
+                    android:text="@string/Initialize_Setting"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="64px"
+                    android:layout_height="64px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginEnd="20.0dip"
+                    app:srcCompat="@drawable/setv_icon_next" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+</androidx.core.widget.NestedScrollView>

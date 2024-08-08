@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.inspeco.X1">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- <uses-feature android:name="android.hardware.usb.accessory" /> -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_x1_v2"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+        <activity android:name=".GraphView.GraphFullActivity" android:screenOrientation="userLandscape"></activity>
+        <activity android:name=".HomeView.ShareActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SettingView.SettingActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SettingView.SetAlramActivity" />
+        <activity android:name=".ReportView.ReportMixResultActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ReportView.ReportWaveResultActivity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReportView.ReportOndoResultActivity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReportView.ReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatusJudgView.ResultMixActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatusJudgView.ResultWaveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatusJudgView.ResultOndoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatusJudgView.DiagActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".LoadingView.LoadingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CamView.LoadingWebActivity"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".CamView.WebCamActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="userLandscape"></activity>
+        <!--
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize|landscape"
+            android:screenOrientation="userLandscape"
+        -->
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity> <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen"> -->
+        <!-- <activity -->
+        <!-- android:name=".XTerm.MainActivity" -->
+        <!-- android:label="@string/app_name" -->
+        <!-- android:launchMode="singleTop" -->
+        <!-- android:screenOrientation="landscape" /> -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.inspeco.X1"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>

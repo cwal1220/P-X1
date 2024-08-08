@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="960px"
+    android:layout_height="1100px"
+    android:background="@drawable/layout_round01"
+    android:orientation="vertical"
+    android:paddingLeft="32px"
+    android:paddingTop="32px"
+    android:paddingRight="32px"
+    android:paddingBottom="32px">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16px"
+        android:layout_marginTop="32px"
+        android:layout_marginRight="16px"
+        android:layout_marginBottom="32px"
+        android:orientation="vertical" />
+
+
+    <!--    저장-->
+
+
+</LinearLayout>

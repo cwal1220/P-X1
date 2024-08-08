@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/profileView"
+        android:layout_width="640px"
+        android:layout_height="840px"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="640px"
+            android:layout_height="500px"
+            android:background="@drawable/layout_round01"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/profileSelectItem"
+                android:layout_width="match_parent"
+                android:layout_height="160px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100px"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="16px"
+                    android:text="@string/Select_Profile"
+                    android:textColor="#165EC5"
+                    android:textSize="48px" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:layout_marginLeft="48px"
+                android:layout_marginRight="48px"
+                android:background="#888888" />
+
+            <RelativeLayout
+                android:id="@+id/guestModeItem"
+                android:layout_width="match_parent"
+                android:layout_height="160px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100px"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="16px"
+                    android:text="@string/Guest_Mode"
+                    android:textColor="#165EC5"
+                    android:textSize="48px" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:layout_marginLeft="48px"
+                android:layout_marginRight="48px"
+                android:background="#888888" />
+
+            <RelativeLayout
+                android:id="@+id/newProfileItem"
+                android:layout_width="match_parent"
+                android:layout_height="160px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100px"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="16px"
+                    android:text="@string/Create_a_new_profile"
+                    android:textColor="#165EC5"
+                    android:textSize="48px" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

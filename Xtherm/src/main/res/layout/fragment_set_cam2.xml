@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="900px"
+    android:layout_height="match_parent"
+    tools:context=".SettingView.SetCam2Fragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/set_cam2_titleLayer"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="650px"
+                android:layout_height="wrap_content"
+                android:text="@string/Thermal_imaging_settings"
+                android:textColor="#ff408cc3"
+                android:textSize="24.0sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fset_cam2_close"
+                android:layout_width="80dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20.0dip"
+                android:padding="3px"
+                android:text="X"
+                android:textAlignment="center"
+                android:textColor="#ffbbbbcc"
+                android:textSize="26.0sp" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/set_title_line"
+            android:layout_width="match_parent"
+            android:layout_height="2.0dip"
+            android:layout_below="@+id/set_cam2_titleLayer"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginLeft="35.0dip"
+            android:layout_marginEnd="35.0dip"
+            android:layout_centerHorizontal="true"
+            android:background="#ff303030" />
+
+        <!--  열화상 1 -->
+
+        <!--  열화상 2 -->
+
+        <!--  열화상 3 -->
+
+
+        <!--  열화상 4 팔레트-->
+        <LinearLayout
+            android:id="@+id/set_cam2_item4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_title_line"
+            android:layout_marginLeft="30.0dip"
+            android:layout_marginTop="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_palette" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Pallet_Settings"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+        <!--  열화상 5-->
+        <LinearLayout
+            android:id="@+id/set_cam2_item5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam2_item4"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_distance" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Setting_the_measurement_distance"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+
+        <!--  열화상 옵셋설정-->
+        <LinearLayout
+            android:id="@+id/set_cam2_item7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam2_item5"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/set_icon_tab1" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Temp_Offset_Setting"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+        <!--  열화상 옵셋설정-->
+        <LinearLayout
+            android:id="@+id/set_cam2_mode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_cam2_item7"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginLeft="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_ondocf" />
+
+            <TextView
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_weight="1"
+                android:text="@string/Temp_Mode_Setting"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64px"
+                android:layout_height="64px"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:layout_marginEnd="20.0dip"
+                app:srcCompat="@drawable/setv_icon_next" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.core.widget.NestedScrollView>
