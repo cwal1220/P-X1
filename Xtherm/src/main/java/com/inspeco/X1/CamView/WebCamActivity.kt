@@ -1002,7 +1002,7 @@ class WebCamActivity : BaseActivity() {
 
             val dialog = CommonDialog(this, "", msg, yes, no)
             dialog.setOkListener() {
-                p1.p1Model.startRecording()
+                p1.p1Model.startRecording(isLoadingOndo)
                 showProgressDialog(View.VISIBLE)
             }
             dialog.show()

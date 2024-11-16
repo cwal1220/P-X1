@@ -23,10 +23,11 @@ public class WaveRecorder {
     private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_MONO;
     private static int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_8BIT;
     private int bufferSize = 0;
+    private boolean IS_MIX = false;
 
     public String saveFileName;
 
-    public WaveRecorder(boolean isUdp, String path, int sample_rate) {
+    public WaveRecorder(boolean isUdp, String path, int sample_rate, boolean isMix) {
         // 입력 조건에 따라 변경해야 함
         RECORDER_SAMPLERATE = sample_rate;
 
@@ -41,6 +42,7 @@ public class WaveRecorder {
         bufferSize = AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,
                 RECORDER_CHANNELS, RECORDER_AUDIO_ENCODING) * 3;
 
+        IS_MIX = isMix;
         startRecord();
     }
 
@@ -57,12 +59,21 @@ public class WaveRecorder {
             audioFolder.mkdirs();
         }
 
+        File audioFolderMix = new File(rootFolder.getPath(), Consts.AUDIO_RECORDER_MIX_FOLDER);
+        if (!audioFolderMix.exists()) {
+            audioFolderMix.mkdirs();
+        }
+
         File tempFile = new File(filepath, saveFileName);
 
         if (tempFile.exists())
             tempFile.delete();
 
-        return (audioFolder.getAbsolutePath() + "/" + saveFileName);
+        if(IS_MIX) {
+            return (audioFolderMix.getAbsolutePath() + "/" + saveFileName);
+        } else {
+            return (audioFolder.getAbsolutePath() + "/" + saveFileName);
+        }
     }
 
     public String getTempFilename() {
@@ -77,17 +88,26 @@ public class WaveRecorder {
             audioFolder.mkdirs();
         }
 
+        File audioFolderMix = new File(rootFolder.getPath(), Consts.AUDIO_RECORDER_MIX_FOLDER);
+        if (!audioFolderMix.exists()) {
+            audioFolderMix.mkdirs();
+        }
+
 //        File tempFile = new File(filepath, Consts.AUDIO_RECORDER_TEMP_FILE);
 
 //        if (tempFile.exists())
 //            tempFile.delete();
 
-        return (audioFolder.getAbsolutePath() + "/" + Consts.AUDIO_RECORDER_TEMP_FILE);
+        if(IS_MIX) {
+            return (audioFolderMix.getAbsolutePath() + "/" + Consts.AUDIO_RECORDER_TEMP_FILE);
+        } else {
+            return (audioFolder.getAbsolutePath() + "/" + Consts.AUDIO_RECORDER_TEMP_FILE);
+        }
     }
 
 
     FileOutputStream outs = null;
-    private void startRecord( ) {
+    private void startRecord() {
         String filename = getTempFilename();
 
         try {

@@ -130,7 +130,7 @@ class P1Model : ViewModel() {
     /**
      * 녹음시작
      */
-    fun startRecording() {
+    fun startRecording(isMix: Boolean) {
         if (wavRecorder == null) {
 
             val maxCount = ((1000 / 31).toDouble() * Cfg.RecordingTime)
@@ -138,7 +138,7 @@ class P1Model : ViewModel() {
             recordingCnt = 0
             dBFileName = getAudioFileName(0)
 
-            wavRecorder = WaveRecorder(true, "", 16000)
+            wavRecorder = WaveRecorder(true, "", 16000, isMix)
             p1.isRecording = true
             Log.v("bobopro", "startRecording $dBFileName , max:$maxCount")
         }

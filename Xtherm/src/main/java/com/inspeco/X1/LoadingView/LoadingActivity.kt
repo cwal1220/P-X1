@@ -12,24 +12,24 @@ import android.net.wifi.WifiConfiguration
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.gun0912.tedpermission.PermissionListener
-import com.gun0912.tedpermission.TedPermission
+import com.gun0912.tedpermission.normal.TedPermission
 import com.inspeco.X1.HomeActivity
-
 import com.inspeco.X1.R
-import com.inspeco.data.*
-import com.inspeco.dialog.PaletteDialog
+import com.inspeco.data.Consts
+import com.inspeco.data.P1
+import com.inspeco.data.States
+import com.inspeco.data.X1
 import com.serenegiant.usb.USBMonitor
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_loading.*
-import java.lang.Exception
-import java.util.ArrayList
+import kotlinx.android.synthetic.main.activity_home.homeView
+import kotlinx.android.synthetic.main.activity_loading.SsidText
+import kotlinx.android.synthetic.main.activity_loading.buildNoText
 
 class LoadingActivity : AppCompatActivity() {
 
@@ -51,13 +51,14 @@ class LoadingActivity : AppCompatActivity() {
             }
         }
 
-        TedPermission.with(this)
+        TedPermission.create()
                 .setPermissionListener(permissionListener)
                 .setRationaleMessage("서비스 사용을 위해서 몇가지 권한이 필요합니다.")
                 .setDeniedMessage("[설정] > [권한] 에서 권한을 설정할 수 있습니다.")
                 .setPermissions(
                         Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.ACCESS_NETWORK_STATE,
                         Manifest.permission.ACCESS_WIFI_STATE,
                         Manifest.permission.CHANGE_WIFI_STATE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,

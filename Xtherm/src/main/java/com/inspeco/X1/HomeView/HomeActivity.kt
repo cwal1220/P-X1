@@ -376,7 +376,7 @@ class HomeActivity : AppCompatActivity() {
 
             val dialog = CommonDialog(this, "", msg, yes, no)
             dialog.setOkListener() {
-                p1Model.startRecording()
+                p1Model.startRecording(false)
                 homeView.closeDrawer(drawerView)
                 showProgressDialog(View.VISIBLE)
             }

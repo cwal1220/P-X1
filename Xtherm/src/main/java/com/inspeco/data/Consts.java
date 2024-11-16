@@ -80,6 +80,7 @@ public class Consts {
     public static int Report_FileReport = 2;
 
     public static String  AUDIO_RECORDER_FOLDER = "AudioRecorder";
+    public static String  AUDIO_RECORDER_MIX_FOLDER = "AudioRecorderMix";
     public static String  AUDIO_RECORDER_TEMP_FILE = "record_temp.raw";
     public static String  SCREEN_SHOT_FOLDER = "ScreenShot";
     public static String  WAVEFORM_SHOT_FOLDER = "WaveFormShot";

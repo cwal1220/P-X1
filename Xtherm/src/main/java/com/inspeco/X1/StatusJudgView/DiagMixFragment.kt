@@ -301,7 +301,7 @@ class DiagMixFragment() : Fragment() {
      * 웨이브 선택창 열기
      */
     private fun openWave() {
-        val dialog = FileListDialog(mContext,Consts.AUDIO_RECORDER_FOLDER)
+        val dialog = FileListDialog(mContext,Consts.AUDIO_RECORDER_MIX_FOLDER)
 
         if (dialog.fileList.size > 0) {
             val windowManager = mContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager

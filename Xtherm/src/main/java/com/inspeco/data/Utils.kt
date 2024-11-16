@@ -263,6 +263,11 @@ fun deleteAudioTempFile() {
     val tempFile = File(filepath, Consts.AUDIO_RECORDER_TEMP_FILE)
     if (tempFile.exists())
         tempFile.delete()
+
+    val filepathMix = Environment.getExternalStorageDirectory().absolutePath + "/" + Consts.ROOT_FOLDER  + "/" + Consts.AUDIO_RECORDER_MIX_FOLDER
+    val tempFileMix = File(filepathMix, Consts.AUDIO_RECORDER_TEMP_FILE)
+    if (tempFileMix.exists())
+        tempFileMix.delete()
 }
 
 /**
@@ -297,6 +302,11 @@ fun getAudioFileName(db:Int) : String {
     val folder = File(Environment.getExternalStorageDirectory().absolutePath + "/" + Consts.ROOT_FOLDER + "/" + Consts.AUDIO_RECORDER_FOLDER)
     if (!folder.exists()) {
         folder.mkdir()
+    }
+
+    val folderMix = File(Environment.getExternalStorageDirectory().absolutePath + "/" + Consts.ROOT_FOLDER + "/" + Consts.AUDIO_RECORDER_MIX_FOLDER)
+    if (!folderMix.exists()) {
+        folderMix.mkdir()
     }
 
     // 카운팅
@@ -556,6 +566,11 @@ fun initFolder(f: String): File? {
         audioRecFolder.mkdirs()
     }
 
+    val audioRecMixFolder = File(rootFolder.path, Consts.AUDIO_RECORDER_MIX_FOLDER)
+    if (!audioRecMixFolder.exists()) {
+        audioRecMixFolder.mkdirs()
+    }
+
     val imgFolder = File(rootFolder.path, Consts.SCREEN_SHOT_FOLDER)
     if (!imgFolder.exists()) {
         imgFolder.mkdirs()
@@ -605,6 +620,9 @@ fun initFolder(f: String): File? {
     when (f) {
         Consts.AUDIO_RECORDER_FOLDER -> {
             return audioRecFolder
+        }
+        Consts.AUDIO_RECORDER_MIX_FOLDER -> {
+            return audioRecMixFolder
         }
         Consts.SCREEN_SHOT_FOLDER -> {
             return imgFolder
