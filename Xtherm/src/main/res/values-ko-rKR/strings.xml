@@ -58,7 +58,7 @@
     <string name="Visual_Image">실화상</string>
     <string name="Thermal_Image">열화상</string>
     <string name="AVG_dB">평균 dB</string>
-    <string name="Diagnosis">진단</string>
+    <string name="Diagnosis">보고서</string>
     <string name="Real_Time">Real Time</string>
     <string name="Menu">전체 메뉴</string>
     <string name="Image_mode">영상 모드</string>

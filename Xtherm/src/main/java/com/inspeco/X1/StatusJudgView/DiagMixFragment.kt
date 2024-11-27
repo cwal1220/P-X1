@@ -319,7 +319,7 @@ class DiagMixFragment() : Fragment() {
                 mView.waveLabel.text = States.diagFileData.fileName
             }
         } else {
-            val msg = getResources().getString(R.string.File_has_been_saved)
+            val msg = getResources().getString(R.string.no_file_msg)
             val toast = Toast.makeText(mContext,msg, Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, -200)
             toast.show()
