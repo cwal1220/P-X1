@@ -204,9 +204,12 @@ class ReportWaveResultActivity : AppCompatActivity() {
             dialog.show()
         }
 
+        resultPicture.setOnClickListener {
+            openImage1()
+        }
 
         resultPicture2.setOnClickListener {
-            openImage()
+            openImage2()
         }
 
         saveReportButton.setOnClickListener {
@@ -320,11 +323,44 @@ class ReportWaveResultActivity : AppCompatActivity() {
 
     }
 
-
     /**
-     * 이미지 선택창 열기
+     * 이미지 선택창 열기, 왼쪽 사진 클릭 시
      */
-    private fun openImage() {
+    private fun openImage1() {
+        val dialog = ImageListDialog(this)
+
+        if (dialog.fileList.size > 0) {
+            val windowManager = this.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            val display = windowManager.defaultDisplay
+            val size = Point()
+            display.getSize(size)
+            val params: ViewGroup.LayoutParams? = dialog?.window?.attributes
+
+            params?.width = size.x - 100
+            params?.height = size.y - 50
+            dialog.window?.attributes = params as WindowManager.LayoutParams
+
+            dialog.show()
+
+            dialog.setVideoClickListener {
+                States.reportImageFile = States.diagImageFile
+                //Log.d("bobopro-보고서", States.diagImageFile.fileName)
+                Glide.with(this).load(File(States.reportImageFile.filePath)).into(resultPicture)
+                udr!!.imageData1.filePath = States.reportImageFile.filePath
+
+            }
+
+        } else {
+            val msg = getResources().getString(R.string.no_file_msg)
+            val toast = Toast.makeText(this,msg, Toast.LENGTH_SHORT)
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, -200)
+            toast.show()
+        }
+    }
+    /**
+     * 이미지 선택창 열기, 오른쪽 사진 클릭 시
+     */
+    private fun openImage2() {
         val dialog = ImageListDialog(this)
 
         if (dialog.fileList.size > 0) {
