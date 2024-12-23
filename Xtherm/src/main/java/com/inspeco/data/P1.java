@@ -468,7 +468,7 @@ public class P1 {
 
             /////////////////////////////////////////
 
-            int xPos = (width - 212) / 2;
+            int xPos = (width - 100) / 2;
             int yPos = 480;
 
             pnt.setAntiAlias(true);
@@ -476,7 +476,7 @@ public class P1 {
             if (camType == Consts.MODE_CAM_NOR) {
                 // 온도캠 일반모드
                 // 타켓 필드 그리기 - 온도용
-                bitcanvas.drawBitmap(camBitmap.mOndoTarget, null, new Rect(xPos, yPos, xPos + 212, yPos + 212), pnt);
+                bitcanvas.drawBitmap(camBitmap.mOndoTarget, null, new Rect(xPos, yPos, xPos + 100, yPos + 100), pnt);
 
                 int panelTop = height - 106;
                 int lineStart =   320;
@@ -911,14 +911,14 @@ public class P1 {
                 Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
                 Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
 
-                int xPos = (1920 - 212) / 2;
+                int xPos = (1920 - 100) / 2;
                 int yPos = 480;
 
 
                 if (camType == Consts.MODE_CAM_NOR) {
                     // 타켓 필드 그리기 - 온도용
                     pnt.setAntiAlias(true);
-                    bitcanvas.drawBitmap(camBitmap.mMixTarget, null, new Rect(xPos, yPos, xPos + 212, yPos + 212), pnt);
+                    bitcanvas.drawBitmap(camBitmap.mMixTarget, null, new Rect(xPos, yPos, xPos + 100, yPos + 100), pnt);
 
                     paint.setAntiAlias(true);
                     paint.setFilterBitmap(true);
