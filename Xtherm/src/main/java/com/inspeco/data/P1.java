@@ -280,6 +280,9 @@ public class P1 {
             hsv_value[2] = 1.0f;
             float minOndo = x1.min1;
             float maxOndo = x1.max1;
+            int minOndoX = 0, minOndoY = 0;
+            int maxOndoX = 0, maxOndoY = 0;
+            float minVal = 99, maxVal = -99;
 
 
             float pointGapX = - 98;
@@ -429,6 +432,38 @@ public class P1 {
                 }
             }
 
+            // 전체 영역에서 최고 및 최저 온도 계산
+            for (int y = 0; y < 192; y++) {
+                for (int x = 0; x < 256; x++) {
+                    float value = mOndoBuf[y * 256 + x];
+                    if (value < minVal) {
+                        minOndoX = x;
+                        minOndoY = y;
+                        minVal = value;
+                    }
+                    if (value > maxVal) {
+                        maxOndoX = x;
+                        maxOndoY = y;
+                        maxVal = value;
+                    }
+                }
+            }
+
+            minOndoX = (minOndoX * 1920) / 256;
+            minOndoY = (minOndoY * 1080) / 192;
+            maxOndoX = (maxOndoX * 1920) / 256;
+            maxOndoY = (maxOndoY * 1080) / 192;
+
+            str = String.format("MIN:%s%s" ,(int)Cfg.getOndoFC(minOndo), "°"+Cfg.p1_cGiho) ;
+            bitcanvas.drawText(str, minOndoX + 10, minOndoY, paint);
+            bitcanvas.drawRect(minOndoX, minOndoY, minOndoX + 10, minOndoY + 10, paint);
+
+            str = String.format("Max:%s%s" ,(int)Cfg.getOndoFC(maxOndo), "°"+Cfg.p1_cGiho) ;
+            bitcanvas.drawText(str, maxOndoX + 10, maxOndoY, paint);
+            bitcanvas.drawRect(maxOndoX, maxOndoY, maxOndoX + 10, maxOndoY + 10, paint);
+
+            Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
+            Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
 
 
             /////////////////////////////////////////
@@ -581,6 +616,9 @@ public class P1 {
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
         String str;
+        int minOndoX = 0, minOndoY = 0;
+        int maxOndoX = 0, maxOndoY = 0;
+        float minVal = 99, maxVal = -99;
 
         bitcanvas.drawColor(0, PorterDuff.Mode.CLEAR);
 
@@ -839,6 +877,39 @@ public class P1 {
                     }
                 }
 
+
+                // 전체 영역에서 최고 및 최저 온도 계산
+                for (int y = 0; y < 192; y++) {
+                    for (int x = 0; x < 256; x++) {
+                        float value = mOndoBuf[y * 256 + x];
+                        if (value < minVal) {
+                            minOndoX = x;
+                            minOndoY = y;
+                            minVal = value;
+                        }
+                        if (value > maxVal) {
+                            maxOndoX = x;
+                            maxOndoY = y;
+                            maxVal = value;
+                        }
+                    }
+                }
+
+                minOndoX = (minOndoX * 1920) / 256;
+                minOndoY = (minOndoY * 1080) / 192;
+                maxOndoX = (maxOndoX * 1920) / 256;
+                maxOndoY = (maxOndoY * 1080) / 192;
+
+                str = String.format("MIN:%s%s" ,(int)Cfg.getOndoFC(minOndo), "°"+Cfg.p1_cGiho) ;
+                bitcanvas.drawText(str, minOndoX + 10, minOndoY, paint);
+                bitcanvas.drawRect(minOndoX, minOndoY, minOndoX + 10, minOndoY + 10, paint);
+
+                str = String.format("Max:%s%s" ,(int)Cfg.getOndoFC(maxOndo), "°"+Cfg.p1_cGiho) ;
+                bitcanvas.drawText(str, maxOndoX + 10, maxOndoY, paint);
+                bitcanvas.drawRect(maxOndoX, maxOndoY, maxOndoX + 10, maxOndoY + 10, paint);
+
+                Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
+                Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
 
                 int xPos = (1920 - 212) / 2;
                 int yPos = 480;
