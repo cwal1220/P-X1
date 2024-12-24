@@ -462,8 +462,8 @@ public class P1 {
             bitcanvas.drawText(str, maxOndoX + 10, maxOndoY, paint);
             bitcanvas.drawRect(maxOndoX, maxOndoY, maxOndoX + 10, maxOndoY + 10, paint);
 
-            Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
-            Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
+//            Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
+//            Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
 
 
             /////////////////////////////////////////
@@ -908,8 +908,8 @@ public class P1 {
                 bitcanvas.drawText(str, maxOndoX + 10, maxOndoY, paint);
                 bitcanvas.drawRect(maxOndoX, maxOndoY, maxOndoX + 10, maxOndoY + 10, paint);
 
-                Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
-                Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
+//                Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
+//                Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
 
                 int xPos = (1920 - 100) / 2;
                 int yPos = 480;

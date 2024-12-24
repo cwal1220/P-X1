@@ -25,6 +25,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
@@ -46,6 +47,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.menu_drawer.*
 import java.io.*
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.concurrent.timer
 
@@ -91,6 +93,23 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_home)
+        
+        // 만료일자를 설정. 최종 릴리즈에서 제거 요망
+        val targetDate = "2025-01-31"
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+        try {
+            val target = dateFormat.parse(targetDate) ?: Date()
+            val currentDate = Date()
+
+            if (currentDate.after(target)) {
+                // 현재 날짜가 지정한 날짜를 지난 경우
+                showExpiredDialog()
+            } 
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        // 만료일자를 설정 끝
 
         Log.v(TAG, "ON CREATE")
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -151,6 +170,17 @@ class HomeActivity : AppCompatActivity() {
         //registWaveTimer()
 
         Ini.checkIniFile(this)
+    }
+
+    private fun showExpiredDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("알림")
+            .setMessage("앱 사용 기간이 만료되었습니다. \n(만료일: 2025-01-31)\n개발자에게 문의하십시오.")
+            .setCancelable(false) // 사용자가 닫을 수 없도록 설정
+            .setPositiveButton("확인") { _, _ ->
+                finish() // 앱 종료
+            }
+            .show()
     }
 
     inner class AudioThread:Thread(){
