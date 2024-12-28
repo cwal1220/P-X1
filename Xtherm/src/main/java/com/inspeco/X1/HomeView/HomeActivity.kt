@@ -95,20 +95,20 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         
         // 만료일자를 설정. 최종 릴리즈에서 제거 요망
-        val targetDate = "2025-01-31"
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-
-        try {
-            val target = dateFormat.parse(targetDate) ?: Date()
-            val currentDate = Date()
-
-            if (currentDate.after(target)) {
-                // 현재 날짜가 지정한 날짜를 지난 경우
-                showExpiredDialog()
-            } 
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+//        val targetDate = "2025-01-31"
+//        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+//
+//        try {
+//            val target = dateFormat.parse(targetDate) ?: Date()
+//            val currentDate = Date()
+//
+//            if (currentDate.after(target)) {
+//                // 현재 날짜가 지정한 날짜를 지난 경우
+//                showExpiredDialog()
+//            }
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
         // 만료일자를 설정 끝
 
         Log.v(TAG, "ON CREATE")

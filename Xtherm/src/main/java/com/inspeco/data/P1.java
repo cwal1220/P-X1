@@ -100,6 +100,264 @@ public class P1 {
     public float yOrg = 0.0f;
     public CopyOnWriteArrayList<TouchPoint> touchPointList;
 
+    int[][] g_plasma_colormap = new int[][] {
+            {13, 8, 135},
+            {16, 7, 136},
+            {19, 7, 137},
+            {22, 7, 138},
+            {25, 6, 140},
+            {27, 6, 141},
+            {29, 6, 142},
+            {32, 6, 143},
+            {34, 6, 144},
+            {36, 6, 145},
+            {38, 5, 145},
+            {40, 5, 146},
+            {42, 5, 147},
+            {44, 5, 148},
+            {46, 5, 149},
+            {47, 5, 150},
+            {49, 5, 151},
+            {51, 5, 151},
+            {53, 4, 152},
+            {55, 4, 153},
+            {56, 4, 154},
+            {58, 4, 154},
+            {60, 4, 155},
+            {62, 4, 156},
+            {63, 4, 156},
+            {65, 4, 157},
+            {67, 3, 158},
+            {68, 3, 158},
+            {70, 3, 159},
+            {72, 3, 159},
+            {73, 3, 160},
+            {75, 3, 161},
+            {76, 2, 161},
+            {78, 2, 162},
+            {80, 2, 162},
+            {81, 2, 163},
+            {83, 2, 163},
+            {85, 2, 164},
+            {86, 1, 164},
+            {88, 1, 164},
+            {89, 1, 165},
+            {91, 1, 165},
+            {92, 1, 166},
+            {94, 1, 166},
+            {96, 1, 166},
+            {97, 0, 167},
+            {99, 0, 167},
+            {100, 0, 167},
+            {102, 0, 167},
+            {103, 0, 168},
+            {105, 0, 168},
+            {106, 0, 168},
+            {108, 0, 168},
+            {110, 0, 168},
+            {111, 0, 168},
+            {113, 0, 168},
+            {114, 1, 168},
+            {116, 1, 168},
+            {117, 1, 168},
+            {119, 1, 168},
+            {120, 1, 168},
+            {122, 2, 168},
+            {123, 2, 168},
+            {125, 3, 168},
+            {126, 3, 168},
+            {128, 4, 168},
+            {129, 4, 167},
+            {131, 5, 167},
+            {132, 5, 167},
+            {134, 6, 166},
+            {135, 7, 166},
+            {136, 8, 166},
+            {138, 9, 165},
+            {139, 10, 165},
+            {141, 11, 165},
+            {142, 12, 164},
+            {143, 13, 164},
+            {145, 14, 163},
+            {146, 15, 163},
+            {148, 16, 162},
+            {149, 17, 161},
+            {150, 19, 161},
+            {152, 20, 160},
+            {153, 21, 159},
+            {154, 22, 159},
+            {156, 23, 158},
+            {157, 24, 157},
+            {158, 25, 157},
+            {160, 26, 156},
+            {161, 27, 155},
+            {162, 29, 154},
+            {163, 30, 154},
+            {165, 31, 153},
+            {166, 32, 152},
+            {167, 33, 151},
+            {168, 34, 150},
+            {170, 35, 149},
+            {171, 36, 148},
+            {172, 38, 148},
+            {173, 39, 147},
+            {174, 40, 146},
+            {176, 41, 145},
+            {177, 42, 144},
+            {178, 43, 143},
+            {179, 44, 142},
+            {180, 46, 141},
+            {181, 47, 140},
+            {182, 48, 139},
+            {183, 49, 138},
+            {184, 50, 137},
+            {186, 51, 136},
+            {187, 52, 136},
+            {188, 53, 135},
+            {189, 55, 134},
+            {190, 56, 133},
+            {191, 57, 132},
+            {192, 58, 131},
+            {193, 59, 130},
+            {194, 60, 129},
+            {195, 61, 128},
+            {196, 62, 127},
+            {197, 64, 126},
+            {198, 65, 125},
+            {199, 66, 124},
+            {200, 67, 123},
+            {201, 68, 122},
+            {202, 69, 122},
+            {203, 70, 121},
+            {204, 71, 120},
+            {204, 73, 119},
+            {205, 74, 118},
+            {206, 75, 117},
+            {207, 76, 116},
+            {208, 77, 115},
+            {209, 78, 114},
+            {210, 79, 113},
+            {211, 81, 113},
+            {212, 82, 112},
+            {213, 83, 111},
+            {213, 84, 110},
+            {214, 85, 109},
+            {215, 86, 108},
+            {216, 87, 107},
+            {217, 88, 106},
+            {218, 90, 106},
+            {218, 91, 105},
+            {219, 92, 104},
+            {220, 93, 103},
+            {221, 94, 102},
+            {222, 95, 101},
+            {222, 97, 100},
+            {223, 98, 99},
+            {224, 99, 99},
+            {225, 100, 98},
+            {226, 101, 97},
+            {226, 102, 96},
+            {227, 104, 95},
+            {228, 105, 94},
+            {229, 106, 93},
+            {229, 107, 93},
+            {230, 108, 92},
+            {231, 110, 91},
+            {231, 111, 90},
+            {232, 112, 89},
+            {233, 113, 88},
+            {233, 114, 87},
+            {234, 116, 87},
+            {235, 117, 86},
+            {235, 118, 85},
+            {236, 119, 84},
+            {237, 121, 83},
+            {237, 122, 82},
+            {238, 123, 81},
+            {239, 124, 81},
+            {239, 126, 80},
+            {240, 127, 79},
+            {240, 128, 78},
+            {241, 129, 77},
+            {241, 131, 76},
+            {242, 132, 75},
+            {243, 133, 75},
+            {243, 135, 74},
+            {244, 136, 73},
+            {244, 137, 72},
+            {245, 139, 71},
+            {245, 140, 70},
+            {246, 141, 69},
+            {246, 143, 68},
+            {247, 144, 68},
+            {247, 145, 67},
+            {247, 147, 66},
+            {248, 148, 65},
+            {248, 149, 64},
+            {249, 151, 63},
+            {249, 152, 62},
+            {249, 154, 62},
+            {250, 155, 61},
+            {250, 156, 60},
+            {250, 158, 59},
+            {251, 159, 58},
+            {251, 161, 57},
+            {251, 162, 56},
+            {252, 163, 56},
+            {252, 165, 55},
+            {252, 166, 54},
+            {252, 168, 53},
+            {252, 169, 52},
+            {253, 171, 51},
+            {253, 172, 51},
+            {253, 174, 50},
+            {253, 175, 49},
+            {253, 177, 48},
+            {253, 178, 47},
+            {253, 180, 47},
+            {253, 181, 46},
+            {254, 183, 45},
+            {254, 184, 44},
+            {254, 186, 44},
+            {254, 187, 43},
+            {254, 189, 42},
+            {254, 190, 42},
+            {254, 192, 41},
+            {253, 194, 41},
+            {253, 195, 40},
+            {253, 197, 39},
+            {253, 198, 39},
+            {253, 200, 39},
+            {253, 202, 38},
+            {253, 203, 38},
+            {252, 205, 37},
+            {252, 206, 37},
+            {252, 208, 37},
+            {252, 210, 37},
+            {251, 211, 36},
+            {251, 213, 36},
+            {251, 215, 36},
+            {250, 216, 36},
+            {250, 218, 36},
+            {249, 220, 36},
+            {249, 221, 37},
+            {248, 223, 37},
+            {248, 225, 37},
+            {247, 226, 37},
+            {247, 228, 37},
+            {246, 230, 38},
+            {246, 232, 38},
+            {245, 233, 38},
+            {245, 235, 39},
+            {244, 237, 39},
+            {243, 238, 39},
+            {243, 240, 39},
+            {242, 242, 39},
+            {241, 244, 38},
+            {241, 245, 37},
+            {240, 247, 36},
+            {240, 249, 33},
+    };
 
     public class WaveBuf {
         long waveTime = 0;
@@ -248,7 +506,43 @@ public class P1 {
     }
 
 
+    // Plasma 컬러 맵으로 온도 데이터를 Bitmap으로 변환
+    private Bitmap createThermalBitmap(float[] data, float min, float max) {
+        Bitmap bitmap = Bitmap.createBitmap(256, 192, Bitmap.Config.ARGB_8888);
 
+//        // 데이터의 최소값과 최대값을 계산
+//        // TODO: 최대/최소를 찾기 않고, 입력받아서 처리하도록 변경
+//        float min = Float.MAX_VALUE;
+//        float max = Float.MIN_VALUE;
+//        for (int y=0; y<192; y++) {
+//            for (int x=0; x<256; x++) {
+//                if (data[(y*256 + x)] < min) min = data[(y*256 + x)];
+//                if (data[(y*256 + x)] > max) max = data[(y*256 + x)];
+//            }
+//        }
+        
+        // 데이터를 픽셀로 변환
+        for (int y = 0; y < 192; y++) {
+            for (int x = 0; x < 256; x++) {
+                float normalized = (data[(y*256 + x)] - min) / (max - min);
+                int color = plasmaColorMap(normalized);
+                bitmap.setPixel(x, y, color);
+            }
+        }
+
+        return bitmap;
+    }
+
+    // plasma color map value return
+    private int plasmaColorMap(float value) {
+        value = Math.max(0, Math.min(1, value)); // value clamp
+
+        // Plasma 컬러 맵 RGB 값 정의 (256 단계)
+        int index = Math.min((int)(value * 255), 255);
+        int[] rgb = g_plasma_colormap[index];
+
+        return Color.rgb(rgb[0], rgb[1], rgb[2]);
+    }
 
 
     /**
@@ -315,8 +609,8 @@ public class P1 {
             indexY = (indexY / ondoViewHeight)*192;
 
             int ondoIndex = (int)indexX+((int)indexY*256);
-//
             float pointMax = -20.0f;
+            float pointMin = 999.0f;
             for(int i=0; i<20; i++){
                 int y = i*256;
                 for( int j=0; j<16; j++) {
@@ -325,13 +619,25 @@ public class P1 {
             }
             x1.center = pointMax+Cfg.ondo_offSet;
             scrXcenter = x1.center;
-            // 중앙 테스트용으로 칠하기
-//        for(int i=0; i<20; i++){
-//            int y = i*256;
-//            for( int j=0; j<16; j++) { mOndoBuf[ondoIndex+y+j] = 80; }
-//        }
-
             isPlayingAlarm = false;
+
+            // 전체 영역에서 최고 및 최저 온도 계산
+            for (int y = 0; y < 192; y++) {
+                for (int x = 0; x < 256; x++) {
+                    float value = mOndoBuf[y * 256 + x];
+                    if (value < minVal) {
+                        minOndoX = x;
+                        minOndoY = y;
+                        minVal = value;
+                    }
+                    if (value > maxVal) {
+                        maxOndoX = x;
+                        maxOndoY = y;
+                        maxVal = value;
+                    }
+                }
+            }
+
             int touchIdx = 0;
             // 터치포인트 온도 계산
             if (touchPointList !=null) {
@@ -356,8 +662,19 @@ public class P1 {
                     ondoIndex = (int)indexX+((int)indexY*256);
 
                     pointMax = -20f;
+                    pointMin = 999f;
                     for(int i=0; i<8; i++){
                         int y = i*256;
+                        // 선택된 범위의 최저 온도 계산
+                        if (pointMin>mOndoBuf[ondoIndex+y]) { pointMin = mOndoBuf[ondoIndex+y]; }
+                        if (pointMin>mOndoBuf[ondoIndex+y+1]) { pointMin = mOndoBuf[ondoIndex+y+1]; }
+                        if (pointMin>mOndoBuf[ondoIndex+y+2]) { pointMin = mOndoBuf[ondoIndex+y+2]; }
+                        if (pointMin>mOndoBuf[ondoIndex+y+3]) { pointMin = mOndoBuf[ondoIndex+y+3]; }
+                        if (pointMin>mOndoBuf[ondoIndex+y+4]) { pointMin = mOndoBuf[ondoIndex+y+4]; }
+                        if (pointMin>mOndoBuf[ondoIndex+y+5]) { pointMin = mOndoBuf[ondoIndex+y+5]; }
+                        if (pointMin>mOndoBuf[ondoIndex+y+6]) { pointMin = mOndoBuf[ondoIndex+y+6]; }
+                        if (pointMin>mOndoBuf[ondoIndex+y+7]) { pointMin = mOndoBuf[ondoIndex+y+7]; }
+                        // 선택된 범위의 최고 온도 게산
                         if (pointMax<mOndoBuf[ondoIndex+y]) { pointMax = mOndoBuf[ondoIndex+y]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+1]) { pointMax = mOndoBuf[ondoIndex+y+1]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+2]) { pointMax = mOndoBuf[ondoIndex+y+2]; }
@@ -366,22 +683,10 @@ public class P1 {
                         if (pointMax<mOndoBuf[ondoIndex+y+5]) { pointMax = mOndoBuf[ondoIndex+y+5]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+6]) { pointMax = mOndoBuf[ondoIndex+y+6]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+7]) { pointMax = mOndoBuf[ondoIndex+y+7]; }
-                        // if (pointMax<mOndoBuf[ondoIndex+y+8]) { pointMax = mOndoBuf[ondoIndex+y+8]; }
                     }
-                    // 최고점 온도
-                    //pointMax = pointMax;
-                    // 중앙점 온도
-//                pointMax += mOndoBuf[ondoIndex+3 * 3*256];
-//                pointMax += mOndoBuf[ondoIndex+4 * 3*256];
-//                pointMax += mOndoBuf[ondoIndex+3 * 4*256];
-//                pointMax += mOndoBuf[ondoIndex+4 * 4*256];
-//                // 중심 온도 2
-//                pointMax += mOndoBuf[ondoIndex+2 * 2*256];
-//                pointMax += mOndoBuf[ondoIndex+5 * 2*256];
-//                pointMax += mOndoBuf[ondoIndex+2 * 5*256];
-//                pointMax += mOndoBuf[ondoIndex+5 * 5*256];
+                    minVal = pointMin;
+                    maxVal = pointMax;
 
-//                touchPoint.ondo = pointMax / 16;
                     touchPoint.ondo = pointMax+Cfg.ondo_offSet;
                     scrTouch[touchIdx] = touchPoint.ondo;
                     touchIdx++;
@@ -393,25 +698,15 @@ public class P1 {
                             }
                         }
                     }
-
-//                mOndoBuf[ondoIndex] = maxOndo; mOndoBuf[ondoIndex+1] = maxOndo;
-//                mOndoBuf[ondoIndex+2] = maxOndo; mOndoBuf[ondoIndex+3] = maxOndo;
-//                mOndoBuf[ondoIndex+4] = maxOndo; mOndoBuf[ondoIndex+5] = maxOndo;
-//                mOndoBuf[ondoIndex+6] = maxOndo; mOndoBuf[ondoIndex+7] = maxOndo;
-//                mOndoBuf[ondoIndex+8] = maxOndo;
                 }
             }
 
+            if(Cfg.ondo_spanMode) {
+                Bitmap thermalBitmap = createThermalBitmap(mOndoBuf, minVal, maxVal);
+                Bitmap scaledBitmap = Bitmap.createScaledBitmap(thermalBitmap, 1920, 1080, true);
+                bitcanvas.drawBitmap(scaledBitmap, 0, 0, null);
+            }
 
-
-
-
-
-
-//        Bitmap backbit = Bitmap.createBitmap(256, 192, Bitmap.Config.ARGB_8888);
-//        Canvas offscreen = new Canvas(backbit);
-//        offscreen.drawColor(0, PorterDuff.Mode.CLEAR);
-//        //offscreen.drawColor(Color.BLUE);
             Paint pnt = new Paint();
             pnt.setAntiAlias(false);
 
@@ -432,23 +727,6 @@ public class P1 {
                 }
             }
 
-            // 전체 영역에서 최고 및 최저 온도 계산
-            for (int y = 0; y < 192; y++) {
-                for (int x = 0; x < 256; x++) {
-                    float value = mOndoBuf[y * 256 + x];
-                    if (value < minVal) {
-                        minOndoX = x;
-                        minOndoY = y;
-                        minVal = value;
-                    }
-                    if (value > maxVal) {
-                        maxOndoX = x;
-                        maxOndoY = y;
-                        maxVal = value;
-                    }
-                }
-            }
-
             minOndoX = (minOndoX * 1920) / 256;
             minOndoY = (minOndoY * 1080) / 192;
             maxOndoX = (maxOndoX * 1920) / 256;
@@ -461,11 +739,6 @@ public class P1 {
             str = String.format("Max:%s%s" ,(int)Cfg.getOndoFC(maxOndo), "°"+Cfg.p1_cGiho) ;
             bitcanvas.drawText(str, maxOndoX + 10, maxOndoY, paint);
             bitcanvas.drawRect(maxOndoX, maxOndoY, maxOndoX + 10, maxOndoY + 10, paint);
-
-//            Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
-//            Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
-
-
             /////////////////////////////////////////
 
             int xPos = (width - 100) / 2;
@@ -542,18 +815,31 @@ public class P1 {
                 paint.setTextSize(30);
                 paint.setStrokeWidth(1);
 
-                str = Cfg.getOndoFCNor0(x1.max1);
-                xPos = (int)((cellWidth - paint.measureText(str)) / 2);
-                bitcanvas.drawText(str, width- 120 + xPos, yPos+35, paint);
+                if(Cfg.ondo_spanMode) {
+                    str = Cfg.getOndoFCNor0(maxVal);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 35, paint);
 
-                str = Cfg.getOndoFCNor0((x1.min1 + x1.max1)/2f) ;
-                xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                bitcanvas.drawText(str, width- 120 + xPos, yPos+222, paint);
+                    str = Cfg.getOndoFCNor0((minVal + maxVal) / 2f);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 222, paint);
 
-                str = Cfg.getOndoFCNor0(x1.min1);
-                //Log.i(TAG, str);
-                xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                bitcanvas.drawText(str, width- 120 + xPos, yPos+434, paint);
+                    str = Cfg.getOndoFCNor0(minVal);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 434, paint);
+                } else {
+                    str = Cfg.getOndoFCNor0(x1.max1);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 35, paint);
+
+                    str = Cfg.getOndoFCNor0((x1.min1 + x1.max1) / 2f);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 222, paint);
+
+                    str = Cfg.getOndoFCNor0(x1.min1);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 434, paint);
+                }
 
                 paint.setStrokeWidth(3);
                 bitcanvas.drawLine(width- 120 + 25, yPos+35+25, width- 120 + 25, yPos + 185, paint);
@@ -570,17 +856,31 @@ public class P1 {
                 paint.setTextSize(32);
                 paint.setStrokeWidth(1);
 
-                str = Cfg.getOndoFCNor0(x1.max1);
-                xPos = (int)((cellWidth - paint.measureText(str)) / 2);
-                bitcanvas.drawText(str, width- 170 + xPos, yPos+35, paint);
+                if(Cfg.ondo_spanMode) {
+                    str = Cfg.getOndoFCNor0(maxVal);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 35, paint);
 
-                str = Cfg.getOndoFCNor0((x1.min1 + x1.max1)/2);
-                xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                bitcanvas.drawText(str, width- 170 + xPos, yPos+350, paint);
+                    str = Cfg.getOndoFCNor0((minVal + maxVal) / 2);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 350, paint);
 
-                str = Cfg.getOndoFCNor0(x1.min1);
-                xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                bitcanvas.drawText(str, width- 170 + xPos, yPos+734, paint);
+                    str = Cfg.getOndoFCNor0(minVal);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 734, paint);
+                } else {
+                    str = Cfg.getOndoFCNor0(x1.max1);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 35, paint);
+
+                    str = Cfg.getOndoFCNor0((x1.min1 + x1.max1) / 2);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 350, paint);
+
+                    str = Cfg.getOndoFCNor0(x1.min1);
+                    xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
+                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 734, paint);
+                }
 
                 paint.setStrokeWidth(3);
                 bitcanvas.drawLine(width- 125 - 16, yPos+35+25, width- 125 - 16, yPos + 305, paint);
@@ -795,15 +1095,15 @@ public class P1 {
 
             int alpha =  (int)(Cfg.cam3_mixOppa * 2.55);
             if (ondoSelectMode) {
-                alpha = (int)(imsiMixOppa * 2.55);;
+                alpha = (int)(imsiMixOppa * 2.55);
             }
 
             int xr = (int) xOrg;
             int yr = (int) yOrg;
 
             float yPer = (ondoViewHeight / 256f);
-            //Log.d("bobopro", "yPer "+Float.toString(yPer));
-
+//            Log.d("chanchan", "yPer "+Float.toString(yPer) + Float.toString(ondoViewWidth) + Float.toString(ondoViewHeight));
+//            1280x1024
             for (int i = 0; i < ((256) * 192); i++) {
                 float x, y;
                 //if ((mOndoBuf[i] >= checkMinOndo) && (mOndoBuf[i] <= checkMaxOndo)) {
@@ -852,7 +1152,9 @@ public class P1 {
                 pnt.setDither(false);
             }
 
-            bitcanvas.drawBitmap(backbit, null, new Rect(xr, yr, (xr + ondoViewWidth), (yr + ondoViewHeight)), pnt);
+            Bitmap roiBitmap = Bitmap.createBitmap(backbit, 25, 19, 256-(25*2), 192-(19*2));
+            bitcanvas.drawBitmap(roiBitmap, null, new Rect(xr, yr, (xr + 1920), (yr + 1080)), pnt);
+            Log.d("chanchan", "box "+ Float.toString(xr) + ", "+ Float.toString(yr) + ", "+ Float.toString(ondoViewWidth) + ", " + Float.toString(ondoViewHeight));
 
             paint.setColor(Color.BLACK);
             bitcanvas.drawRect(0, height-190, width, height, paint);

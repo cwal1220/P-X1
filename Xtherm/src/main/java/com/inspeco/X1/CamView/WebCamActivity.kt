@@ -404,6 +404,7 @@ class WebCamActivity : BaseActivity() {
         if (p1.camMode != Consts.CAM_WEBCAM) {
             ondoExtImage.visibility = View.VISIBLE
             ondo_calib.visibility = View.VISIBLE
+            ondoSpanImage.visibility = View.VISIBLE
 
             if (Cfg.ondo_extMode) {
                 ondoExtImage.setImageResource(R.mipmap.range_600);
@@ -414,6 +415,7 @@ class WebCamActivity : BaseActivity() {
         } else {
             ondoExtImage.visibility = View.GONE
             ondo_calib.visibility = View.GONE
+            ondoSpanImage.visibility = View.GONE
         }
     }
 
@@ -700,6 +702,15 @@ class WebCamActivity : BaseActivity() {
             Cfg.save_cam2Ondo(this)
             setOndoMode()
 
+        }
+
+        // 스팬 모드 변경
+        ondoSpanImage.setOnClickListener {
+            if (Cfg.ondo_spanMode) {
+                Cfg.ondo_spanMode = false
+            } else {
+                Cfg.ondo_spanMode = true
+            }
         }
 
 

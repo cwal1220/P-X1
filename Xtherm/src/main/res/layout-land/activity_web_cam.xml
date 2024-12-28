@@ -396,6 +396,16 @@
         app:layout_constraintEnd_toStartOf="@+id/ondo_calib"
         app:srcCompat="@mipmap/range_600" />
 
+    <ImageView
+        android:id="@+id/ondoSpanImage"
+        android:layout_width="140px"
+        android:layout_height="140px"
+        android:layout_marginEnd="60px"
+        android:padding="10px"
+        app:layout_constraintBottom_toBottomOf="@+id/ondoExtImage"
+        app:layout_constraintEnd_toStartOf="@+id/ondoExtImage"
+        app:srcCompat="@mipmap/camv_icon_ondo" />
+
 
     <LinearLayout
         android:id="@+id/rightmenu_list"

@@ -33,6 +33,8 @@ public class Cfg {
     public static float   ondo_offSet = 0f;
     public static boolean ondo_extMode = false;
 
+    public static boolean ondo_spanMode = false;
+
     public static float cam3_xOrg = 0f;
     public static float cam3_yOrg = 0f;
     public static float cam3_scale = 1f;

@@ -388,5 +388,14 @@
         app:layout_constraintEnd_toStartOf="@+id/ondo_calib"
         app:srcCompat="@mipmap/range_600" />
 
+    <ImageView
+        android:id="@+id/ondoSpanImage"
+        android:layout_width="120px"
+        android:layout_height="120px"
+        android:padding="10px"
+        app:layout_constraintBottom_toBottomOf="@+id/ondoExtImage"
+        app:layout_constraintEnd_toStartOf="@+id/ondoExtImage"
+        app:srcCompat="@mipmap/camv_icon_ondo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
