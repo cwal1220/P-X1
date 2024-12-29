@@ -120,4 +120,9 @@ dependencies {
 	implementation "commons-io:commons-io:2.6"
 	implementation 'com.google.code.gson:gson:2.8.6'
 
+	// 241229: Excel format support
+//	implementation 'org.apache.poi:poi:5.2.3' // Apache POI
+//	implementation 'org.apache.poi:poi-ooxml:5.2.3' // OOXML 지원 (필요 시)
+//	implementation 'org.apache.poi:poi-ooxml:3.17'
+	implementation files('src\\libs\\poishadow-all.jar')
 }
