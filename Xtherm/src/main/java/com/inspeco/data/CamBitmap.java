@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class CamBitmap {
 
 
-    public Bitmap mIconGps, mIconHumi, mIconOndo;
+    public Bitmap mIconGps, mIconHumi, mIconOndo, mIconLevel, mIconSpan;
     public Bitmap mTargetField, mOndoTarget, mMixTarget;
     public Bitmap mOndoPointer;
     public Bitmap mSpectrum;
@@ -38,6 +38,8 @@ public class CamBitmap {
         mIconGps = BitmapFactory.decodeResource(context.getResources(), R.mipmap.camv_icon_gps);
         mIconHumi = BitmapFactory.decodeResource(context.getResources(), R.mipmap.camv_icon_humi);
         mIconOndo = BitmapFactory.decodeResource(context.getResources(), R.mipmap.camv_icon_ondo);
+        mIconLevel = BitmapFactory.decodeResource(context.getResources(), R.mipmap.camv_icon_level);
+        mIconSpan = BitmapFactory.decodeResource(context.getResources(), R.mipmap.camv_icon_span);
         mTargetField = BitmapFactory.decodeResource(context.getResources(), R.mipmap.camv_img_target_field);
         mOndoTarget = BitmapFactory.decodeResource(context.getResources(), R.mipmap.camv_img_ondo_target);
         mMixTarget = BitmapFactory.decodeResource(context.getResources(), R.mipmap.camv_img_mix_target);

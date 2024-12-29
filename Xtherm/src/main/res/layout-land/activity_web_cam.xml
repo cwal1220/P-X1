@@ -404,7 +404,7 @@
         android:padding="10px"
         app:layout_constraintBottom_toBottomOf="@+id/ondoExtImage"
         app:layout_constraintEnd_toStartOf="@+id/ondoExtImage"
-        app:srcCompat="@mipmap/camv_icon_ondo" />
+        app:srcCompat="@mipmap/camv_icon_span" />
 
 
     <LinearLayout

@@ -412,6 +412,13 @@ class WebCamActivity : BaseActivity() {
                 ondoExtImage.setImageResource(R.mipmap.range_120);
             }
 
+            if (Cfg.ondo_spanMode)
+            {
+                ondoSpanImage.setImageResource(R.mipmap.camv_icon_span);
+            } else {
+                ondoSpanImage.setImageResource(R.mipmap.camv_icon_level);
+            }
+
         } else {
             ondoExtImage.visibility = View.GONE
             ondo_calib.visibility = View.GONE
@@ -711,6 +718,7 @@ class WebCamActivity : BaseActivity() {
             } else {
                 Cfg.ondo_spanMode = true
             }
+            setOndoExtUI()
         }
 
 

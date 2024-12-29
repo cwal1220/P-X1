@@ -705,6 +705,7 @@ public class P1 {
                 Bitmap thermalBitmap = createThermalBitmap(mOndoBuf, minVal, maxVal);
                 Bitmap scaledBitmap = Bitmap.createScaledBitmap(thermalBitmap, 1920, 1080, true);
                 bitcanvas.drawBitmap(scaledBitmap, 0, 0, null);
+                bitcanvas.drawRect(0, height-180, width, height, paint);
             }
 
             Paint pnt = new Paint();
