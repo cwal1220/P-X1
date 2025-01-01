@@ -609,7 +609,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
-                    android:layout_width="512px"
+                    android:layout_width="450px"
                     android:layout_height="300px"
                     app:cardCornerRadius="32px"
                     app:cardElevation="0dp"
@@ -621,13 +621,13 @@
                         android:id="@+id/resultPicture"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="fitXY" />
                 </androidx.cardview.widget.CardView>
 
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView2"
-                    android:layout_width="512px"
+                    android:layout_width="450px"
                     android:layout_height="300px"
                     android:layout_marginLeft="30px"
                     app:cardCornerRadius="32px"
@@ -640,7 +640,7 @@
                         android:id="@+id/resultPicture2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="fitXY" />
                 </androidx.cardview.widget.CardView>
 
 

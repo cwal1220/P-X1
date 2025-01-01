@@ -16,8 +16,28 @@ import com.bumptech.glide.Glide
 import com.inspeco.X1.R
 import com.inspeco.X1.StatusJudgView.ImageListDialog
 import com.inspeco.data.*
-import kotlinx.android.synthetic.main.activity_report_result_mix.view.dateLabel
 import kotlinx.android.synthetic.main.activity_report_result_ondo.*
+
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.dateLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.lineNameLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.poleNoLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.eqipmentLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.materialLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.voltLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.distanceLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.faultLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.weatherLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.ondoLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.humiLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.gpsLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.resultMsg
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.resultText1A
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.resultText1B
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.resultText2B
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.resultIcon
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.resultPicture
+import kotlinx.android.synthetic.main.activity_report_result_ondo.view.resultPicture2
+
 import org.apache.poi.ss.usermodel.BorderStyle
 import org.apache.poi.ss.usermodel.HorizontalAlignment
 import org.apache.poi.ss.usermodel.IndexedColors
@@ -416,11 +436,11 @@ class ReportOndoResultActivity : AppCompatActivity() {
         sheet.addMergedRegion(CellRangeAddress(2, 2, 2, 3))
         sheet.addMergedRegion(CellRangeAddress(2, 2, 4, 5))
         sheet.getRow(1).getCell(0).cellStyle = contentCellStyle
-//        sheet.getRow(2).getCell(0).setCellValue(reportView.dateLabel.text.toString())
+        sheet.getRow(2).getCell(0).setCellValue(reportView.dateLabel.text.toString())
         sheet.getRow(1).getCell(2).cellStyle = contentCellStyle
-//        sheet.getRow(2).getCell(2).setCellValue(reportView.lineNameLabel.text.toString()) // TODO:
+        sheet.getRow(2).getCell(2).setCellValue(reportView.lineNameLabel.text.toString())
         sheet.getRow(1).getCell(4).cellStyle = contentCellStyle
-//        sheet.getRow(2).getCell(4).setCellValue(reportView.poleNoLabel.text.toString()) // TODO:
+        sheet.getRow(2).getCell(4).setCellValue(reportView.poleNoLabel.text.toString())
 
         // 3행: 공백
         sheet.addMergedRegion(CellRangeAddress(3, 3, 0, 7))
@@ -431,22 +451,22 @@ class ReportOndoResultActivity : AppCompatActivity() {
         sheet.getRow(4).getCell(1).cellStyle = headerCellStyle
         sheet.getRow(4).getCell(1).setCellValue("1")
         sheet.getRow(4).getCell(2).cellStyle = contentCellStyle
-        sheet.getRow(4).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(4).getCell(2).setCellValue(reportView.eqipmentLabel.text.toString())
         sheet.getRow(4).getCell(4).cellStyle = headerCellStyle
         sheet.getRow(4).getCell(4).setCellValue(resources.getString(R.string.Weather))
         sheet.getRow(4).getCell(5).cellStyle = contentCellStyle
-        sheet.getRow(4).getCell(5).setCellValue("545")
+        sheet.getRow(4).getCell(5).setCellValue(reportView.weatherLabel.text.toString())
 
         // 5행: 설비재질, 온도
         sheet.getRow(5).getCell(0).cellStyle = headerCellStyle
         sheet.getRow(5).getCell(0).setCellValue(resources.getString(R.string.Equipment_Material))
         sheet.getRow(5).getCell(1).cellStyle = headerCellStyle
         sheet.getRow(5).getCell(1).setCellValue("2")
-        sheet.getRow(5).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(5).getCell(2).setCellValue(reportView.materialLabel.text.toString())
         sheet.getRow(5).getCell(4).cellStyle = headerCellStyle
         sheet.getRow(5).getCell(4).setCellValue(resources.getString(R.string.Temerature))
         sheet.getRow(5).getCell(5).cellStyle = contentCellStyle
-        sheet.getRow(5).getCell(5).setCellValue("545")
+        sheet.getRow(5).getCell(5).setCellValue(reportView.ondoLabel.text.toString())
 
         // 6행: 설비전압, 습도
         sheet.getRow(6).getCell(0).cellStyle = headerCellStyle
@@ -454,11 +474,11 @@ class ReportOndoResultActivity : AppCompatActivity() {
         sheet.getRow(6).getCell(1).cellStyle = headerCellStyle
         sheet.getRow(6).getCell(1).setCellValue("3")
         sheet.getRow(6).getCell(2).cellStyle = contentCellStyle
-        sheet.getRow(6).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(6).getCell(2).setCellValue(reportView.voltLabel.text.toString())
         sheet.getRow(6).getCell(4).cellStyle = headerCellStyle
         sheet.getRow(6).getCell(4).setCellValue(resources.getString(R.string.Humidity))
         sheet.getRow(6).getCell(5).cellStyle = contentCellStyle
-        sheet.getRow(6).getCell(5).setCellValue("545")
+        sheet.getRow(6).getCell(5).setCellValue(reportView.humiLabel.text.toString())
 
         // 7행: 설비거리, GPS
         sheet.getRow(7).getCell(0).cellStyle = headerCellStyle
@@ -466,51 +486,46 @@ class ReportOndoResultActivity : AppCompatActivity() {
         sheet.getRow(7).getCell(1).cellStyle = headerCellStyle
         sheet.getRow(7).getCell(1).setCellValue("4")
         sheet.getRow(7).getCell(2).cellStyle = contentCellStyle
-        sheet.getRow(7).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(7).getCell(2).setCellValue(reportView.distanceLabel.text.toString())
         sheet.getRow(7).getCell(4).cellStyle = headerCellStyle
         sheet.getRow(7).getCell(4).setCellValue("GPS")
         sheet.getRow(7).getCell(5).cellStyle = contentCellStyle
-        sheet.getRow(7).getCell(5).setCellValue("545")
+        sheet.getRow(7).getCell(5).setCellValue(reportView.gpsLabel.text.toString())
 
         // 8행: 불량유형
-        sheet.getRow(7).getCell(0).cellStyle = headerCellStyle
-        sheet.getRow(7).getCell(0).setCellValue(resources.getString(R.string.Kind_of_Defect))
-        sheet.getRow(7).getCell(1).cellStyle = headerCellStyle
-        sheet.getRow(7).getCell(1).setCellValue("5")
-        sheet.getRow(7).getCell(2).cellStyle = contentCellStyle
-        sheet.getRow(7).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(8).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(8).getCell(0).setCellValue(resources.getString(R.string.Kind_of_Defect))
+        sheet.getRow(8).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(8).getCell(1).setCellValue("5")
+        sheet.getRow(8).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(8).getCell(2).setCellValue(reportView.faultLabel.text.toString())
 
         // 9행: 공백
         sheet.addMergedRegion(CellRangeAddress(9, 9, 0, 7))
 
-        // 10행 ~ 14행: 사진
-        if (!TextUtils.isEmpty(States.reportImageFile.filePath) && File(States.reportImageFile.filePath).exists()) {
-            // 이미지 파일 읽어들이기
-            val inputStream: InputStream = FileInputStream(States.reportImageFile.filePath)
+        // 10행 ~ 13행: 사진
+        // 사진1
+        val bitmap1 = (reportView.resultPicture.drawable as BitmapDrawable).bitmap
+        val stream1 = ByteArrayOutputStream()
+        bitmap1.compress(Bitmap.CompressFormat.PNG, 100, stream1)
+        val imageBytes1 = stream1.toByteArray()
+        val pictureIdx1 = workbook.addPicture(imageBytes1, Workbook.PICTURE_TYPE_PNG)
+        val drawing1 = sheet.createDrawingPatriarch()
+        val anchor1 = XSSFClientAnchor(0, 0, 0, 0, 0, 10, 3, 14)
+        val picture1 = drawing1.createPicture(anchor1, pictureIdx1)
 
-            val bytes = IOUtils.toByteArray(inputStream)
-            val pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_JPEG)
+        // 사진2
+        val bitmap2 = (reportView.resultPicture2.drawable as BitmapDrawable).bitmap
+        val stream2 = ByteArrayOutputStream()
+        bitmap2.compress(Bitmap.CompressFormat.PNG, 100, stream2)
+        val imageBytes2 = stream2.toByteArray()
+        val pictureIdx2 = workbook.addPicture(imageBytes2, Workbook.PICTURE_TYPE_PNG)
+        val drawing2 = sheet.createDrawingPatriarch()
+        val anchor2 = XSSFClientAnchor(0, 0, 0, 0, 3, 10, 6, 14)
+        val picture2 = drawing2.createPicture(anchor2, pictureIdx2)
 
-            // 이미지를 넣을 위치 설정
-            val drawing = sheet.createDrawingPatriarch()
-            val anchor = XSSFClientAnchor(0, 0, 0, 0, 0, 10, 3, 14)
-            val picture = drawing.createPicture(anchor, pictureIdx)
-        }
-        if (!TextUtils.isEmpty(States.reportImageFile2.filePath) && File(States.reportImageFile2.filePath).exists()) {
-            // 이미지 파일 읽어들이기
-            val inputStream: InputStream = FileInputStream(States.reportImageFile2.filePath)
-
-            val bytes = IOUtils.toByteArray(inputStream)
-            val pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_JPEG)
-
-            // 이미지를 넣을 위치 설정
-            val drawing = sheet.createDrawingPatriarch()
-            val anchor = XSSFClientAnchor(0, 0, 0, 0, 4, 10, 7, 14)
-            val picture = drawing.createPicture(anchor, pictureIdx)
-        }
-
-        // 15행: 공백
-        sheet.addMergedRegion(CellRangeAddress(15, 15, 0, 7))
+        // 14행: 공백
+        sheet.addMergedRegion(CellRangeAddress(14, 14, 0, 7))
 //
 //        // 레벨 제목
 //        sheet.addMergedRegion(CellRangeAddress(7, 7, 0, 7))
