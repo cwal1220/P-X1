@@ -42,6 +42,7 @@
 	<string name="title_emissivity">发射率</string>
 	<string name="Distance">设备距离</string>
 	<string name="Save">保存</string>
+	<string name="Temerature">温度</string>
 
 	<string name="oppo">OPPO 暂时不支持此功能！</string>
 	<string name="waittoclick">请稍后再点击</string>

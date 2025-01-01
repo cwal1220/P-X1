@@ -42,6 +42,7 @@
 		<string name="title_emissivity">Emissivity</string>
 		<string name="Distance">Distance</string>
 		<string name="Save">Save</string>
+		<string name="Temerature">Temperature</string>
 
 		<string name="oppo">OPPO does not support！</string>
 		<string name="waittoclick">Please click later!</string>

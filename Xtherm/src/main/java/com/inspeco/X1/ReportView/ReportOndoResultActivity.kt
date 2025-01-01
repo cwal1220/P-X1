@@ -24,6 +24,7 @@ import org.apache.poi.ss.usermodel.IndexedColors
 import org.apache.poi.ss.usermodel.VerticalAlignment
 import org.apache.poi.ss.usermodel.Workbook
 import org.apache.poi.ss.util.CellRangeAddress
+import org.apache.poi.util.IOUtils
 import org.apache.poi.xssf.usermodel.XSSFClientAnchor
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.ByteArrayOutputStream
@@ -311,12 +312,10 @@ class ReportOndoResultActivity : AppCompatActivity() {
         sheet.setColumnWidth(3, 2200)
         sheet.setColumnWidth(4, 2750)
         sheet.setColumnWidth(5, 2200)
-        sheet.setColumnWidth(6, 2750)
-        sheet.setColumnWidth(7, 2200)
 
         // Row와 Cell 생성
-        val numRows = 28
-        val numCols = 8
+        val numRows = 22
+        val numCols = 6
         for (rowIndex in 0 until numRows) {
             val row = sheet.createRow(rowIndex)
             for (colIndex in 0 until numCols) {
@@ -395,93 +394,123 @@ class ReportOndoResultActivity : AppCompatActivity() {
 //            verticalAlignment = VerticalAlignment.CENTER
             wrapText = true
         }
-        // 제목
-        sheet.addMergedRegion(CellRangeAddress(0, 0, 1, 6))
+        // 0행: 제목
+        sheet.addMergedRegion(CellRangeAddress(0, 0, 0, 7))
         sheet.getRow(0).height = 600
         sheet.getRow(0).getCell(1).setCellValue(resources.getString(R.string.Thermal_Image_Diagnosis_Report))
         sheet.getRow(0).getCell(1).cellStyle = topHeaderCellStyle
 
-        // 선로명 , 전주번호, 라인, 전압
-        sheet.getRow(1).height = 600
-        sheet.getRow(1).getCell(0).setCellValue(reportView.dateLabel.text.toString())
-//        sheet.getRow(1).getCell(0).cellStyle = headerCellStyle
-//        sheet.getRow(1).getCell(1).setCellValue(edt_line_name.text.toString())
-//        sheet.getRow(1).getCell(1).cellStyle = contentCellStyle
-//        sheet.getRow(1).getCell(2).setCellValue(resources.getString(R.string.pole_no))
-//        sheet.getRow(1).getCell(2).cellStyle = headerCellStyle
-//        sheet.getRow(1).getCell(3).setCellValue(edt_pole_no.text.toString())
-//        sheet.getRow(1).getCell(3).cellStyle = contentCellStyle
-//        sheet.getRow(1).getCell(4).setCellValue(resources.getString(R.string.line))
-//        sheet.getRow(1).getCell(4).cellStyle = headerCellStyle
-//        sheet.getRow(1).getCell(5).setCellValue(txt_line.text.toString())
-//        sheet.getRow(1).getCell(5).cellStyle = contentCellStyle
-//        sheet.getRow(1).getCell(6).setCellValue(resources.getString(R.string.kv))
-//        sheet.getRow(1).getCell(6).cellStyle = headerCellStyle
-//        sheet.getRow(1).getCell(7).setCellValue(edt_kv.text.toString())
-//        sheet.getRow(1).getCell(7).cellStyle = contentCellStyle
-//
-//        // 측량거리, 온도, 습도, real db
-//        sheet.getRow(2).height = 600
-//        sheet.getRow(2).getCell(0).setCellValue(resources.getString(R.string.distance))
-//        sheet.getRow(2).getCell(0).cellStyle = headerCellStyle
-//        sheet.getRow(2).getCell(1).setCellValue(txt_distance.text.toString())
-//        sheet.getRow(2).getCell(1).cellStyle = contentCellStyle
-//        sheet.getRow(2).getCell(2).setCellValue(resources.getString(R.string.temperature))
-//        sheet.getRow(2).getCell(2).cellStyle = headerCellStyle
-//        sheet.getRow(2).getCell(3).setCellValue(txt_temperature.text.toString())
-//        sheet.getRow(2).getCell(3).cellStyle = contentCellStyle
-//        sheet.getRow(2).getCell(4).setCellValue(resources.getString(R.string.humidity))
-//        sheet.getRow(2).getCell(4).cellStyle = headerCellStyle
-//        sheet.getRow(2).getCell(5).setCellValue(txt_humidity.text.toString())
-//        sheet.getRow(2).getCell(5).cellStyle = contentCellStyle
-//        sheet.getRow(2).getCell(6).setCellValue(resources.getString(R.string.real_db))
-//        sheet.getRow(2).getCell(6).cellStyle = headerCellStyle
-//        sheet.getRow(2).getCell(7).setCellValue(txt_real_db.text.toString())
-//        sheet.getRow(2).getCell(7).cellStyle = contentCellStyle
-//
-//        // 기자재 종류, 불량 유형
-//        sheet.addMergedRegion(CellRangeAddress(3, 3, 1, 3))
-//        sheet.addMergedRegion(CellRangeAddress(3, 3, 5, 7))
-//        sheet.getRow(3).height = 600
-//        sheet.getRow(3).getCell(0).setCellValue(resources.getString(R.string.kinds_of_equipment))
-//        sheet.getRow(3).getCell(0).cellStyle = headerCellStyle
-//        sheet.getRow(3).getCell(1).setCellValue(txt_equipment.text.toString())
-//        sheet.getRow(3).getCell(1).cellStyle = contentCellStyle
-//        sheet.getRow(3).getCell(4).setCellValue(resources.getString(R.string.conditions_of_equipment))
-//        sheet.getRow(3).getCell(4).cellStyle = headerCellStyle
-//        sheet.getRow(3).getCell(5).setCellValue(txt_condigion.text.toString())
-//        sheet.getRow(3).getCell(5).cellStyle = contentCellStyle
-//
-//        // 불량유형
-//        sheet.addMergedRegion(CellRangeAddress(4, 4, 1, 7))
-//        sheet.getRow(4).height = 1200
-//        sheet.getRow(4).getCell(0).setCellValue(resources.getString(R.string.bad_content))
-//        sheet.getRow(4).getCell(0).cellStyle = headerCellStyle
-//        sheet.getRow(4).getCell(1).setCellValue(txt_bad_content.text.toString())
-//        sheet.getRow(4).getCell(1).cellStyle = contentCellStyle
-//
-//        // 웨이브폼 제목
-//        sheet.addMergedRegion(CellRangeAddress(5, 5, 0, 7))
-//        sheet.getRow(5).height = 450
-//        sheet.getRow(5).getCell(0).setCellValue("Waveform")
-//        sheet.getRow(5).getCell(0).cellStyle = headerCellStyle
-//
-//        // 웨이브폼 이미지
-//        sheet.addMergedRegion(CellRangeAddress(6, 6, 0, 7))
-//        sheet.getRow(6).height = 1200
-//
-//        if (!TextUtils.isEmpty(detectionScreenPhotoPath) && File(detectionScreenPhotoPath).exists()) {
-//            // 이미지 파일 읽어들이기
-//            val inputStream: InputStream = FileInputStream(detectionScreenPhotoPath)
-//
-//            val bytes = IOUtils.toByteArray(inputStream)
-//            val pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_JPEG)
-//
-//            // 이미지를 넣을 위치 설정
-//            val drawing = sheet.createDrawingPatriarch()
-//            val anchor = XSSFClientAnchor(0, 0, 0, 0, 0, 6, 8, 7)
-//            val picture = drawing.createPicture(anchor, pictureIdx)
-//        }
+        // 1행: 날짜, 선로명, 전주번호
+        sheet.addMergedRegion(CellRangeAddress(1, 1, 0, 1))
+        sheet.addMergedRegion(CellRangeAddress(1, 1, 2, 3))
+        sheet.addMergedRegion(CellRangeAddress(1, 1, 4, 5))
+        sheet.getRow(1).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(1).getCell(0).setCellValue(resources.getString(R.string.Date))
+        sheet.getRow(1).getCell(2).cellStyle = headerCellStyle
+        sheet.getRow(1).getCell(2).setCellValue(resources.getString(R.string.Line_Name))
+        sheet.getRow(1).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(1).getCell(4).setCellValue(resources.getString(R.string.Pole_Number))
+
+        // 2행: 내용
+        sheet.addMergedRegion(CellRangeAddress(2, 2, 0, 1))
+        sheet.addMergedRegion(CellRangeAddress(2, 2, 2, 3))
+        sheet.addMergedRegion(CellRangeAddress(2, 2, 4, 5))
+        sheet.getRow(1).getCell(0).cellStyle = contentCellStyle
+//        sheet.getRow(2).getCell(0).setCellValue(reportView.dateLabel.text.toString())
+        sheet.getRow(1).getCell(2).cellStyle = contentCellStyle
+//        sheet.getRow(2).getCell(2).setCellValue(reportView.lineNameLabel.text.toString()) // TODO:
+        sheet.getRow(1).getCell(4).cellStyle = contentCellStyle
+//        sheet.getRow(2).getCell(4).setCellValue(reportView.poleNoLabel.text.toString()) // TODO:
+
+        // 3행: 공백
+        sheet.addMergedRegion(CellRangeAddress(3, 3, 0, 7))
+
+        // 4행: 기자재종류, 날씨
+        sheet.getRow(4).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(4).getCell(0).setCellValue(resources.getString(R.string.Kind_of_Equipment))
+        sheet.getRow(4).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(4).getCell(1).setCellValue("1")
+        sheet.getRow(4).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(4).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(4).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(4).getCell(4).setCellValue(resources.getString(R.string.Weather))
+        sheet.getRow(4).getCell(5).cellStyle = contentCellStyle
+        sheet.getRow(4).getCell(5).setCellValue("545")
+
+        // 5행: 설비재질, 온도
+        sheet.getRow(5).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(5).getCell(0).setCellValue(resources.getString(R.string.Equipment_Material))
+        sheet.getRow(5).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(5).getCell(1).setCellValue("2")
+        sheet.getRow(5).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(5).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(5).getCell(4).setCellValue(resources.getString(R.string.Temerature))
+        sheet.getRow(5).getCell(5).cellStyle = contentCellStyle
+        sheet.getRow(5).getCell(5).setCellValue("545")
+
+        // 6행: 설비전압, 습도
+        sheet.getRow(6).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(6).getCell(0).setCellValue(resources.getString(R.string.Equipment_Voltage))
+        sheet.getRow(6).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(6).getCell(1).setCellValue("3")
+        sheet.getRow(6).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(6).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(6).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(6).getCell(4).setCellValue(resources.getString(R.string.Humidity))
+        sheet.getRow(6).getCell(5).cellStyle = contentCellStyle
+        sheet.getRow(6).getCell(5).setCellValue("545")
+
+        // 7행: 설비거리, GPS
+        sheet.getRow(7).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(7).getCell(0).setCellValue(resources.getString(R.string.Distance))
+        sheet.getRow(7).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(7).getCell(1).setCellValue("4")
+        sheet.getRow(7).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(7).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+        sheet.getRow(7).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(7).getCell(4).setCellValue("GPS")
+        sheet.getRow(7).getCell(5).cellStyle = contentCellStyle
+        sheet.getRow(7).getCell(5).setCellValue("545")
+
+        // 8행: 불량유형
+        sheet.getRow(7).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(7).getCell(0).setCellValue(resources.getString(R.string.Kind_of_Defect))
+        sheet.getRow(7).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(7).getCell(1).setCellValue("5")
+        sheet.getRow(7).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(7).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+
+        // 9행: 공백
+        sheet.addMergedRegion(CellRangeAddress(9, 9, 0, 7))
+
+        // 10행 ~ 14행: 사진
+        if (!TextUtils.isEmpty(States.reportImageFile.filePath) && File(States.reportImageFile.filePath).exists()) {
+            // 이미지 파일 읽어들이기
+            val inputStream: InputStream = FileInputStream(States.reportImageFile.filePath)
+
+            val bytes = IOUtils.toByteArray(inputStream)
+            val pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_JPEG)
+
+            // 이미지를 넣을 위치 설정
+            val drawing = sheet.createDrawingPatriarch()
+            val anchor = XSSFClientAnchor(0, 0, 0, 0, 0, 10, 3, 14)
+            val picture = drawing.createPicture(anchor, pictureIdx)
+        }
+        if (!TextUtils.isEmpty(States.reportImageFile2.filePath) && File(States.reportImageFile2.filePath).exists()) {
+            // 이미지 파일 읽어들이기
+            val inputStream: InputStream = FileInputStream(States.reportImageFile2.filePath)
+
+            val bytes = IOUtils.toByteArray(inputStream)
+            val pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_JPEG)
+
+            // 이미지를 넣을 위치 설정
+            val drawing = sheet.createDrawingPatriarch()
+            val anchor = XSSFClientAnchor(0, 0, 0, 0, 4, 10, 7, 14)
+            val picture = drawing.createPicture(anchor, pictureIdx)
+        }
+
+        // 15행: 공백
+        sheet.addMergedRegion(CellRangeAddress(15, 15, 0, 7))
 //
 //        // 레벨 제목
 //        sheet.addMergedRegion(CellRangeAddress(7, 7, 0, 7))
@@ -542,13 +571,6 @@ class ReportOndoResultActivity : AppCompatActivity() {
 //            val anchor = XSSFClientAnchor(0, 0, 0, 0, 4, 11, 8, 27)
 //            val picture = drawing.createPicture(anchor, pictureIdx)
 //        }
-
-        sheet.addMergedRegion(CellRangeAddress(27, 27, 0, 7))
-        val onlyDate: LocalDate = LocalDate.now()
-        sheet.getRow(27).height = 400
-        sheet.getRow(27).getCell(0).setCellValue(onlyDate.toString())
-        sheet.getRow(27).getCell(0).cellStyle = headerCellStyle
-
 
         try {
             val mFileOutStream = FileOutputStream(docFolder!!.absolutePath + "/" + getFileName(Consts.DOCUMENT_FOLDER, "xlsx") + ".xlsx")

@@ -21,6 +21,7 @@
 	<string name="title_emissivity">Emissivity</string>
 	<string name="Distance">설비 거리</string>
 	<string name="Save">저장</string>
+	<string name="Temerature">온도</string>
 
 	<string name="oppo">OPPO does not support！</string>
 	<string name="waittoclick">Please click later!</string>

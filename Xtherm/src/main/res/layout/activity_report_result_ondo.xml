@@ -494,7 +494,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="40px"
                             android:gravity="center"
-                            android:text="날씨"
+                            android:text="@string/Weather"
                             android:textColor="#333333"
                             android:textSize="32px" />
 
@@ -521,7 +521,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="40px"
                             android:gravity="center"
-                            android:text="온도"
+                            android:text="@string/Temerature"
                             android:textColor="#333333"
                             android:textSize="32px" />
 
@@ -547,7 +547,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="40px"
                             android:gravity="center"
-                            android:text="습도"
+                            android:text="@string/Humidity"
                             android:textColor="#333333"
                             android:textSize="32px" />
 
