@@ -324,7 +324,7 @@ class ReportOndoResultActivity : AppCompatActivity() {
         val sheet = workbook.createSheet("Sheet1")
 
         // Sheet에서 현재 셀의 높이와 너비를 변경
-        sheet.defaultRowHeight = 600
+        sheet.defaultRowHeight = 450
         sheet.setColumnWidth(0, 2750)
         sheet.setColumnWidth(1, 2200)
         sheet.setColumnWidth(2, 2750)
@@ -516,7 +516,7 @@ class ReportOndoResultActivity : AppCompatActivity() {
         } catch (e: Exception) {
         }
 
-        
+
         // 사진2
         try {
             val bitmap2 = (reportView.resultPicture2.drawable as BitmapDrawable).bitmap
@@ -532,66 +532,36 @@ class ReportOndoResultActivity : AppCompatActivity() {
 
         // 14행: 공백
         sheet.addMergedRegion(CellRangeAddress(14, 14, 0, 7))
-//
-//        // 레벨 제목
-//        sheet.addMergedRegion(CellRangeAddress(7, 7, 0, 7))
-//        sheet.getRow(7).height = 450
-//        sheet.getRow(7).getCell(0).setCellValue(resources.getString(R.string.priority_level))
-//        sheet.getRow(7).getCell(0).cellStyle = headerCellStyle
-//
-//        // 레벨 내용
-//        sheet.addMergedRegion(CellRangeAddress(8, 8, 0, 7))
-//        sheet.getRow(8).height = 600
-//        sheet.getRow(8).getCell(0).setCellValue("Priority Level [ " + txt_level.text.toString() + " ]")
-//        sheet.getRow(8).getCell(0).cellStyle = headerCellStyle
-//        sheet.addMergedRegion(CellRangeAddress(9, 9, 0, 7))
-//        sheet.getRow(9).height = 600
-//        sheet.getRow(9).getCell(0).setCellValue(txt_result.text.toString())
-//        sheet.getRow(9).getCell(0).cellStyle = levelResultCellStyle
-//
-//        // 전주 전경사진 제목
-//        sheet.addMergedRegion(CellRangeAddress(10, 10, 0, 3))
-//        sheet.getRow(10).height = 450
-//        sheet.getRow(10).getCell(0).setCellValue("Photo of Pole") // R.string.detection_screen
-//        sheet.getRow(10).getCell(0).cellStyle = headerCellStyle
-//
-//        // 기자재 제목
-//        sheet.addMergedRegion(CellRangeAddress(10, 10, 4, 7))
-//        sheet.getRow(10).getCell(4).setCellValue("Photo of Equipment")
-//        sheet.getRow(10).getCell(4).cellStyle = headerCellStyle
-//
-//        // 전주 전경사진
-//        sheet.addMergedRegion(CellRangeAddress(11, 26, 0, 3))
-//        if (!TextUtils.isEmpty(polePhotoPath) && File(polePhotoPath).exists()) {
-//            // 이미지 파일 읽어들이기
-//            val bitmap = (img_pole.drawable as BitmapDrawable).bitmap
-//            val stream = ByteArrayOutputStream()
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
-//            val bytes = stream.toByteArray()
-//            val pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_JPEG)
-//
-//            // 이미지를 넣을 위치 설정
-//            val drawing = sheet.createDrawingPatriarch()
-//            val anchor = XSSFClientAnchor(0, 0, 0, 0, 0, 11, 4, 27)
-//            val picture = drawing.createPicture(anchor, pictureIdx)
-//        }
-//
-//        // 기자재 사진
-//        sheet.addMergedRegion(CellRangeAddress(11, 26, 4, 7))
-//        if (!TextUtils.isEmpty(equipmentPhotoPath) && File(equipmentPhotoPath).exists()) {
-//            // 이미지 파일 읽어들이기
-//            val bitmap = (img_equipment.drawable as BitmapDrawable).bitmap
-//            val stream = ByteArrayOutputStream()
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
-//            val bytes = stream.toByteArray()
-//
-//            val pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_JPEG)
-//
-//            // 이미지를 넣을 위치 설정
-//            val drawing = sheet.createDrawingPatriarch()
-//            val anchor = XSSFClientAnchor(0, 0, 0, 0, 4, 11, 8, 27)
-//            val picture = drawing.createPicture(anchor, pictureIdx)
-//        }
+
+        // 15행 ~ 20행: 진단결과
+        sheet.addMergedRegion(CellRangeAddress(15, 20, 0, 0))
+        sheet.getRow(15).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(15).getCell(0).setCellValue(resources.getString(R.string.Diagnosis_Result))
+
+        // 15행: 진단 결과 단어
+        sheet.addMergedRegion(CellRangeAddress(15, 15, 1, 7))
+        sheet.getRow(15).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(15).getCell(1).setCellValue(reportView.resultIcon.text.toString())
+
+        // 16행: 결과 메세지
+        sheet.addMergedRegion(CellRangeAddress(16, 16, 1, 7))
+        sheet.getRow(16).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(16).getCell(1).setCellValue(reportView.resultMsg.text.toString())
+
+        // 17행: resultText1A
+        sheet.addMergedRegion(CellRangeAddress(17, 17, 1, 7))
+        sheet.getRow(17).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(17).getCell(1).setCellValue(reportView.resultText1A.text.toString())
+
+        // 18행: resultText1B
+        sheet.addMergedRegion(CellRangeAddress(18, 18, 1, 7))
+        sheet.getRow(18).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(18).getCell(1).setCellValue(reportView.resultText1B.text.toString())
+
+        // 19행: resultText2B
+        sheet.addMergedRegion(CellRangeAddress(19, 20, 1, 7))
+        sheet.getRow(19).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(19).getCell(1).setCellValue(reportView.resultText2B.text.toString())
 
         try {
             val mFileOutStream = FileOutputStream(docFolder!!.absolutePath + "/" + getFileName(Consts.DOCUMENT_FOLDER, "xlsx") + ".xlsx")
