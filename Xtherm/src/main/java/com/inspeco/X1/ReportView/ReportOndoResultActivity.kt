@@ -497,35 +497,38 @@ class ReportOndoResultActivity : AppCompatActivity() {
         sheet.getRow(8).getCell(1).cellStyle = headerCellStyle
         sheet.getRow(8).getCell(1).setCellValue("5")
         sheet.getRow(8).getCell(2).cellStyle = contentCellStyle
-<<<<<<< HEAD
         sheet.getRow(8).getCell(2).setCellValue(reportView.faultLabel.text.toString())
-=======
-        sheet.getRow(8).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
->>>>>>> db1a5e7a7171f7fa84be753559732f1a4e613a12
 
         // 9행: 공백
         sheet.addMergedRegion(CellRangeAddress(9, 9, 0, 7))
 
         // 10행 ~ 13행: 사진
         // 사진1
-        val bitmap1 = (reportView.resultPicture.drawable as BitmapDrawable).bitmap
-        val stream1 = ByteArrayOutputStream()
-        bitmap1.compress(Bitmap.CompressFormat.PNG, 100, stream1)
-        val imageBytes1 = stream1.toByteArray()
-        val pictureIdx1 = workbook.addPicture(imageBytes1, Workbook.PICTURE_TYPE_PNG)
-        val drawing1 = sheet.createDrawingPatriarch()
-        val anchor1 = XSSFClientAnchor(0, 0, 0, 0, 0, 10, 3, 14)
-        val picture1 = drawing1.createPicture(anchor1, pictureIdx1)
+        try {
+            val bitmap1 = (reportView.resultPicture.drawable as BitmapDrawable).bitmap
+            val stream1 = ByteArrayOutputStream()
+            bitmap1.compress(Bitmap.CompressFormat.PNG, 100, stream1)
+            val imageBytes1 = stream1.toByteArray()
+            val pictureIdx1 = workbook.addPicture(imageBytes1, Workbook.PICTURE_TYPE_PNG)
+            val drawing1 = sheet.createDrawingPatriarch()
+            val anchor1 = XSSFClientAnchor(0, 0, 0, 0, 0, 10, 3, 14)
+            val picture1 = drawing1.createPicture(anchor1, pictureIdx1)
+        } catch (e: Exception) {
+        }
 
+        
         // 사진2
-        val bitmap2 = (reportView.resultPicture2.drawable as BitmapDrawable).bitmap
-        val stream2 = ByteArrayOutputStream()
-        bitmap2.compress(Bitmap.CompressFormat.PNG, 100, stream2)
-        val imageBytes2 = stream2.toByteArray()
-        val pictureIdx2 = workbook.addPicture(imageBytes2, Workbook.PICTURE_TYPE_PNG)
-        val drawing2 = sheet.createDrawingPatriarch()
-        val anchor2 = XSSFClientAnchor(0, 0, 0, 0, 3, 10, 6, 14)
-        val picture2 = drawing2.createPicture(anchor2, pictureIdx2)
+        try {
+            val bitmap2 = (reportView.resultPicture2.drawable as BitmapDrawable).bitmap
+            val stream2 = ByteArrayOutputStream()
+            bitmap2.compress(Bitmap.CompressFormat.PNG, 100, stream2)
+            val imageBytes2 = stream2.toByteArray()
+            val pictureIdx2 = workbook.addPicture(imageBytes2, Workbook.PICTURE_TYPE_PNG)
+            val drawing2 = sheet.createDrawingPatriarch()
+            val anchor2 = XSSFClientAnchor(0, 0, 0, 0, 3, 10, 6, 14)
+            val picture2 = drawing2.createPicture(anchor2, pictureIdx2)
+        } catch (e: Exception) {
+        }
 
         // 14행: 공백
         sheet.addMergedRegion(CellRangeAddress(14, 14, 0, 7))
