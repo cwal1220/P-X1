@@ -17,7 +17,6 @@ import com.inspeco.X1.R
 import com.inspeco.X1.StatusJudgView.ImageListDialog
 import com.inspeco.data.*
 import kotlinx.android.synthetic.main.activity_report_result_ondo.*
-
 import kotlinx.android.synthetic.main.activity_report_result_ondo.view.dateLabel
 import kotlinx.android.synthetic.main.activity_report_result_ondo.view.lineNameLabel
 import kotlinx.android.synthetic.main.activity_report_result_ondo.view.poleNoLabel
@@ -498,7 +497,11 @@ class ReportOndoResultActivity : AppCompatActivity() {
         sheet.getRow(8).getCell(1).cellStyle = headerCellStyle
         sheet.getRow(8).getCell(1).setCellValue("5")
         sheet.getRow(8).getCell(2).cellStyle = contentCellStyle
+<<<<<<< HEAD
         sheet.getRow(8).getCell(2).setCellValue(reportView.faultLabel.text.toString())
+=======
+        sheet.getRow(8).getCell(2).setCellValue(reportView.dateLabel.text.toString()) // TODO:
+>>>>>>> db1a5e7a7171f7fa84be753559732f1a4e613a12
 
         // 9행: 공백
         sheet.addMergedRegion(CellRangeAddress(9, 9, 0, 7))
