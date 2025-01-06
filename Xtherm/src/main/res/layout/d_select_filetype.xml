@@ -29,7 +29,7 @@
                     android:layout_height="100px"
                     android:layout_centerInParent="true"
                     android:paddingTop="16px"
-                    android:text="다른이름으로 저장"
+                    android:text="@string/Save_as"
                     android:textAlignment="center"
                     android:textColor="#1364D6"
                     android:textSize="52px" />
@@ -55,7 +55,7 @@
                     android:layout_height="100px"
                     android:layout_centerInParent="true"
                     android:paddingTop="16px"
-                    android:text="PDF 저장"
+                    android:text="@string/Save_Documents"
                     android:textAlignment="center"
                     android:textColor="#1364D6"
                     android:textSize="52px" />

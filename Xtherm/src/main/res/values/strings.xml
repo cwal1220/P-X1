@@ -302,5 +302,6 @@
 		<string name="Carbonization">Carbonization</string>
 		<string name="surface_peeling">surface peeling</string>
 		<string name="Transformer">Transformer</string>
+		<string name="Save_Documents">Save PDF, XLSX</string>
 
 </resources>

@@ -297,5 +297,6 @@
 	<string name="Carbonization">碳化</string>
 	<string name="surface_peeling">表面剥落</string>
 	<string name="Transformer">变压器</string>
+	<string name="Save_Documents">保存 PDF, XLSX</string>
 
 </resources>

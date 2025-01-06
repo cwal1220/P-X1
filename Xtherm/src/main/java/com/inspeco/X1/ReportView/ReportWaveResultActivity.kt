@@ -1,7 +1,9 @@
 package com.inspeco.X1.ReportView
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Point
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.pdf.PdfDocument
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,8 +17,34 @@ import com.inspeco.X1.R
 import com.inspeco.X1.StatusJudgView.ImageListDialog
 import com.inspeco.data.*
 import com.l_github.derlio.waveform.soundfile.SoundFile
+import kotlinx.android.synthetic.main.activity_report_result_wave.reportView
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.dateLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.distanceLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.eqipmentLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.faultLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.gpsLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.humiLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.lineNameLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.materialLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.ondoLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.poleNoLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.resultIcon
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.resultMsg
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.resultPicture
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.resultPicture2
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.reportWaveformView
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.resultText2A
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.resultText2B
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.voltLabel
+import kotlinx.android.synthetic.main.activity_report_result_wave.view.weatherLabel
 import kotlinx.android.synthetic.main.activity_report_result_wave.*
 import kotlinx.android.synthetic.main.activity_report_result_wave.materialLabel
+import org.apache.poi.ss.usermodel.IndexedColors
+import org.apache.poi.ss.usermodel.Workbook
+import org.apache.poi.ss.util.CellRangeAddress
+import org.apache.poi.xssf.usermodel.XSSFClientAnchor
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import java.io.ByteArrayOutputStream
 
 import java.io.File
 import java.io.FileOutputStream
@@ -268,6 +296,7 @@ class ReportWaveResultActivity : AppCompatActivity() {
             dialog.setSavePdfClickListener() {
                 // create a new document
                 savePdfFile()
+                saveXlsFile()
             }
             //dialog.setSavePngClickListener() {}
             dialog.show()
@@ -321,6 +350,285 @@ class ReportWaveResultActivity : AppCompatActivity() {
         document.close()
 
 
+    }
+
+    private fun saveXlsFile() {
+        val workbook = XSSFWorkbook()
+
+        // Sheet 생성
+        val sheet = workbook.createSheet("Sheet1")
+
+        // Sheet에서 현재 셀의 높이와 너비를 변경
+        sheet.defaultRowHeight = 450
+        sheet.setColumnWidth(0, 2750)
+        sheet.setColumnWidth(1, 2200)
+        sheet.setColumnWidth(2, 2750)
+        sheet.setColumnWidth(3, 2200)
+        sheet.setColumnWidth(4, 2750)
+        sheet.setColumnWidth(5, 2200)
+
+        // Row와 Cell 생성
+        val numRows = 22
+        val numCols = 6
+        for (rowIndex in 0 until numRows) {
+            val row = sheet.createRow(rowIndex)
+            for (colIndex in 0 until numCols) {
+                val cell = row.createCell(colIndex)
+                cell.cellStyle = workbook.createCellStyle().apply {
+//                    borderTop = BorderStyle.THIN
+//                    borderBottom = BorderStyle.THIN
+//                    borderLeft = BorderStyle.THIN
+//                    borderRight = BorderStyle.THIN
+                }
+
+            }
+        }
+
+        // 폰트
+        val topHeaderFont = workbook.createFont().apply {
+            bold = true
+            fontHeight = 350
+        }
+
+        // 폰트
+        val headerFont = workbook.createFont().apply {
+            bold = true
+        }
+
+        // 폰트
+        val levelResultFont = workbook.createFont().apply {
+            bold = true
+            color = IndexedColors.RED.getIndex()
+        }
+
+        // 폰트
+        val contentsFont = workbook.createFont().apply {
+            fontHeight = 200
+        }
+
+        // 최상단 제목셀 스타일
+        val topHeaderCellStyle = workbook.createCellStyle().apply {
+//            borderTop = BorderStyle.THIN
+//            borderBottom = BorderStyle.THIN
+//            borderLeft = BorderStyle.THIN
+//            borderRight = BorderStyle.THIN
+//            alignment = HorizontalAlignment.CENTER
+//            verticalAlignment = VerticalAlignment.CENTER
+            wrapText = true
+        }
+        topHeaderCellStyle.setFont(topHeaderFont)
+
+        // 제목셀 스타일
+        val headerCellStyle = workbook.createCellStyle().apply {
+//            borderTop = BorderStyle.THIN
+//            borderBottom = BorderStyle.THIN
+//            borderLeft = BorderStyle.THIN
+//            borderRight = BorderStyle.THIN
+//            alignment = HorizontalAlignment.CENTER
+//            verticalAlignment = VerticalAlignment.TOP
+            wrapText = true
+        }
+        headerCellStyle.setFont(headerFont)
+
+        // 레벨 결과 셀 스타일
+        val levelResultCellStyle = workbook.createCellStyle().apply {
+//            borderTop = BorderStyle.NONE
+//            alignment = HorizontalAlignment.CENTER
+//            verticalAlignment = VerticalAlignment.CENTER
+//            borderTop = BorderStyle.NONE
+        }
+        levelResultCellStyle.setFont(levelResultFont)
+
+        // 컨텐츠 셀 스타일
+        val contentCellStyle = workbook.createCellStyle().apply {
+//            borderTop = BorderStyle.THIN
+//            borderBottom = BorderStyle.THIN
+//            borderLeft = BorderStyle.THIN
+//            borderRight = BorderStyle.THIN
+//            verticalAlignment = VerticalAlignment.CENTER
+            wrapText = true
+        }
+        // 0행: 제목
+        sheet.addMergedRegion(CellRangeAddress(0, 0, 0, 7))
+        sheet.getRow(0).height = 600
+        sheet.getRow(0).getCell(1).setCellValue(resources.getString(R.string.Ultrasonic_Diagnosis_Report))
+        sheet.getRow(0).getCell(1).cellStyle = topHeaderCellStyle
+
+        // 1행: 날짜, 선로명, 전주번호
+        sheet.addMergedRegion(CellRangeAddress(1, 1, 0, 1))
+        sheet.addMergedRegion(CellRangeAddress(1, 1, 2, 3))
+        sheet.addMergedRegion(CellRangeAddress(1, 1, 4, 5))
+        sheet.getRow(1).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(1).getCell(0).setCellValue(resources.getString(R.string.Date))
+        sheet.getRow(1).getCell(2).cellStyle = headerCellStyle
+        sheet.getRow(1).getCell(2).setCellValue(resources.getString(R.string.Line_Name))
+        sheet.getRow(1).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(1).getCell(4).setCellValue(resources.getString(R.string.Pole_Number))
+
+        // 2행: 내용
+        sheet.addMergedRegion(CellRangeAddress(2, 2, 0, 1))
+        sheet.addMergedRegion(CellRangeAddress(2, 2, 2, 3))
+        sheet.addMergedRegion(CellRangeAddress(2, 2, 4, 5))
+        sheet.getRow(1).getCell(0).cellStyle = contentCellStyle
+        sheet.getRow(2).getCell(0).setCellValue(reportView.dateLabel.text.toString())
+        sheet.getRow(1).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(2).getCell(2).setCellValue(reportView.lineNameLabel.text.toString())
+        sheet.getRow(1).getCell(4).cellStyle = contentCellStyle
+        sheet.getRow(2).getCell(4).setCellValue(reportView.poleNoLabel.text.toString())
+
+        // 3행: 공백
+        sheet.addMergedRegion(CellRangeAddress(3, 3, 0, 7))
+
+        // 4행: 기자재종류, 날씨
+        sheet.getRow(4).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(4).getCell(0).setCellValue(resources.getString(R.string.Kind_of_Equipment))
+        sheet.getRow(4).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(4).getCell(1).setCellValue("1")
+        sheet.getRow(4).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(4).getCell(2).setCellValue(reportView.eqipmentLabel.text.toString())
+        sheet.getRow(4).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(4).getCell(4).setCellValue(resources.getString(R.string.Weather))
+        sheet.getRow(4).getCell(5).cellStyle = contentCellStyle
+        sheet.getRow(4).getCell(5).setCellValue(reportView.weatherLabel.text.toString())
+
+        // 5행: 설비재질, 온도
+        sheet.getRow(5).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(5).getCell(0).setCellValue(resources.getString(R.string.Equipment_Material))
+        sheet.getRow(5).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(5).getCell(1).setCellValue("2")
+        sheet.getRow(5).getCell(2).setCellValue(reportView.materialLabel.text.toString())
+        sheet.getRow(5).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(5).getCell(4).setCellValue(resources.getString(R.string.Temerature))
+        sheet.getRow(5).getCell(5).cellStyle = contentCellStyle
+        sheet.getRow(5).getCell(5).setCellValue(reportView.ondoLabel.text.toString())
+
+        // 6행: 설비전압, 습도
+        sheet.getRow(6).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(6).getCell(0).setCellValue(resources.getString(R.string.Equipment_Voltage))
+        sheet.getRow(6).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(6).getCell(1).setCellValue("3")
+        sheet.getRow(6).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(6).getCell(2).setCellValue(reportView.voltLabel.text.toString())
+        sheet.getRow(6).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(6).getCell(4).setCellValue(resources.getString(R.string.Humidity))
+        sheet.getRow(6).getCell(5).cellStyle = contentCellStyle
+        sheet.getRow(6).getCell(5).setCellValue(reportView.humiLabel.text.toString())
+
+        // 7행: 설비거리, GPS
+        sheet.getRow(7).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(7).getCell(0).setCellValue(resources.getString(R.string.Distance))
+        sheet.getRow(7).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(7).getCell(1).setCellValue("4")
+        sheet.getRow(7).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(7).getCell(2).setCellValue(reportView.distanceLabel.text.toString())
+        sheet.getRow(7).getCell(4).cellStyle = headerCellStyle
+        sheet.getRow(7).getCell(4).setCellValue("GPS")
+        sheet.getRow(7).getCell(5).cellStyle = contentCellStyle
+        sheet.getRow(7).getCell(5).setCellValue(reportView.gpsLabel.text.toString())
+
+        // 8행: 불량유형
+        sheet.getRow(8).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(8).getCell(0).setCellValue(resources.getString(R.string.Kind_of_Defect))
+        sheet.getRow(8).getCell(1).cellStyle = headerCellStyle
+        sheet.getRow(8).getCell(1).setCellValue("5")
+        sheet.getRow(8).getCell(2).cellStyle = contentCellStyle
+        sheet.getRow(8).getCell(2).setCellValue(reportView.faultLabel.text.toString())
+
+        // 9행: 공백
+        sheet.addMergedRegion(CellRangeAddress(9, 9, 0, 7))
+
+        // 10행 ~ 13행: 사진
+        // 사진1
+        try {
+            val bitmap1 = (reportView.resultPicture.drawable as BitmapDrawable).bitmap
+            val stream1 = ByteArrayOutputStream()
+            bitmap1.compress(Bitmap.CompressFormat.PNG, 100, stream1)
+            val imageBytes1 = stream1.toByteArray()
+            val pictureIdx1 = workbook.addPicture(imageBytes1, Workbook.PICTURE_TYPE_PNG)
+            val drawing1 = sheet.createDrawingPatriarch()
+            val anchor1 = XSSFClientAnchor(0, 0, 0, 0, 0, 10, 3, 14)
+            val picture1 = drawing1.createPicture(anchor1, pictureIdx1)
+        } catch (e: Exception) {
+        }
+
+
+        // 사진2
+        try {
+            val bitmap2 = (reportView.resultPicture2.drawable as BitmapDrawable).bitmap
+            val stream2 = ByteArrayOutputStream()
+            bitmap2.compress(Bitmap.CompressFormat.PNG, 100, stream2)
+            val imageBytes2 = stream2.toByteArray()
+            val pictureIdx2 = workbook.addPicture(imageBytes2, Workbook.PICTURE_TYPE_PNG)
+            val drawing2 = sheet.createDrawingPatriarch()
+            val anchor2 = XSSFClientAnchor(0, 0, 0, 0, 3, 10, 6, 14)
+            val picture2 = drawing2.createPicture(anchor2, pictureIdx2)
+        } catch (e: Exception) {
+        }
+
+        // 14~15행: Wave form
+        try {
+            val bitmap3 = reportView.reportWaveformView.toBitmap()
+            val stream3 = ByteArrayOutputStream()
+            bitmap3.compress(Bitmap.CompressFormat.PNG, 100, stream3)
+            val imageBytes3 = stream3.toByteArray()
+            val pictureIdx3 = workbook.addPicture(imageBytes3, Workbook.PICTURE_TYPE_PNG)
+            val drawing3 = sheet.createDrawingPatriarch()
+            val anchor3 = XSSFClientAnchor(0, 0, 0, 0, 0, 14, 6, 16)
+            val picture3 = drawing3.createPicture(anchor3, pictureIdx3)
+        } catch (e: Exception) {
+        }
+
+
+        // 16행: 공백
+        sheet.addMergedRegion(CellRangeAddress(16, 16, 0, 7))
+
+
+        // 17 ~ 21행: 진단결과
+        sheet.addMergedRegion(CellRangeAddress(17, 21, 0, 0))
+        sheet.getRow(17).getCell(0).cellStyle = headerCellStyle
+        sheet.getRow(17).getCell(0).setCellValue(resources.getString(R.string.Diagnosis_Result))
+
+        // 17행: 진단 결과 단어
+        sheet.addMergedRegion(CellRangeAddress(17, 17, 1, 7))
+        sheet.getRow(17).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(17).getCell(1).setCellValue(reportView.resultIcon.text.toString())
+
+        // 18행: 결과 메세지
+        sheet.addMergedRegion(CellRangeAddress(18, 18, 1, 7))
+        sheet.getRow(18).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(18).getCell(1).setCellValue(reportView.resultMsg.text.toString())
+
+        // 19행: resultText2A
+        sheet.addMergedRegion(CellRangeAddress(19, 19, 1, 7))
+        sheet.getRow(19).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(19).getCell(1).setCellValue(reportView.resultText2A.text.toString())
+
+        // 20행: resultText2B
+        sheet.addMergedRegion(CellRangeAddress(20, 21, 1, 7))
+        sheet.getRow(20).getCell(1).cellStyle = contentCellStyle
+        sheet.getRow(20).getCell(1).setCellValue(reportView.resultText2B.text.toString())
+
+        try {
+            val mFileOutStream = FileOutputStream(docFolder!!.absolutePath + "/" + getFileName(Consts.DOCUMENT_FOLDER, "xlsx") + ".xlsx")
+            workbook.write(mFileOutStream)
+
+            mFileOutStream.flush()
+            mFileOutStream.close()
+
+            runOnUiThread {
+                val msg = getResources().getString(R.string.File_has_been_saved)
+                val toast = Toast.makeText(this, msg, Toast.LENGTH_LONG)
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, -200)
+                toast.show()
+            }
+
+        } catch (e: Exception) {
+            val msgStr = "Error!\n" + e.toString()
+            val toast = Toast.makeText(this, msgStr, Toast.LENGTH_LONG)
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, -200)
+            toast.show()
+
+        }
     }
 
     /**

@@ -3,6 +3,7 @@ package com.l_github.derlio.waveform;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -258,4 +259,10 @@ public class SimpleWaveformView extends View {
         void onWaveformDraw();
     }
 
+    public Bitmap toBitmap() {
+        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        draw(canvas); // View 내용을 Bitmap에 그리기
+        return bitmap;
+    }
 }

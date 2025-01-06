@@ -276,5 +276,6 @@
 	<string name="Carbonization">탄화</string>
 	<string name="surface_peeling">표면박리</string>
 	<string name="Transformer">변압기</string>
+	<string name="Save_Documents">PDF, XLSX 저장</string>
 
 </resources>

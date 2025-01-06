@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70px"
                 android:layout_marginTop="58px"
-                android:text="초음파 진단 보고서"
+                android:text="@string/Ultrasonic_Diagnosis_Report"
                 android:textColor="#ff408cc3"
                 android:textSize="54px"
                 android:textStyle="bold" />
