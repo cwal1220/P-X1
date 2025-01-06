@@ -404,8 +404,12 @@ class WebCamActivity : BaseActivity() {
         if (p1.camMode != Consts.CAM_WEBCAM) {
             ondoExtImage.visibility = View.VISIBLE
             ondo_calib.visibility = View.VISIBLE
-            ondoSpanImage.visibility = View.VISIBLE
-
+            ondoSpanImage.visibility = View.INVISIBLE
+            // 열화상 모드에서만 span mode 지원
+            if(p1.camMode == Consts.CAM_ONDO) {
+                ondoSpanImage.visibility = View.VISIBLE
+            }
+            
             if (Cfg.ondo_extMode) {
                 ondoExtImage.setImageResource(R.mipmap.range_600);
             } else {
