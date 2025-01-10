@@ -743,7 +743,7 @@ public class P1 {
             /////////////////////////////////////////
 
             int xPos = (width - 100) / 2;
-            int yPos = 480;
+            int yPos = 480+56;
 
             pnt.setAntiAlias(true);
             pnt.setFilterBitmap(true);
@@ -1215,7 +1215,7 @@ public class P1 {
 //                Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
 
                 int xPos = (1920 - 100) / 2;
-                int yPos = 480;
+                int yPos = 480+56;
 
 
                 if (camType == Consts.MODE_CAM_NOR) {
