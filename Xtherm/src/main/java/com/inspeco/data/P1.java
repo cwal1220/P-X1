@@ -622,7 +622,8 @@ public class P1 {
             isPlayingAlarm = false;
 
             // 전체 영역에서 최고 및 최저 온도 계산
-            for (int y = 0; y < 192; y++) {
+            int heightGap = (int)((180.0/height) * 192);
+            for (int y = 0; y < 192 - heightGap; y++) {
                 for (int x = 0; x < 256; x++) {
                     float value = mOndoBuf[y * 256 + x];
                     if (value < minVal) {
@@ -684,8 +685,10 @@ public class P1 {
                         if (pointMax<mOndoBuf[ondoIndex+y+6]) { pointMax = mOndoBuf[ondoIndex+y+6]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+7]) { pointMax = mOndoBuf[ondoIndex+y+7]; }
                     }
-                    minVal = pointMin;
-                    maxVal = pointMax;
+                    if(touchIdx == 0) {
+                        minVal = pointMin;
+                        maxVal = pointMax;
+                    }
 
                     touchPoint.ondo = pointMax+Cfg.ondo_offSet;
                     scrTouch[touchIdx] = touchPoint.ondo;
@@ -733,12 +736,33 @@ public class P1 {
             maxOndoX = (maxOndoX * 1920) / 256;
             maxOndoY = (maxOndoY * 1080) / 192;
 
+            int xMinOffset = 0;
+            int yMinOffset = 0;
+            int xMaxOffset = 0;
+            int yMaxOffset = 0;
+
+            if(minOndoX > 1920 - 200) {
+                xMinOffset = -200;
+            }
+
+            if(minOndoY < 50) {
+                yMinOffset = 50;
+            }
+
+            if(maxOndoX > 1920 - 200) {
+                xMaxOffset = -200;
+            }
+
+            if(maxOndoY < 50) {
+                yMaxOffset = 50;
+            }
+
             str = String.format("MIN:%s%s" ,(int)Cfg.getOndoFC(minOndo), "°"+Cfg.p1_cGiho) ;
-            bitcanvas.drawText(str, minOndoX + 10, minOndoY, paint);
+            bitcanvas.drawText(str, minOndoX + 10 + xMinOffset, minOndoY + yMinOffset, paint);
             bitcanvas.drawRect(minOndoX, minOndoY, minOndoX + 10, minOndoY + 10, paint);
 
             str = String.format("Max:%s%s" ,(int)Cfg.getOndoFC(maxOndo), "°"+Cfg.p1_cGiho) ;
-            bitcanvas.drawText(str, maxOndoX + 10, maxOndoY, paint);
+            bitcanvas.drawText(str, maxOndoX + 10 + xMaxOffset, maxOndoY + yMaxOffset, paint);
             bitcanvas.drawRect(maxOndoX, maxOndoY, maxOndoX + 10, maxOndoY + 10, paint);
             /////////////////////////////////////////
 
@@ -1182,7 +1206,8 @@ public class P1 {
 
 
                 // 전체 영역에서 최고 및 최저 온도 계산
-                for (int y = 0; y < 192; y++) {
+                int heightGap = (int)((190.0/height) * 192);
+                for (int y = 0; y < 192 - heightGap; y++) {
                     for (int x = 0; x < 256; x++) {
                         float value = mOndoBuf[y * 256 + x];
                         if (value < minVal) {
@@ -1203,12 +1228,33 @@ public class P1 {
                 maxOndoX = (maxOndoX * 1920) / 256;
                 maxOndoY = (maxOndoY * 1080) / 192;
 
+                int xMinOffset = 0;
+                int yMinOffset = 0;
+                int xMaxOffset = 0;
+                int yMaxOffset = 0;
+
+                if(minOndoX > 1920 - 200) {
+                    xMinOffset = -200;
+                }
+
+                if(minOndoY < 50) {
+                    yMinOffset = 50;
+                }
+
+                if(maxOndoX > 1920 - 200) {
+                    xMaxOffset = -200;
+                }
+
+                if(maxOndoY < 50) {
+                    yMaxOffset = 50;
+                }
+
                 str = String.format("MIN:%s%s" ,(int)Cfg.getOndoFC(minOndo), "°"+Cfg.p1_cGiho) ;
-                bitcanvas.drawText(str, minOndoX + 10, minOndoY, paint);
+                bitcanvas.drawText(str, minOndoX + 10 + xMinOffset, minOndoY + yMinOffset, paint);
                 bitcanvas.drawRect(minOndoX, minOndoY, minOndoX + 10, minOndoY + 10, paint);
 
                 str = String.format("Max:%s%s" ,(int)Cfg.getOndoFC(maxOndo), "°"+Cfg.p1_cGiho) ;
-                bitcanvas.drawText(str, maxOndoX + 10, maxOndoY, paint);
+                bitcanvas.drawText(str, maxOndoX + 10 + xMaxOffset, maxOndoY + yMaxOffset, paint);
                 bitcanvas.drawRect(maxOndoX, maxOndoY, maxOndoX + 10, maxOndoY + 10, paint);
 
 //                Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
