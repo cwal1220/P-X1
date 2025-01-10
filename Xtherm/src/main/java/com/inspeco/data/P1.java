@@ -1177,9 +1177,10 @@ public class P1 {
                 pnt.setDither(false);
             }
 
-            Bitmap roiBitmap = Bitmap.createBitmap(backbit, 25, 19, 256-(25*2), 192-(19*2));
-            bitcanvas.drawBitmap(roiBitmap, null, new Rect(xr, yr, (xr + 1920), (yr + 1080)), pnt);
-            Log.d("chanchan", "box "+ Float.toString(xr) + ", "+ Float.toString(yr) + ", "+ Float.toString(ondoViewWidth) + ", " + Float.toString(ondoViewHeight));
+            bitcanvas.drawBitmap(backbit, null, new Rect(xr, yr, (xr + ondoViewWidth), (yr + ondoViewHeight)), pnt);
+//            Bitmap roiBitmap = Bitmap.createBitmap(backbit, 25, 19, 256-(25*2), 192-(19*2));
+//            bitcanvas.drawBitmap(roiBitmap, null, new Rect(xr, yr, (xr + 1920), (yr + 1080)), pnt);
+//            Log.d("chanchan", "box "+ Float.toString(xr) + ", "+ Float.toString(yr) + ", "+ Float.toString(ondoViewWidth) + ", " + Float.toString(ondoViewHeight));
 
             paint.setColor(Color.BLACK);
             bitcanvas.drawRect(0, height-190, width, height, paint);
