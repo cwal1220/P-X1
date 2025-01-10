@@ -53,8 +53,8 @@ class LoadingActivity : AppCompatActivity() {
 
         TedPermission.create()
                 .setPermissionListener(permissionListener)
-                .setRationaleMessage("서비스 사용을 위해서 몇가지 권한이 필요합니다.")
-                .setDeniedMessage("[설정] > [권한] 에서 권한을 설정할 수 있습니다.")
+                .setRationaleMessage(resources.getString(R.string.Permission_Request_Info))
+                .setDeniedMessage(resources.getString(R.string.Permission_Request_Denied))
                 .setPermissions(
                         Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.ACCESS_COARSE_LOCATION,

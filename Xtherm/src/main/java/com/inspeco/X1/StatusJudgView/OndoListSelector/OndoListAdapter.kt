@@ -26,7 +26,7 @@ class OndoListAdapter(val lists: MutableList<Float>, val context: Context) : Rec
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val aChar = 'A'+position
-        holder.nameLabel.text = "포인트 "+aChar+" "
+        holder.nameLabel.text = "POINT "+aChar+" "
                 list[position]
 
         holder.itemView.setOnClickListener {

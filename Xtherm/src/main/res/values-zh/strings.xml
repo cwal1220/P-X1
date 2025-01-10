@@ -298,5 +298,9 @@
 	<string name="surface_peeling">表面剥落</string>
 	<string name="Transformer">变压器</string>
 	<string name="Save_Documents">保存 PDF, XLSX</string>
+	<string name="Width_Ratio">宽度比</string>
+	<string name="Height_Ratio">身高比</string>
+	<string name="Permission_Request_Info">使用该服务需要一些权限。</string>
+	<string name="Permission_Request_Denied">您可以在【设置】>【权限】中设置权限。</string>
 
 </resources>

@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:includeFontPadding="false"
-                android:text="측정온도"
+                android:text="@string/Temerature"
                 android:textColor="#49589B"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -259,7 +259,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:includeFontPadding="false"
-                android:text="세로 비율"
+                android:text="@string/Height_Ratio"
                 android:textColor="#49589B"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -313,7 +313,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:includeFontPadding="false"
-                android:text="가로 비율"
+                android:text="@string/Width_Ratio"
                 android:textColor="#49589B"
                 android:textSize="14sp"
                 android:textStyle="bold" />

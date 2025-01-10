@@ -277,5 +277,9 @@
 	<string name="surface_peeling">표면박리</string>
 	<string name="Transformer">변압기</string>
 	<string name="Save_Documents">PDF, XLSX 저장</string>
+	<string name="Width_Ratio">가로 비율</string>
+	<string name="Height_Ratio">세로 비율</string>
+	<string name="Permission_Request_Info">서비스 사용을 위해서 몇가지 권한이 필요합니다.</string>
+	<string name="Permission_Request_Denied">[설정] > [권한] 에서 권한을 설정할 수 있습니다.</string>
 
 </resources>

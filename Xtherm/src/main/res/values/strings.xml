@@ -303,5 +303,9 @@
 		<string name="surface_peeling">surface peeling</string>
 		<string name="Transformer">Transformer</string>
 		<string name="Save_Documents">Save PDF, XLSX</string>
+		<string name="Width_Ratio">Width Ratio</string>
+		<string name="Height_Ratio">Height Ratio</string>
+		<string name="Permission_Request_Info">Some permissions are required to use the service.</string>
+		<string name="Permission_Request_Denied">You can set permissions in [Settings] > [Permissions].</string>
 
 </resources>

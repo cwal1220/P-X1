@@ -236,7 +236,7 @@
                                 android:layout_marginLeft="24px"
                                 android:layout_marginRight="92px"
                                 android:gravity="left|center_vertical"
-                                android:text="현수애자"
+                                android:text="@string/Suspension_Insulator"
                                 android:textColor="#40acc9"
                                 android:textSize="34px" />
 
@@ -292,7 +292,7 @@
                                 android:layout_marginLeft="24px"
                                 android:layout_marginRight="92px"
                                 android:gravity="left|center_vertical"
-                                android:text="설비 전압"
+                                android:text="@string/Facility_Voltage"
                                 android:textColor="#40acc9"
                                 android:textSize="34px" />
 
@@ -348,7 +348,7 @@
                                 android:layout_marginLeft="24px"
                                 android:layout_marginRight="92px"
                                 android:gravity="left|center_vertical"
-                                android:text="현수애자"
+                                android:text="@string/Suspension_Insulator"
                                 android:textColor="#40acc9"
                                 android:textSize="34px" />
 
@@ -404,7 +404,7 @@
                                 android:layout_marginLeft="24px"
                                 android:layout_marginRight="92px"
                                 android:gravity="left|center_vertical"
-                                android:text="현수애자"
+                                android:text="@string/Suspension_Insulator"
                                 android:textColor="#40acc9"
                                 android:textSize="34px" />
 
@@ -460,7 +460,7 @@
                                 android:layout_marginLeft="24px"
                                 android:layout_marginRight="92px"
                                 android:gravity="left|center_vertical"
-                                android:text="현수애자"
+                                android:text="@string/Suspension_Insulator"
                                 android:textColor="#40acc9"
                                 android:textSize="34px" />
 
@@ -504,7 +504,7 @@
                             android:layout_height="60px"
                             android:layout_marginTop="40px"
                             android:gravity="center"
-                            android:text="맑음"
+                            android:text="@string/Sunny"
                             android:textColor="#40acc9"
                             android:textSize="45px" />
                     </RelativeLayout>
@@ -706,7 +706,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12px"
                         android:layout_marginTop="8px"
-                        android:text="지금 즉시 점검해야 합니다."
+                        android:text="@string/Repair_Immediately"
                         android:textColor="#ff408cc3"
                         android:textSize="38px" />
 

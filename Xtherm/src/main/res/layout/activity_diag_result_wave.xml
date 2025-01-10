@@ -276,7 +276,7 @@
                     android:layout_width="500px"
                     android:layout_height="72px"
                     android:layout_weight="1"
-                    android:text=": 자기"
+                    android:text="@string/Line_Post_Insulator"
                     android:textColor="#ffffff"
                     android:textSize="38px" />
             </LinearLayout>

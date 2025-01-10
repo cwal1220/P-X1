@@ -28,7 +28,7 @@
                     android:layout_height="100px"
                     android:layout_centerInParent="true"
                     android:paddingTop="16px"
-                    android:text="사기"
+                    android:text="@string/Ceramic"
                     android:textAlignment="center"
                     android:textColor="#1364D6"
                     android:textSize="52px" />
@@ -53,7 +53,7 @@
                     android:layout_height="100px"
                     android:paddingTop="16px"
                     android:layout_centerInParent="true"
-                    android:text="폴리머"
+                    android:text="@string/Polymer"
                     android:textAlignment="center"
                     android:textColor="#1364D6"
                     android:textSize="52px" />
@@ -76,7 +76,7 @@
                     android:layout_height="100px"
                     android:layout_centerInParent="true"
                     android:paddingTop="16px"
-                    android:text="유리"
+                    android:text="@string/Glass"
                     android:textAlignment="center"
                     android:textColor="#1364D6"
                     android:textSize="52px" />

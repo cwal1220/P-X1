@@ -96,145 +96,145 @@ object Ini {
     private fun loadDefaultCondition(context: Context) {
         conditionList.clear()
 
-        var txt = context.getResources().getString(R.string.Crack)
+        var txt = context.resources.getString(R.string.Crack)
         conditionList.add(ConditionData( name=txt, value=0.315f))
 
-        txt = context.getResources().getString(R.string.Erosion)
+        txt = context.resources.getString(R.string.Erosion)
         conditionList.add(ConditionData( name=txt, value = 0.226f))
 
-        txt = context.getResources().getString(R.string.Overheating)
+        txt = context.resources.getString(R.string.Overheating)
         conditionList.add(ConditionData( name=txt, value = 0.200f))
 
-        txt = context.getResources().getString(R.string.Flashover)
+        txt = context.resources.getString(R.string.Flashover)
         conditionList.add(ConditionData( name=txt, value = 0.200f))
 
-        txt = context.getResources().getString(R.string.Contamination)
+        txt = context.resources.getString(R.string.Contamination)
         conditionList.add(ConditionData( name=txt, value = 0.045f))
 
-        txt = context.getResources().getString(R.string.Non_glass)
+        txt = context.resources.getString(R.string.Non_glass)
         conditionList.add(ConditionData( name=txt, value = 0.028f))
 
-        txt = context.getResources().getString(R.string.Damaged)
+        txt = context.resources.getString(R.string.Damaged)
         conditionList.add(ConditionData( name=txt, value = 0.250f))
 
-        txt = context.getResources().getString(R.string.Corrosion)
+        txt = context.resources.getString(R.string.Corrosion)
         conditionList.add(ConditionData( name=txt, value = 0.153f))
 
-        txt = context.getResources().getString(R.string.Incorrect_installation)
+        txt = context.resources.getString(R.string.Incorrect_installation)
         conditionList.add(ConditionData( name=txt, value = 0.048f))
 
-        txt = context.getResources().getString(R.string.Out_of_Position)
+        txt = context.resources.getString(R.string.Out_of_Position)
         conditionList.add(ConditionData( name=txt, value = 0.048f))
 
-        txt = context.getResources().getString(R.string.Foreign_substance)
+        txt = context.resources.getString(R.string.Foreign_substance)
         conditionList.add(ConditionData( name=txt, value = 0.028f))
 
-        txt = context.getResources().getString(R.string.Vegetation_contact)
+        txt = context.resources.getString(R.string.Vegetation_contact)
         conditionList.add(ConditionData( name=txt, value = 0.028f))
 
-        txt = context.getResources().getString(R.string.Normal)
+        txt = context.resources.getString(R.string.Normal)
         conditionList.add(ConditionData( name=txt, value = 0.0f))
 
-        txt = context.getResources().getString(R.string.Carbonization)
+        txt = context.resources.getString(R.string.Carbonization)
         conditionList.add(ConditionData( name=txt, value = 0.086f))
 
-        txt = context.getResources().getString(R.string.surface_peeling)
+        txt = context.resources.getString(R.string.surface_peeling)
         conditionList.add(ConditionData( name=txt, value = 0.037f))
 
-        txt = context.getResources().getString(R.string.Etc)
+        txt = context.resources.getString(R.string.Etc)
         conditionList.add(ConditionData( name=txt, value = 0.016f))
     }
 
     private fun loadDefaultEquipment(context: Context) {
         equipmentList.clear()
 
-        var txt = context.getResources().getString(R.string.Sheath_wire)
+        var txt = context.resources.getString(R.string.Sheath_wire)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_01",  rfRate=0.943f ))
 
-        txt = context.getResources().getString(R.string.Suspension_Insulator)
+        txt = context.resources.getString(R.string.Suspension_Insulator)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_02",  rfRate=0.83f, value = 0.105f ))
 
-        txt = context.getResources().getString(R.string.Line_Post_Insulator)
+        txt = context.resources.getString(R.string.Line_Post_Insulator)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_03",  rfRate=0.86f, value = 0.297f ))
 
-        txt = context.getResources().getString(R.string.Lightning_Arrestor)
+        txt = context.resources.getString(R.string.Lightning_Arrestor)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_04",  rfRate=0.852f ))
 
-        txt = context.getResources().getString(R.string.Cut_Out_Switch)
+        txt = context.resources.getString(R.string.Cut_Out_Switch)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_05",  rfRate=0.86f, value = 0.091f ))
 
-        txt = context.getResources().getString(R.string.Steel_Crossarm)
+        txt = context.resources.getString(R.string.Steel_Crossarm)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_06",  rfRate=0.3f ))
 
-        txt = context.getResources().getString(R.string.Covers)
+        txt = context.resources.getString(R.string.Covers)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_07",  rfRate=0.945f ))
 
-        txt = context.getResources().getString(R.string.Polymer)
+        txt = context.resources.getString(R.string.Polymer)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_08",  rfRate=0.94f ))
 
-        var tx2 = context.getResources().getString(R.string.Terminal_part)
+        var tx2 = context.resources.getString(R.string.Terminal_part)
         equipmentList.add(EquipmentData( id=1, eType=2, name="MCCB", subName = " 단자", imgName = "item_equip2_01_00", baseOndo = 60f, rfRate=0.945f ))
 //        EquipmentData( id=2, eType=2, name="커버나이프 스위치", subName = "단자부", imgName = "", baseOndo = 50f, rfRate=0.8f,value = 0.07f ))
 //        EquipmentData( id=2, eType=2, name="커버나이프 스위치", subName = "개폐접촉부", imgName = "", baseOndo = 50f, rfRate=0.8f,value = 0.07f ))
 //        EquipmentData( id=2, eType=2, name="커버나이프 스위치", subName = "퓨즈나사머리부", imgName = "", baseOndo = 60f, rfRate=0.8f,value = 0.07f ))
 
-        txt = context.getResources().getString(R.string.Power_Fuse)
-        tx2 = context.getResources().getString(R.string.Connection)
+        txt = context.resources.getString(R.string.Power_Fuse)
+        tx2 = context.resources.getString(R.string.Connection)
         equipmentList.add(EquipmentData( id=3, eType=2, name=txt, subName = " 접속부", imgName = "item_equip2_02_01", baseOndo = 75f, rfRate=0.8f ))
 
-        txt = context.getResources().getString(R.string.Power_Fuse)
-        tx2 = context.getResources().getString(R.string.Contact_Part)
+        txt = context.resources.getString(R.string.Power_Fuse)
+        tx2 = context.resources.getString(R.string.Contact_Part)
         equipmentList.add(EquipmentData( id=3, eType=2, name=txt, subName = " 접촉부", imgName = "item_equip2_02_02", baseOndo = 80f, rfRate=0.8f ))
 
-        txt = context.getResources().getString(R.string.Power_Fuse)
-        tx2 = context.getResources().getString(R.string.Mechanical_Structural_Part)
+        txt = context.resources.getString(R.string.Power_Fuse)
+        tx2 = context.resources.getString(R.string.Mechanical_Structural_Part)
         equipmentList.add(EquipmentData( id=3, eType=2, name=txt, subName = " 기계적구조부", imgName = "item_equip2_02_03", baseOndo = 90f, rfRate=0.9f ))
 
-        txt = context.getResources().getString(R.string.Instrument_Transformer)
-        tx2 = context.getResources().getString(R.string.Terminal_part)
+        txt = context.resources.getString(R.string.Instrument_Transformer)
+        tx2 = context.resources.getString(R.string.Terminal_part)
         equipmentList.add(EquipmentData( id=4, eType=2, name=txt, subName = " 단자부", imgName = "item_equip2_03_01", baseOndo = 75f, rfRate=0.9f ))
 
-        txt = context.getResources().getString(R.string.Instrument_Transformer)
-        tx2 = context.getResources().getString(R.string.Main_Body)
+        txt = context.resources.getString(R.string.Instrument_Transformer)
+        tx2 = context.resources.getString(R.string.Main_Body)
         equipmentList.add(EquipmentData( id=4, eType=2, name=txt, subName = " 본체", imgName = "item_equip2_03_02", baseOndo = 95f, rfRate=0.6f ))
 
-        txt = context.getResources().getString(R.string.Transformer_Surface_TEMP)
+        txt = context.resources.getString(R.string.Transformer_Surface_TEMP)
         equipmentList.add(EquipmentData( id=5, eType=2, name=txt, subName = "", imgName = "item_equip2_04_00", baseOndo = 95f, rfRate=0.6f, value = 0.045f))
 
-        txt = context.getResources().getString(R.string.MOLD_Transformer)
-        tx2 = context.getResources().getString(R.string.Iron_core)
+        txt = context.resources.getString(R.string.MOLD_Transformer)
+        tx2 = context.resources.getString(R.string.Iron_core)
         equipmentList.add(EquipmentData( id=6, eType=2, name=txt, subName = " 철심부", imgName = "item_equip2_05_01", baseOndo = 120f, rfRate=0.95f, value = 0.045f ))
 
-        txt = context.getResources().getString(R.string.MOLD_Transformer)
-        tx2 = context.getResources().getString(R.string.Epoxy_Surface_Type_B)
+        txt = context.resources.getString(R.string.MOLD_Transformer)
+        tx2 = context.resources.getString(R.string.Epoxy_Surface_Type_B)
         equipmentList.add(EquipmentData( id=6, eType=2, name=txt, subName = " 에폭시", imgName = "item_equip2_05_02", baseOndo = 80f, rfRate=0.9f,value = 0.045f  ))
 
-        txt = context.getResources().getString(R.string.Cables)
-        tx2 = context.getResources().getString(R.string.Sheath_wire)
+        txt = context.resources.getString(R.string.Cables)
+        tx2 = context.resources.getString(R.string.Sheath_wire)
         equipmentList.add(EquipmentData( id=7, eType=2, name=txt, subName = " IV", imgName = "item_equip2_06_01", baseOndo = 60f, rfRate=0.943f, value = 0.297f ))
 
-        txt = context.getResources().getString(R.string.Cables)
-        tx2 = context.getResources().getString(R.string.Sheath_wire)
+        txt = context.resources.getString(R.string.Cables)
+        tx2 = context.resources.getString(R.string.Sheath_wire)
         equipmentList.add(EquipmentData( id=7, eType=2, name=txt, subName = " HIV", imgName = "item_equip2_06_02", baseOndo = 75f, rfRate=0.943f, value = 0.297f ))
 
-        txt = context.getResources().getString(R.string.Cables)
-        tx2 = context.getResources().getString(R.string.Sheath_wire)
+        txt = context.resources.getString(R.string.Cables)
+        tx2 = context.resources.getString(R.string.Sheath_wire)
         equipmentList.add(EquipmentData( id=7, eType=2, name=txt, subName = " EV", imgName = "item_equip2_06_03", baseOndo = 75f, rfRate=0.943f, value = 0.297f ))
 
-        txt = context.getResources().getString(R.string.Cables)
-        tx2 = context.getResources().getString(R.string.Sheath_wire)
+        txt = context.resources.getString(R.string.Cables)
+        tx2 = context.resources.getString(R.string.Sheath_wire)
         equipmentList.add(EquipmentData( id=7, eType=2, name=txt, subName = " CV", imgName = "item_equip2_06_04", baseOndo = 90f, rfRate=0.943f, value = 0.297f ))
 
-        txt = context.getResources().getString(R.string.Cables)
-        tx2 = context.getResources().getString(R.string.Sheath_wire)
+        txt = context.resources.getString(R.string.Cables)
+        tx2 = context.resources.getString(R.string.Sheath_wire)
         equipmentList.add(EquipmentData( id=7, eType=2, name=txt, subName = " VVF", imgName = "item_equip2_06_05", baseOndo = 60f, rfRate=0.943f, value = 0.297f ))
 
-        txt = context.getResources().getString(R.string.Condensor)
-        tx2 = context.getResources().getString(R.string.Terminal_part)
+        txt = context.resources.getString(R.string.Condensor)
+        tx2 = context.resources.getString(R.string.Terminal_part)
         equipmentList.add(EquipmentData( id=7, eType=2, name="콘덴서", subName = " 단자부", imgName = "item_equip2_07_01", baseOndo = 75f, rfRate=0.94f ))
 
-        txt = context.getResources().getString(R.string.Condensor)
-        tx2 = context.getResources().getString(R.string.Main_Body)
+        txt = context.resources.getString(R.string.Condensor)
+        tx2 = context.resources.getString(R.string.Main_Body)
         equipmentList.add(EquipmentData( id=6, eType=2, name="콘덴서", subName = " 본체", imgName = "item_equip2_07_02", baseOndo = 65f, rfRate=0.25f ))
 
     }
@@ -243,7 +243,7 @@ object Ini {
 
     private fun loadPlData(context: Context) {
         val plFile = File(Environment.getExternalStorageDirectory().absolutePath + "/" + Consts.ROOT_FOLDER + "/" + Consts.DIAGNOSIS_PL)
-        if (!plFile.exists()) {
+        if (true) {
             // 파일이 없으면 생성한다
 
             loadDefaultPl(context)
@@ -252,7 +252,7 @@ object Ini {
             val gson = Gson()
             val json = gson.toJson(pllist, PLList::class.java)
 
-            val buf = BufferedWriter(FileWriter(plFile, true))
+            val buf = BufferedWriter(FileWriter(plFile, false))
             buf.append(json)
             buf.close()
         } else {
@@ -303,7 +303,7 @@ object Ini {
 
     private fun loadConditionData(context: Context) {
         val hFile = File(Environment.getExternalStorageDirectory().absolutePath + "/" + Consts.ROOT_FOLDER + "/" + Consts.DIAGNOSIS_COND)
-        if (!hFile.exists()) {
+        if (true) {
             // 파일이 없으면 생성한다
 
             loadDefaultCondition(context)
@@ -312,7 +312,7 @@ object Ini {
             val gson = Gson()
             val json = gson.toJson(condlist, CondList::class.java)
 
-            val buf = BufferedWriter(FileWriter(hFile, true))
+            val buf = BufferedWriter(FileWriter(hFile, false))
             buf.append(json)
             buf.close()
         } else {
@@ -335,7 +335,7 @@ object Ini {
 
     private fun loadEquipData(context: Context) {
         val hFile = File(Environment.getExternalStorageDirectory().absolutePath + "/" + Consts.ROOT_FOLDER + "/" + Consts.DIAGNOSIS_EQUIP)
-        if (!hFile.exists()) {
+        if (true) {
             // 파일이 없으면 생성한다
 
             loadDefaultEquipment(context)
@@ -344,7 +344,7 @@ object Ini {
             val gson = Gson()
             val json = gson.toJson(equiplist, EquipList::class.java)
 
-            val buf = BufferedWriter(FileWriter(hFile, true))
+            val buf = BufferedWriter(FileWriter(hFile, false))
             buf.append(json)
             buf.close()
         } else {
@@ -366,7 +366,7 @@ object Ini {
 
     private fun loadDistVoltData() {
         val hFile = File(Environment.getExternalStorageDirectory().absolutePath + "/" + Consts.ROOT_FOLDER + "/" + Consts.DIAGNOSIS_DVOLT)
-        if (!hFile.exists()) {
+        if (true) {
             // 파일이 없으면 생성한다
 
             loadDefaultDistVolt()
@@ -375,7 +375,7 @@ object Ini {
             val gson = Gson()
             val json = gson.toJson(voltlist, VoltList::class.java)
 
-            val buf = BufferedWriter(FileWriter(hFile, true))
+            val buf = BufferedWriter(FileWriter(hFile, false))
             buf.append(json)
             buf.close()
         } else {
@@ -397,7 +397,7 @@ object Ini {
 
     private fun loadTransVoltData() {
         val hFile = File(Environment.getExternalStorageDirectory().absolutePath + "/" + Consts.ROOT_FOLDER + "/" + Consts.DIAGNOSIS_TVOLT)
-        if (!hFile.exists()) {
+        if (true) {
             // 파일이 없으면 생성한다
 
             loadDefaultTransVolt()
@@ -406,7 +406,7 @@ object Ini {
             val gson = Gson()
             val json = gson.toJson(voltlist, VoltList::class.java)
 
-            val buf = BufferedWriter(FileWriter(hFile, true))
+            val buf = BufferedWriter(FileWriter(hFile, false))
             buf.append(json)
             buf.close()
         } else {
