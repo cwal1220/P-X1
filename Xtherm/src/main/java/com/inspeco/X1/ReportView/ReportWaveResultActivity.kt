@@ -17,6 +17,7 @@ import com.inspeco.X1.R
 import com.inspeco.X1.StatusJudgView.ImageListDialog
 import com.inspeco.data.*
 import com.l_github.derlio.waveform.soundfile.SoundFile
+import kotlinx.android.synthetic.main.activity_report_result_ondo.resultIcon
 import kotlinx.android.synthetic.main.activity_report_result_wave.reportView
 import kotlinx.android.synthetic.main.activity_report_result_wave.view.dateLabel
 import kotlinx.android.synthetic.main.activity_report_result_wave.view.distanceLabel
@@ -104,6 +105,11 @@ class ReportWaveResultActivity : AppCompatActivity() {
         voltLabel.text = stringFromFloatAuto(udr!!.volt)+"kV"
         distanceLabel.text = stringFromFloatAuto(udr!!.distance)+"m"
         faultLabel.text = udr!!.faultTypeStr
+        try {
+            resultIcon.text = "PL" + udr!!.level
+        } catch (e: Exception) {
+            resultIcon.text = ""
+        }
 
 
         if ( (udr!!.waveData != null) && (udr!!.waveData.filePath.isEmpty()==false)) {
@@ -145,7 +151,7 @@ class ReportWaveResultActivity : AppCompatActivity() {
             }
 
 
-            resultIcon.text = States.reportPlResult.name
+//            resultIcon.text = States.reportPlResult.name
             resultMsg.text = States.reportPlResult.msg
         }
 

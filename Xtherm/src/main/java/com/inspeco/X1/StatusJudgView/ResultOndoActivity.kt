@@ -236,7 +236,7 @@ class ResultOndoActivity : AppCompatActivity() {
                 States.diagWaveInfo.realDb,
                 0f,
                 0f,
-                States.diagMixResult.name,
+                States.diagOndoResult.id.toString(),
                 States.diagMixResult.id,
                 States.diagPlResult.id,
                 States.diagOndoResult.id

@@ -148,7 +148,10 @@ object Ini {
     private fun loadDefaultEquipment(context: Context) {
         equipmentList.clear()
 
-        var txt = context.resources.getString(R.string.Sheath_wire)
+        var txt = ""
+        var tx2 = ""
+
+        txt = context.resources.getString(R.string.Sheath_wire)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_01",  rfRate=0.943f ))
 
         txt = context.resources.getString(R.string.Suspension_Insulator)
@@ -172,42 +175,43 @@ object Ini {
         txt = context.resources.getString(R.string.Polymer)
         equipmentList.add(EquipmentData( eType=1, name=txt, imgName = "item_equip_08",  rfRate=0.94f ))
 
-        var tx2 = context.resources.getString(R.string.Terminal_part)
-        equipmentList.add(EquipmentData( id=1, eType=2, name="MCCB", subName = " 단자", imgName = "item_equip2_01_00", baseOndo = 60f, rfRate=0.945f ))
+        txt = context.resources.getString(R.string.MCCB)
+        tx2 = context.resources.getString(R.string.Terminal_part)
+        equipmentList.add(EquipmentData( id=1, eType=2, name=txt, subName = tx2, imgName = "item_equip2_01_00", baseOndo = 60f, rfRate=0.945f ))
 //        EquipmentData( id=2, eType=2, name="커버나이프 스위치", subName = "단자부", imgName = "", baseOndo = 50f, rfRate=0.8f,value = 0.07f ))
 //        EquipmentData( id=2, eType=2, name="커버나이프 스위치", subName = "개폐접촉부", imgName = "", baseOndo = 50f, rfRate=0.8f,value = 0.07f ))
 //        EquipmentData( id=2, eType=2, name="커버나이프 스위치", subName = "퓨즈나사머리부", imgName = "", baseOndo = 60f, rfRate=0.8f,value = 0.07f ))
 
         txt = context.resources.getString(R.string.Power_Fuse)
         tx2 = context.resources.getString(R.string.Connection)
-        equipmentList.add(EquipmentData( id=3, eType=2, name=txt, subName = " 접속부", imgName = "item_equip2_02_01", baseOndo = 75f, rfRate=0.8f ))
+        equipmentList.add(EquipmentData( id=3, eType=2, name=txt, imgName = "item_equip2_02_01", baseOndo = 75f, rfRate=0.8f ))
 
         txt = context.resources.getString(R.string.Power_Fuse)
         tx2 = context.resources.getString(R.string.Contact_Part)
-        equipmentList.add(EquipmentData( id=3, eType=2, name=txt, subName = " 접촉부", imgName = "item_equip2_02_02", baseOndo = 80f, rfRate=0.8f ))
+        equipmentList.add(EquipmentData( id=3, eType=2, name=txt, subName = "", imgName = "item_equip2_02_02", baseOndo = 80f, rfRate=0.8f ))
 
         txt = context.resources.getString(R.string.Power_Fuse)
         tx2 = context.resources.getString(R.string.Mechanical_Structural_Part)
-        equipmentList.add(EquipmentData( id=3, eType=2, name=txt, subName = " 기계적구조부", imgName = "item_equip2_02_03", baseOndo = 90f, rfRate=0.9f ))
+        equipmentList.add(EquipmentData( id=3, eType=2, name=txt, subName = "", imgName = "item_equip2_02_03", baseOndo = 90f, rfRate=0.9f ))
 
         txt = context.resources.getString(R.string.Instrument_Transformer)
         tx2 = context.resources.getString(R.string.Terminal_part)
-        equipmentList.add(EquipmentData( id=4, eType=2, name=txt, subName = " 단자부", imgName = "item_equip2_03_01", baseOndo = 75f, rfRate=0.9f ))
+        equipmentList.add(EquipmentData( id=4, eType=2, name=txt, subName = "", imgName = "item_equip2_03_01", baseOndo = 75f, rfRate=0.9f ))
 
         txt = context.resources.getString(R.string.Instrument_Transformer)
         tx2 = context.resources.getString(R.string.Main_Body)
-        equipmentList.add(EquipmentData( id=4, eType=2, name=txt, subName = " 본체", imgName = "item_equip2_03_02", baseOndo = 95f, rfRate=0.6f ))
+        equipmentList.add(EquipmentData( id=4, eType=2, name=txt, subName = "", imgName = "item_equip2_03_02", baseOndo = 95f, rfRate=0.6f ))
 
         txt = context.resources.getString(R.string.Transformer_Surface_TEMP)
         equipmentList.add(EquipmentData( id=5, eType=2, name=txt, subName = "", imgName = "item_equip2_04_00", baseOndo = 95f, rfRate=0.6f, value = 0.045f))
 
         txt = context.resources.getString(R.string.MOLD_Transformer)
         tx2 = context.resources.getString(R.string.Iron_core)
-        equipmentList.add(EquipmentData( id=6, eType=2, name=txt, subName = " 철심부", imgName = "item_equip2_05_01", baseOndo = 120f, rfRate=0.95f, value = 0.045f ))
+        equipmentList.add(EquipmentData( id=6, eType=2, name=txt, subName = "", imgName = "item_equip2_05_01", baseOndo = 120f, rfRate=0.95f, value = 0.045f ))
 
         txt = context.resources.getString(R.string.MOLD_Transformer)
         tx2 = context.resources.getString(R.string.Epoxy_Surface_Type_B)
-        equipmentList.add(EquipmentData( id=6, eType=2, name=txt, subName = " 에폭시", imgName = "item_equip2_05_02", baseOndo = 80f, rfRate=0.9f,value = 0.045f  ))
+        equipmentList.add(EquipmentData( id=6, eType=2, name=txt, subName = "", imgName = "item_equip2_05_02", baseOndo = 80f, rfRate=0.9f,value = 0.045f  ))
 
         txt = context.resources.getString(R.string.Cables)
         tx2 = context.resources.getString(R.string.Sheath_wire)
@@ -231,11 +235,11 @@ object Ini {
 
         txt = context.resources.getString(R.string.Condensor)
         tx2 = context.resources.getString(R.string.Terminal_part)
-        equipmentList.add(EquipmentData( id=7, eType=2, name="콘덴서", subName = " 단자부", imgName = "item_equip2_07_01", baseOndo = 75f, rfRate=0.94f ))
+        equipmentList.add(EquipmentData( id=7, eType=2, name=txt, subName = "", imgName = "item_equip2_07_01", baseOndo = 75f, rfRate=0.94f ))
 
         txt = context.resources.getString(R.string.Condensor)
         tx2 = context.resources.getString(R.string.Main_Body)
-        equipmentList.add(EquipmentData( id=6, eType=2, name="콘덴서", subName = " 본체", imgName = "item_equip2_07_02", baseOndo = 65f, rfRate=0.25f ))
+        equipmentList.add(EquipmentData( id=6, eType=2, name=txt, subName = "", imgName = "item_equip2_07_02", baseOndo = 65f, rfRate=0.25f ))
 
     }
 

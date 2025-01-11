@@ -39,6 +39,7 @@ import kotlinx.android.synthetic.main.activity_report_result_mix.view.resultText
 import kotlinx.android.synthetic.main.activity_report_result_mix.view.resultText2B
 import kotlinx.android.synthetic.main.activity_report_result_mix.view.voltLabel
 import kotlinx.android.synthetic.main.activity_report_result_mix.view.weatherLabel
+import kotlinx.android.synthetic.main.activity_report_result_ondo.resultIcon
 import org.apache.poi.ss.usermodel.IndexedColors
 import org.apache.poi.ss.usermodel.Workbook
 import org.apache.poi.ss.util.CellRangeAddress
@@ -103,6 +104,11 @@ class ReportMixResultActivity : AppCompatActivity() {
         voltLabel.text = stringFromFloatAuto(udr!!.volt)+"kV"
         distanceLabel.text = stringFromFloatAuto(udr!!.distance)+"m"
         faultLabel.text = udr!!.faultTypeStr
+        try {
+            resultIcon.text = "MPL" + (5-udr!!.level.toInt())
+        } catch (e: Exception) {
+            resultIcon.text = ""
+        }
 
 
 //        Log.d("bobopro-보고서", udr!!.imageData1.filePath)
@@ -118,7 +124,7 @@ class ReportMixResultActivity : AppCompatActivity() {
                     States.reportMixResult = it.copy()
                 }
             }
-            resultIcon.text = States.reportMixResult.name
+//            resultIcon.text = States.reportMixResult.name
             resultMsg.text = States.reportMixResult.msg
         }
 

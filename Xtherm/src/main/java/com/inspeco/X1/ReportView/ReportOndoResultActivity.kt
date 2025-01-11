@@ -99,7 +99,7 @@ class ReportOndoResultActivity : AppCompatActivity() {
 
         resultText2B.text = States.reportMemo
 
-                if (udr!!.lati>0.1) {
+        if (udr!!.lati>0.1) {
             gpsLabel.text = String.format("N %.5f°", udr!!.lati)+"\n" +String.format("W %.5f°", udr!!.longi)
         } else {
             gpsLabel.text = "-"
@@ -108,6 +108,13 @@ class ReportOndoResultActivity : AppCompatActivity() {
         materialLabel.text = udr!!.material
         voltLabel.text = stringFromFloatAuto(udr!!.volt)+"kV"
         distanceLabel.text = stringFromFloatAuto(udr!!.distance)+"m"
+        try {
+            resultIcon.text = "TL" + (4-udr!!.level.toInt())
+        } catch (e: Exception) {
+            resultIcon.text = ""
+        }
+
+
 
         // 열화상 진단에서는 열화로 고정   faultLabel.text = udr!!.faultTypeStr
         faultLabel.text = getResources().getString(R.string.Defective_content_Coment)

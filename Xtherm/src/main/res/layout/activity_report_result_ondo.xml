@@ -292,7 +292,7 @@
                                 android:layout_marginLeft="24px"
                                 android:layout_marginRight="92px"
                                 android:gravity="left|center_vertical"
-                                android:text="설비 전압"
+                                android:text="@string/Equipment_Voltage"
                                 android:textColor="#40acc9"
                                 android:textSize="32px" />
 
