@@ -370,6 +370,29 @@ public class P1 {
             {240, 249, 33},
     };
 
+    private int hsvToColor(int alpha, float hue) {
+        float s = 1.0f; // 고정된 채도
+        float v = 1.0f; // 고정된 명도
+
+        int h = (int) (hue / 60) % 6;
+        float f = (hue / 60) - h;
+        float p = v * (1 - s);
+        float q = v * (1 - f * s);
+        float t = v * (1 - (1 - f) * s);
+
+        float r = 0, g = 0, b = 0;
+        switch (h) {
+            case 0: r = v; g = t; b = p; break;
+            case 1: r = q; g = v; b = p; break;
+            case 2: r = p; g = v; b = t; break;
+            case 3: r = p; g = q; b = v; break;
+            case 4: r = t; g = p; b = v; break;
+            case 5: r = v; g = p; b = q; break;
+        }
+
+        return Color.argb(alpha, (int) (r * 255), (int) (g * 255), (int) (b * 255));
+    }
+
     public class WaveBuf {
         long waveTime = 0;
         short[] wave = new short[512];
@@ -931,11 +954,6 @@ public class P1 {
 
     }
 
-
-
-
-
-
 // ▷℃℃℉℉
     /**
      * 실화상 + 온도,  복합 모드 그리기
@@ -1114,11 +1132,7 @@ public class P1 {
                 }
             }
 
-
             Bitmap backbit = Bitmap.createBitmap(CAMERA_WIDTH, CAMERA_HEIGHT, Bitmap.Config.ARGB_8888);
-            Canvas offscreen = new Canvas(backbit);
-            offscreen.drawColor(0, PorterDuff.Mode.CLEAR);
-            //offscreen.drawColor(Color.BLUE);
             Paint pnt = new Paint();
             pnt.setAntiAlias(false);
 
@@ -1130,48 +1144,37 @@ public class P1 {
             int xr = (int) xOrg;
             int yr = (int) yOrg;
 
-            float yPer = (ondoViewHeight / (float)CAMERA_WIDTH);
-//            Log.d("chanchan", "yPer "+Float.toString(yPer) + Float.toString(ondoViewWidth) + Float.toString(ondoViewHeight));
-//            1280x1024
-            for (int i = 0; i < (CAMERA_WIDTH * CAMERA_HEIGHT); i++) {
-                float x, y;
-                //if ((mOndoBuf[i] >= checkMinOndo) && (mOndoBuf[i] <= checkMaxOndo)) {
-                if (mOndoBuf[i] >= checkMinOndo) {
-                    if (!Float.isNaN(mOndoBuf[i])) {
-                        x = ((float) i % CAMERA_WIDTH);
-                        y = ((float) i / CAMERA_WIDTH);
+            int[] pixels = new int[CAMERA_WIDTH * CAMERA_HEIGHT]; // 오프스크린 버퍼
+            float invOndoDiff = 1.0f / ondoDiff; // 나눗셈 제거
 
-                        float cky =  ( yPer * y ) + yr;
-                        if (cky<650f) {
-                            if ( (x > 0)  && (y > 0) ) {
-                                float av = (mOndoBuf[i] - minOndo) / ondoDiff;
-                                if (av < 0) av = 0;
-                                if (Cfg.cam3_colorMode == Consts.PaletteRainbow) {
-                                    av = av * 240;
-                                    av = 240 - av;
-                                    hsv_value[0] = av;
-                                    pnt.setColor(Color.HSVToColor(alpha, hsv_value));
-                                } else if (Cfg.cam3_colorMode == Consts.PaletteAmber) {
-                                    av = av * 80;
-                                    av = 80 - av;
-                                    hsv_value[0] = av;
-                                    pnt.setColor(Color.HSVToColor(alpha, hsv_value));
-                                } else {
-                                    av = av * 255;
-                                    pnt.setColor(Color.argb(alpha, av, av, av));
-                                }
+            for (int i = 0; i < mOndoBuf.length; i++) {
+                float value = mOndoBuf[i];
 
-                                offscreen.drawPoint(x, y, pnt);
-                            }
+                // 조건을 단순화하여 빠르게 배제
+                if (value < checkMinOndo || Float.isNaN(value)) continue;
 
+                // 온도값 정규화
+                float av = (value - minOndo) * invOndoDiff;
+                av = Math.max(0, av);
 
-                        } // endif chky
-
-                    }
+                int color;
+                if (Cfg.cam3_colorMode == Consts.PaletteRainbow) {
+                    av = 240 - (av * 240);
+                    color = hsvToColor(alpha, av);
+                } else if (Cfg.cam3_colorMode == Consts.PaletteAmber) {
+                    av = 80 - (av * 80);
+                    color = hsvToColor(alpha, av);
+                } else {
+                    av *= 255;
+                    int gray = (int) av;
+                    color = Color.argb(alpha, gray, gray, gray);
                 }
+
+                // 픽셀 버퍼에 직접 저장
+                pixels[i] = color;
             }
 
-//
+            backbit.setPixels(pixels, 0, CAMERA_WIDTH, 0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
 
             if ((arrangeMode) || (ondoSelectMode) ) {
                 pnt.setFilterBitmap(false);
@@ -1182,9 +1185,6 @@ public class P1 {
             }
 
             bitcanvas.drawBitmap(backbit, null, new Rect(xr, yr, (xr + ondoViewWidth), (yr + ondoViewHeight)), pnt);
-//            Bitmap roiBitmap = Bitmap.createBitmap(backbit, 25, 19, 256-(25*2), 192-(19*2));
-//            bitcanvas.drawBitmap(roiBitmap, null, new Rect(xr, yr, (xr + 1920), (yr + 1080)), pnt);
-//            Log.d("chanchan", "box "+ Float.toString(xr) + ", "+ Float.toString(yr) + ", "+ Float.toString(ondoViewWidth) + ", " + Float.toString(ondoViewHeight));
 
             paint.setColor(Color.BLACK);
             bitcanvas.drawRect(0, height-190, width, height, paint);
