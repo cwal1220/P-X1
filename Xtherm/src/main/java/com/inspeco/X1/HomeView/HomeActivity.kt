@@ -912,7 +912,7 @@ class HomeActivity : AppCompatActivity() {
 //                }
             }, 250)
 
-        } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6"))  {
+        } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6") || name.contains("FX3") )  {
             mTempCamMemo!!.text = "Temp Cam Attatched"
             States.deviceTempCam = device
             States.ondoCamState = Consts.DEVICE_ATTATCHED
@@ -1077,7 +1077,7 @@ class HomeActivity : AppCompatActivity() {
                 States.webCamState= Consts.DEVICE_CONNNECTED
                 mWebCamMemo!!.text = "Real Cam Connected"
                 States.webCamCtrlBlock = ctrlBlock
-            } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6"))  {
+            } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6") || name.contains("FX3"))  {
                 States.ondoCamState= Consts.DEVICE_CONNNECTED
                 mTempCamMemo!!.text = "Temp Cam Connected"
                 States.tempCamCtrlBlock = ctrlBlock
@@ -1090,7 +1090,7 @@ class HomeActivity : AppCompatActivity() {
             if ( name.contains("Full") || name.contains("USB 2.0 Camera") ) {
                 States.webCamState= Consts.DEVICE_DISCONNECTED
                 mWebCamMemo!!.text = "Real Cam Disconnected"
-            } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6"))  {
+            } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6") || name.contains("FX3"))  {
 
                 States.ondoCamState= Consts.DEVICE_DISCONNECTED
                 mTempCamMemo!!.text = "Temp Cam Disconnected"
@@ -1104,7 +1104,7 @@ class HomeActivity : AppCompatActivity() {
                 States.webCamState= Consts.DEVICE_DETTATCHED
                 mWebCamMemo!!.text = "Real Cam Dettached"
                 States.deviceWebCam = null
-            } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6"))  {
+            } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6") || name.contains("FX3"))  {
 
                 x1.isDeviceAttatched = false
                 States.ondoCamState= Consts.DEVICE_DETTATCHED
@@ -1119,7 +1119,7 @@ class HomeActivity : AppCompatActivity() {
             if ( name.contains("Full") || name.contains("USB 2.0 Camera") ) {
                 States.webCamState= Consts.DEVICE_DISCONNECTED
                 mWebCamMemo!!.text = "Real Cam Canceled"
-            } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6"))  {
+            } else if ( name.contains("Xmodule") || name.contains("T3C") || name.contains("S0-6") || name.contains("FX3"))  {
                 States.ondoCamState= Consts.DEVICE_DISCONNECTED
                 mTempCamMemo!!.text = "Temp Cam Canceled"
             }

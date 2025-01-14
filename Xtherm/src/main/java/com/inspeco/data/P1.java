@@ -25,6 +25,17 @@ public class P1 {
     // public static final int db_max = 0;
     // public static final int db_avg = 0;
 
+    // CHAN 열화상 설정
+    final int CAMERA_WIDTH = 256;
+    final int CAMERA_HEIGHT = 192;
+//    final int CAMERA_WIDTH = 640;
+//    final int CAMERA_HEIGHT = 512;
+
+    final int CENTER_TARGET_SIZE = 100;
+
+    final int SCREEN_WIDTH = 1920;
+    final int SCREEN_HEIGHT = 1080;
+
     public P1Model p1Model = null;
 
     public int deviceWidth = 0;
@@ -508,7 +519,8 @@ public class P1 {
 
     // Plasma 컬러 맵으로 온도 데이터를 Bitmap으로 변환
     private Bitmap createThermalBitmap(float[] data, float min, float max) {
-        Bitmap bitmap = Bitmap.createBitmap(256, 192, Bitmap.Config.ARGB_8888);
+
+        Bitmap bitmap = Bitmap.createBitmap(CAMERA_WIDTH, CAMERA_HEIGHT, Bitmap.Config.ARGB_8888);
 
 //        // 데이터의 최소값과 최대값을 계산
 //        // TODO: 최대/최소를 찾기 않고, 입력받아서 처리하도록 변경
@@ -522,9 +534,9 @@ public class P1 {
 //        }
         
         // 데이터를 픽셀로 변환
-        for (int y = 0; y < 192; y++) {
-            for (int x = 0; x < 256; x++) {
-                float normalized = (data[(y*256 + x)] - min) / (max - min);
+        for (int y = 0; y < CAMERA_HEIGHT; y++) {
+            for (int x = 0; x < CAMERA_WIDTH; x++) {
+                float normalized = (data[(y*CAMERA_WIDTH + x)] - min) / (max - min);
                 int color = plasmaColorMap(normalized);
                 bitmap.setPixel(x, y, color);
             }
@@ -561,7 +573,7 @@ public class P1 {
 
 
         paint.setColor(Color.BLACK);
-        bitcanvas.drawRect(0, height-180, width, height, paint);
+        bitcanvas.drawRect(0, SCREEN_HEIGHT-180, SCREEN_WIDTH, SCREEN_HEIGHT, paint);
 
         if (!tempCamReady) return;
 
@@ -589,31 +601,31 @@ public class P1 {
 
 
             float ondoDiff = (maxOndo - minOndo);
-            float[] mOndoBuf = new float[256 * 194];
+            float[] mOndoBuf = new float[CAMERA_WIDTH * CAMERA_HEIGHT];
 
-            System.arraycopy(x1.ondoBuf, 0, mOndoBuf, 0, 256 * 192);
+            System.arraycopy(x1.ondoBuf, 0, mOndoBuf, 0, CAMERA_WIDTH * CAMERA_HEIGHT);
 
             //중앙점 온도 계산
-            float pointx = 905f;
-            float pointy = 500f;
+            float pointx = (1920-CENTER_TARGET_SIZE) / 2;//905f;
+            float pointy = ((1080-CENTER_TARGET_SIZE) / 2) + 56;//500f;
 
-            int ondoViewWidth = (int) ((float) width * 1f);
-            int ondoViewHeight = (int) ((float) height * 1f);
+            int ondoViewWidth = SCREEN_WIDTH;
+            int ondoViewHeight = SCREEN_HEIGHT;
 
             //Log.d("bobopro", "point "+Float.toString(pointx) + ", "+Float.toString(pointy));
 
             float indexX = (pointx);
-            indexX = (indexX / ondoViewWidth)*255;
+            indexX = (indexX / ondoViewWidth)*(CAMERA_WIDTH-1);
 
             float indexY = (pointy);
-            indexY = (indexY / ondoViewHeight)*192;
+            indexY = (indexY / ondoViewHeight)*CAMERA_HEIGHT;
 
-            int ondoIndex = (int)indexX+((int)indexY*256);
+            int ondoIndex = (int)indexX+((int)indexY*CAMERA_WIDTH);
             float pointMax = -20.0f;
             float pointMin = 999.0f;
-            for(int i=0; i<20; i++){
-                int y = i*256;
-                for( int j=0; j<16; j++) {
+            for(int i=0; i<(((float)CENTER_TARGET_SIZE/(float)SCREEN_HEIGHT)*(float)CAMERA_HEIGHT); i++){
+                int y = i*CAMERA_WIDTH;
+                for( int j=0; j<(((float)CENTER_TARGET_SIZE/(float)SCREEN_WIDTH)*(float)CAMERA_WIDTH); j++) {
                     if (pointMax<mOndoBuf[ondoIndex+y+j]) { pointMax = mOndoBuf[ondoIndex+y+j]; }
                 }
             }
@@ -622,10 +634,10 @@ public class P1 {
             isPlayingAlarm = false;
 
             // 전체 영역에서 최고 및 최저 온도 계산
-            int heightGap = (int)((180.0/height) * 192);
-            for (int y = 0; y < 192 - heightGap; y++) {
-                for (int x = 0; x < 256; x++) {
-                    float value = mOndoBuf[y * 256 + x];
+            int heightGap = (int)((180.0/SCREEN_HEIGHT) * CAMERA_HEIGHT);
+            for (int y = 0; y < CAMERA_HEIGHT - heightGap; y++) {
+                for (int x = 0; x < CAMERA_WIDTH; x++) {
+                    float value = mOndoBuf[y * CAMERA_WIDTH + x];
                     if (value < minVal) {
                         minOndoX = x;
                         minOndoY = y;
@@ -651,21 +663,21 @@ public class P1 {
                     //Log.d("bobopro", "point "+Float.toString(pointx) + ", "+Float.toString(pointy));
 
                     indexX = (pointx);
-                    indexX = (indexX / ondoViewWidth)*255;
-                    if (indexX>256-11) { indexX = 255-11; }
+                    indexX = (indexX / ondoViewWidth)*(CAMERA_WIDTH-1);
+                    if (indexX>CAMERA_WIDTH-11) { indexX = (CAMERA_WIDTH-1)-11; }
                     indexX -= 1;
                     if ( indexX<0 ) {indexX = 0;}
 
                     indexY = (pointy);
-                    indexY = (indexY / ondoViewHeight)*192;
+                    indexY = (indexY / ondoViewHeight)*CAMERA_HEIGHT;
                     if ( indexY<0 ) {indexY = 0;}
-                    if (indexY>192-11) { indexY = 192-11; }
-                    ondoIndex = (int)indexX+((int)indexY*256);
+                    if (indexY>CAMERA_HEIGHT-11) { indexY = CAMERA_HEIGHT-11; }
+                    ondoIndex = (int)indexX+((int)indexY*CAMERA_WIDTH);
 
                     pointMax = -20f;
                     pointMin = 999f;
                     for(int i=0; i<8; i++){
-                        int y = i*256;
+                        int y = i*CAMERA_WIDTH;
                         // 선택된 범위의 최저 온도 계산
                         if (pointMin>mOndoBuf[ondoIndex+y]) { pointMin = mOndoBuf[ondoIndex+y]; }
                         if (pointMin>mOndoBuf[ondoIndex+y+1]) { pointMin = mOndoBuf[ondoIndex+y+1]; }
@@ -706,9 +718,9 @@ public class P1 {
 
             if(Cfg.ondo_spanMode) {
                 Bitmap thermalBitmap = createThermalBitmap(mOndoBuf, minVal, maxVal);
-                Bitmap scaledBitmap = Bitmap.createScaledBitmap(thermalBitmap, 1920, 1080, true);
+                Bitmap scaledBitmap = Bitmap.createScaledBitmap(thermalBitmap, SCREEN_WIDTH, SCREEN_HEIGHT, true);
                 bitcanvas.drawBitmap(scaledBitmap, 0, 0, null);
-                bitcanvas.drawRect(0, height-180, width, height, paint);
+                bitcanvas.drawRect(0, SCREEN_HEIGHT-180, SCREEN_WIDTH, SCREEN_HEIGHT, paint);
             }
 
             Paint pnt = new Paint();
@@ -731,17 +743,17 @@ public class P1 {
                 }
             }
 
-            minOndoX = (minOndoX * 1920) / 256;
-            minOndoY = (minOndoY * 1080) / 192;
-            maxOndoX = (maxOndoX * 1920) / 256;
-            maxOndoY = (maxOndoY * 1080) / 192;
+            minOndoX = (minOndoX * SCREEN_WIDTH) / CAMERA_WIDTH;
+            minOndoY = (minOndoY * SCREEN_HEIGHT) / CAMERA_HEIGHT;
+            maxOndoX = (maxOndoX * SCREEN_WIDTH) / CAMERA_WIDTH;
+            maxOndoY = (maxOndoY * SCREEN_HEIGHT) / CAMERA_HEIGHT;
 
             int xMinOffset = 0;
             int yMinOffset = 0;
             int xMaxOffset = 0;
             int yMaxOffset = 0;
 
-            if(minOndoX > 1920 - 200) {
+            if(minOndoX > SCREEN_WIDTH - 200) {
                 xMinOffset = -200;
             }
 
@@ -749,7 +761,7 @@ public class P1 {
                 yMinOffset = 50;
             }
 
-            if(maxOndoX > 1920 - 200) {
+            if(maxOndoX > SCREEN_WIDTH - 200) {
                 xMaxOffset = -200;
             }
 
@@ -766,18 +778,18 @@ public class P1 {
             bitcanvas.drawRect(maxOndoX, maxOndoY, maxOndoX + 10, maxOndoY + 10, paint);
             /////////////////////////////////////////
 
-            int xPos = (width - 100) / 2;
-            int yPos = 480+56;
+            int xPos = (SCREEN_WIDTH - CENTER_TARGET_SIZE) / 2;
+            int yPos = ( (SCREEN_HEIGHT - CENTER_TARGET_SIZE) / 2) + 56;
 
             pnt.setAntiAlias(true);
             pnt.setFilterBitmap(true);
             if (camType == Consts.MODE_CAM_NOR) {
                 // 온도캠 일반모드
                 // 타켓 필드 그리기 - 온도용
-                bitcanvas.drawBitmap(camBitmap.mOndoTarget, null, new Rect(xPos, yPos, xPos + 100, yPos + 100), pnt);
+                bitcanvas.drawBitmap(camBitmap.mOndoTarget, null, new Rect(xPos, yPos, xPos + CENTER_TARGET_SIZE, yPos + CENTER_TARGET_SIZE), pnt);
 
-                int panelTop = height - 106;
-                int lineStart =   320;
+                int panelTop = SCREEN_HEIGHT - 106;
+                int lineStart = 320;
                 int lineEnd = lineStart+1000;
                 paint.setStrokeWidth(5);
                 paint.setColor(Color.WHITE);
@@ -816,7 +828,7 @@ public class P1 {
 
                 str = Cfg.getOndoFCNorGiho(x1.center, "°"+Cfg.p1_cGiho);
                 xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                bitcanvas.drawText(str, lineStart +360 + xPos, pannelLine3, paint);
+                bitcanvas.drawText(str, lineStart + 360 + xPos, pannelLine3, paint);
 
                 av = (x1.max1 - minOndo) / ondoDiff;
                 if (av < 0) av = 0;
@@ -832,7 +844,7 @@ public class P1 {
                 drawP1IconInfo(bitcanvas, paint);
 
                 // 온도 그래프 (일반)
-                xPos = (width-160);
+                xPos = (SCREEN_WIDTH-160);
                 yPos = 340;
                 bitcanvas.drawBitmap(camBitmap.mSpectrum, null, new Rect(xPos, yPos, xPos + 30, yPos + 450), pnt);
 
@@ -843,37 +855,37 @@ public class P1 {
                 if(Cfg.ondo_spanMode) {
                     str = Cfg.getOndoFCNor0(maxVal);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 35, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 120 + xPos, yPos + 35, paint);
 
                     str = Cfg.getOndoFCNor0((minVal + maxVal) / 2f);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 222, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 120 + xPos, yPos + 222, paint);
 
                     str = Cfg.getOndoFCNor0(minVal);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 434, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 120 + xPos, yPos + 434, paint);
                 } else {
                     str = Cfg.getOndoFCNor0(x1.max1);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 35, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 120 + xPos, yPos + 35, paint);
 
                     str = Cfg.getOndoFCNor0((x1.min1 + x1.max1) / 2f);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 222, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 120 + xPos, yPos + 222, paint);
 
                     str = Cfg.getOndoFCNor0(x1.min1);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 120 + xPos, yPos + 434, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 120 + xPos, yPos + 434, paint);
                 }
 
                 paint.setStrokeWidth(3);
-                bitcanvas.drawLine(width- 120 + 25, yPos+35+25, width- 120 + 25, yPos + 185, paint);
-                bitcanvas.drawLine(width- 120 + 25, yPos+222+25, width- 120 + 25, yPos + 380, paint);
+                bitcanvas.drawLine(SCREEN_WIDTH- 120 + 25, yPos+35+25, SCREEN_WIDTH- 120 + 25, yPos + 185, paint);
+                bitcanvas.drawLine(SCREEN_WIDTH- 120 + 25, yPos+222+25, SCREEN_WIDTH- 120 + 25, yPos + 380, paint);
 
             } else {
                 // 온도캠 확장모드
                 // 온도 그래프 (확장)
-                xPos = (width-100);
+                xPos = (SCREEN_WIDTH-100);
                 yPos = 80;
                 bitcanvas.drawBitmap(camBitmap.mSpectrum, null, new Rect(xPos, yPos, xPos + 30, yPos + 750), pnt);
 
@@ -884,32 +896,32 @@ public class P1 {
                 if(Cfg.ondo_spanMode) {
                     str = Cfg.getOndoFCNor0(maxVal);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 35, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 170 + xPos, yPos + 35, paint);
 
                     str = Cfg.getOndoFCNor0((minVal + maxVal) / 2);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 350, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 170 + xPos, yPos + 350, paint);
 
                     str = Cfg.getOndoFCNor0(minVal);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 734, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 170 + xPos, yPos + 734, paint);
                 } else {
                     str = Cfg.getOndoFCNor0(x1.max1);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 35, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 170 + xPos, yPos + 35, paint);
 
                     str = Cfg.getOndoFCNor0((x1.min1 + x1.max1) / 2);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 350, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 170 + xPos, yPos + 350, paint);
 
                     str = Cfg.getOndoFCNor0(x1.min1);
                     xPos = (int) ((cellWidth - paint.measureText(str)) / 2);
-                    bitcanvas.drawText(str, width - 170 + xPos, yPos + 734, paint);
+                    bitcanvas.drawText(str, SCREEN_WIDTH - 170 + xPos, yPos + 734, paint);
                 }
 
                 paint.setStrokeWidth(3);
-                bitcanvas.drawLine(width- 125 - 16, yPos+35+25, width- 125 - 16, yPos + 305, paint);
-                bitcanvas.drawLine(width- 125 - 16, yPos+350+25, width- 125 - 16, yPos + 690, paint);
+                bitcanvas.drawLine(SCREEN_WIDTH- 125 - 16, yPos+35+25, SCREEN_WIDTH- 125 - 16, yPos + 305, paint);
+                bitcanvas.drawLine(SCREEN_WIDTH- 125 - 16, yPos+350+25, SCREEN_WIDTH- 125 - 16, yPos + 690, paint);
             }
         } catch ( Exception e){
             Log.d("bobopro drawOne", "except "+e.getLocalizedMessage());
@@ -993,9 +1005,9 @@ public class P1 {
             }
 
             float ondoDiff = (maxOndo - minOndo);
-            float[] mOndoBuf = new float[256 * 194];
+            float[] mOndoBuf = new float[CAMERA_WIDTH * CAMERA_HEIGHT];
 
-            System.arraycopy(x1.ondoBuf, 0, mOndoBuf, 0, 256 * 192);
+            System.arraycopy(x1.ondoBuf, 0, mOndoBuf, 0, CAMERA_WIDTH * CAMERA_HEIGHT);
 
             int ondoViewWidth = (int) ((float) 1280 * hRatio);
             int ondoViewHeight = (int) ((float) 1024 * vRatio);
@@ -1012,23 +1024,23 @@ public class P1 {
 
             //중앙점 온도 계산
 
-            float pointx = 905f;
-            float pointy = 520f;
+            float pointx = (SCREEN_WIDTH - CENTER_TARGET_SIZE) / 2;//905f;
+            float pointy = ((SCREEN_HEIGHT - CENTER_TARGET_SIZE) / 2) + 56;//520f;
 
             //Log.d("bobopro", "point "+Float.toString(pointx) + ", "+Float.toString(pointy));
 
             float indexX = (pointx - xOrg);
-            indexX = (indexX / ondoViewWidth)*255;
+            indexX = (indexX / ondoViewWidth)*(CAMERA_WIDTH-1);
 
             float indexY = (pointy - yOrg);
-            indexY = (indexY / ondoViewHeight)*192;
+            indexY = (indexY / ondoViewHeight)*CAMERA_HEIGHT;
 
-            int ondoIndex = (int)indexX+((int)indexY*256);
+            int ondoIndex = (int)indexX+((int)indexY*CAMERA_WIDTH);
 //
             float pointMax = -20.0f;
-            for(int i=0; i<15; i++){
-                int y = i*256;
-                for( int j=0; j<15; j++) {
+            for(int i=0; i<(((float)CENTER_TARGET_SIZE/1080.0)*(float)CAMERA_HEIGHT); i++){
+                int y = i*CAMERA_WIDTH;
+                for( int j=0; j<(((float)CENTER_TARGET_SIZE/1920.0)*(float)CAMERA_WIDTH); j++) {
                     if (pointMax<mOndoBuf[ondoIndex+y+j]) { pointMax = mOndoBuf[ondoIndex+y+j]; }
                 }
             }
@@ -1052,21 +1064,21 @@ public class P1 {
                     //Log.d("bobopro", "point "+Float.toString(pointx) + ", "+Float.toString(pointy));
 
                     indexX = (pointx - xOrg);
-                    indexX = (indexX / ondoViewWidth)*255;
-                    if (indexX>ondoViewWidth-11) { indexX = 255-11; }
+                    indexX = (indexX / ondoViewWidth)*(CAMERA_WIDTH-1);
+                    if (indexX>ondoViewWidth-11) { indexX = CAMERA_WIDTH-11; }
                     indexX -= 1;
                     if ( indexX<0 ) {indexX = 0;}
 
                     indexY = (pointy - yOrg);
-                    indexY = (indexY / ondoViewHeight)*192;
+                    indexY = (indexY / ondoViewHeight)*CAMERA_HEIGHT;
                     if ( indexY<0 ) {indexY = 0;}
-                    if (indexY>ondoViewHeight-11) { indexY = 192-11; }
-                    ondoIndex = (int)indexX+((int)indexY*256);
+                    if (indexY>ondoViewHeight-11) { indexY = CAMERA_HEIGHT-11; }
+                    ondoIndex = (int)indexX+((int)indexY*CAMERA_WIDTH);
 
                     isPlayingAlarm = false;
                     pointMax = -20.0f;
                     for(int i=0; i<8; i++){
-                        int y = i*256;
+                        int y = i*CAMERA_WIDTH;
                         if (pointMax<mOndoBuf[ondoIndex+y]) { pointMax = mOndoBuf[ondoIndex+y]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+1]) { pointMax = mOndoBuf[ondoIndex+y+1]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+2]) { pointMax = mOndoBuf[ondoIndex+y+2]; }
@@ -1111,7 +1123,7 @@ public class P1 {
             }
 
 
-            Bitmap backbit = Bitmap.createBitmap(256, 192, Bitmap.Config.ARGB_8888);
+            Bitmap backbit = Bitmap.createBitmap(CAMERA_WIDTH, CAMERA_HEIGHT, Bitmap.Config.ARGB_8888);
             Canvas offscreen = new Canvas(backbit);
             offscreen.drawColor(0, PorterDuff.Mode.CLEAR);
             //offscreen.drawColor(Color.BLUE);
@@ -1126,16 +1138,16 @@ public class P1 {
             int xr = (int) xOrg;
             int yr = (int) yOrg;
 
-            float yPer = (ondoViewHeight / 256f);
+            float yPer = (ondoViewHeight / (float)CAMERA_WIDTH);
 //            Log.d("chanchan", "yPer "+Float.toString(yPer) + Float.toString(ondoViewWidth) + Float.toString(ondoViewHeight));
 //            1280x1024
-            for (int i = 0; i < ((256) * 192); i++) {
+            for (int i = 0; i < (CAMERA_WIDTH * CAMERA_HEIGHT); i++) {
                 float x, y;
                 //if ((mOndoBuf[i] >= checkMinOndo) && (mOndoBuf[i] <= checkMaxOndo)) {
                 if (mOndoBuf[i] >= checkMinOndo) {
                     if (!Float.isNaN(mOndoBuf[i])) {
-                        x = ((float) i % 256);
-                        y = ((float) i / 256);
+                        x = ((float) i % CAMERA_WIDTH);
+                        y = ((float) i / CAMERA_WIDTH);
 
                         float cky =  ( yPer * y ) + yr;
                         if (cky<650f) {
@@ -1207,10 +1219,10 @@ public class P1 {
 
 
                 // 전체 영역에서 최고 및 최저 온도 계산
-                int heightGap = (int)((190.0/height) * 192);
-                for (int y = 0; y < 192 - heightGap; y++) {
-                    for (int x = 0; x < 256; x++) {
-                        float value = mOndoBuf[y * 256 + x];
+                int heightGap = (int)((190.0/height) * CAMERA_HEIGHT);
+                for (int y = 0; y < CAMERA_HEIGHT - heightGap; y++) {
+                    for (int x = 0; x < CAMERA_WIDTH; x++) {
+                        float value = mOndoBuf[y * CAMERA_WIDTH + x];
                         if (value < minVal) {
                             minOndoX = x;
                             minOndoY = y;
@@ -1224,10 +1236,10 @@ public class P1 {
                     }
                 }
 
-                minOndoX = (minOndoX * 1920) / 256;
-                minOndoY = (minOndoY * 1080) / 192;
-                maxOndoX = (maxOndoX * 1920) / 256;
-                maxOndoY = (maxOndoY * 1080) / 192;
+                minOndoX = (minOndoX * ondoViewWidth) / CAMERA_WIDTH;
+                minOndoY = (minOndoY * ondoViewHeight) / CAMERA_HEIGHT;
+                maxOndoX = (maxOndoX * ondoViewWidth) / CAMERA_WIDTH;
+                maxOndoY = (maxOndoY * ondoViewHeight) / CAMERA_HEIGHT;
 
                 int xMinOffset = 0;
                 int yMinOffset = 0;
@@ -1261,14 +1273,14 @@ public class P1 {
 //                Log.d("chan dra min", "min:" + minOndoX + "," + minOndoY);
 //                Log.d("chan dra max", "max:" + maxOndoX + "," + maxOndoY);
 
-                int xPos = (1920 - 100) / 2;
+                int xPos = (1920 - CENTER_TARGET_SIZE) / 2;
                 int yPos = 480+56;
 
 
                 if (camType == Consts.MODE_CAM_NOR) {
                     // 타켓 필드 그리기 - 온도용
                     pnt.setAntiAlias(true);
-                    bitcanvas.drawBitmap(camBitmap.mMixTarget, null, new Rect(xPos, yPos, xPos + 100, yPos + 100), pnt);
+                    bitcanvas.drawBitmap(camBitmap.mMixTarget, null, new Rect(xPos, yPos, xPos + CENTER_TARGET_SIZE, yPos + CENTER_TARGET_SIZE), pnt);
 
                     paint.setAntiAlias(true);
                     paint.setFilterBitmap(true);
