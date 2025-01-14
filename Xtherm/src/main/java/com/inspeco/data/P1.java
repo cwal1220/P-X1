@@ -519,29 +519,21 @@ public class P1 {
 
     // Plasma 컬러 맵으로 온도 데이터를 Bitmap으로 변환
     private Bitmap createThermalBitmap(float[] data, float min, float max) {
-
         Bitmap bitmap = Bitmap.createBitmap(CAMERA_WIDTH, CAMERA_HEIGHT, Bitmap.Config.ARGB_8888);
+        int[] pixels = new int[CAMERA_WIDTH * CAMERA_HEIGHT];
 
-//        // 데이터의 최소값과 최대값을 계산
-//        // TODO: 최대/최소를 찾기 않고, 입력받아서 처리하도록 변경
-//        float min = Float.MAX_VALUE;
-//        float max = Float.MIN_VALUE;
-//        for (int y=0; y<192; y++) {
-//            for (int x=0; x<256; x++) {
-//                if (data[(y*256 + x)] < min) min = data[(y*256 + x)];
-//                if (data[(y*256 + x)] > max) max = data[(y*256 + x)];
-//            }
-//        }
-        
-        // 데이터를 픽셀로 변환
+        float range = max - min;
+
         for (int y = 0; y < CAMERA_HEIGHT; y++) {
             for (int x = 0; x < CAMERA_WIDTH; x++) {
-                float normalized = (data[(y*CAMERA_WIDTH + x)] - min) / (max - min);
+                int index = y * CAMERA_WIDTH + x;
+                float normalized = (data[index] - min) / range;
                 int color = plasmaColorMap(normalized);
-                bitmap.setPixel(x, y, color);
+                pixels[index] = color;
             }
         }
 
+        bitmap.setPixels(pixels, 0, CAMERA_WIDTH, 0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
         return bitmap;
     }
 

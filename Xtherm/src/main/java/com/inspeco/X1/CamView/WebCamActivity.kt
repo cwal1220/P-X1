@@ -287,12 +287,12 @@ class WebCamActivity : BaseActivity() {
 //        val matrix = Matrix()
 //        matrix.setScale(0.5f, 0.5f)
 //        mWebCamSurface!!.setTransform(matrix)
-                // CHAN 열화상 설정
+
                 mUVCCameraView!!.setAspectRatio((4f / 3f).toDouble())
-                mCameraHandler = UVCCameraHandler.createHandler(this, mUVCCameraView as UVCCameraTextureView,
-                        0, 256, 196, 0, null, 0)
-//                mCameraHandler = UVCCameraHandler.createHandler(this, mUVCCameraView as UVCCameraTextureView,
-//                    0, 640, 516, 0, null, 0)
+
+                // CHAN 열화상 설정
+                mCameraHandler = UVCCameraHandler.createHandler(this, mUVCCameraView as UVCCameraTextureView,0, 256, 196, 0, null, 0)
+//                mCameraHandler = UVCCameraHandler.createHandler(this, mUVCCameraView as UVCCameraTextureView, 0, 640, 516, 0, null, 0)
 
                 States.mCameraHandler = mCameraHandler
                 // 3.698
