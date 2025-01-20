@@ -8,6 +8,9 @@ import android.util.Log;
 import java.util.Locale;
 
 public class Cfg {
+    // 열화상 카메라의 해상도 설정(기본값: 256x192)
+    public static int thermal_cam_width = 256;
+    public static int thermal_cam_height = 192;
     public static float   cam2_maxOndo = 50;
     public static float   cam2_minOndo = 10;
     public static boolean cam2_maxAuto = true;

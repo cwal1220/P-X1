@@ -291,8 +291,9 @@ class WebCamActivity : BaseActivity() {
                 mUVCCameraView!!.setAspectRatio((4f / 3f).toDouble())
 
                 // CHAN 열화상 설정
-                mCameraHandler = UVCCameraHandler.createHandler(this, mUVCCameraView as UVCCameraTextureView,0, 256, 196, 0, null, 0)
+//                mCameraHandler = UVCCameraHandler.createHandler(this, mUVCCameraView as UVCCameraTextureView,0, 256, 196, 0, null, 0)
 //                mCameraHandler = UVCCameraHandler.createHandler(this, mUVCCameraView as UVCCameraTextureView, 0, 640, 516, 0, null, 0)
+                mCameraHandler = UVCCameraHandler.createHandler(this, mUVCCameraView as UVCCameraTextureView,0, Cfg.thermal_cam_width, Cfg.thermal_cam_height+4, 0, null, 0)
 
                 States.mCameraHandler = mCameraHandler
                 // 3.698

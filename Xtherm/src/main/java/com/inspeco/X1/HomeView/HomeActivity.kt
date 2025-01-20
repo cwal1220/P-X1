@@ -917,6 +917,16 @@ class HomeActivity : AppCompatActivity() {
             States.deviceTempCam = device
             States.ondoCamState = Consts.DEVICE_ATTATCHED
             x1.isDeviceAttatched = true
+
+            if( name.contains("S0-6"))
+            {
+                Cfg.thermal_cam_width = 256
+                Cfg.thermal_cam_height = 192
+            } else if(name.contains("FX3")) {
+                Cfg.thermal_cam_width = 640
+                Cfg.thermal_cam_height = 512
+            }
+
             Handler().postDelayed({
                 Log.w(TAG, "onAttach: ==== Xmodule Proc =====>")
                 mUSBMonitor!!.requestPermission(States.deviceTempCam)
@@ -1081,6 +1091,14 @@ class HomeActivity : AppCompatActivity() {
                 States.ondoCamState= Consts.DEVICE_CONNNECTED
                 mTempCamMemo!!.text = "Temp Cam Connected"
                 States.tempCamCtrlBlock = ctrlBlock
+                if( name.contains("S0-6"))
+                {
+                    Cfg.thermal_cam_width = 256
+                    Cfg.thermal_cam_height = 192
+                } else if(name.contains("FX3")) {
+                    Cfg.thermal_cam_width = 640
+                    Cfg.thermal_cam_height = 512
+                }
             }
         }
 

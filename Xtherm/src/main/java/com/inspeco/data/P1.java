@@ -26,10 +26,10 @@ public class P1 {
     // public static final int db_avg = 0;
 
     // CHAN 열화상 설정
-    final int CAMERA_WIDTH = 256;
-    final int CAMERA_HEIGHT = 192;
-//    final int CAMERA_WIDTH = 640;
-//    final int CAMERA_HEIGHT = 512;
+    // final int Cfg.thermal_cam_width = 256;
+    // final int Cfg.thermal_cam_height = 192;
+//    final int Cfg.thermal_cam_width = 640;
+//    final int Cfg.thermal_cam_height = 512;
 
     final int CENTER_TARGET_SIZE = 100;
 
@@ -542,21 +542,21 @@ public class P1 {
 
     // Plasma 컬러 맵으로 온도 데이터를 Bitmap으로 변환
     private Bitmap createThermalBitmap(float[] data, float min, float max) {
-        Bitmap bitmap = Bitmap.createBitmap(CAMERA_WIDTH, CAMERA_HEIGHT, Bitmap.Config.ARGB_8888);
-        int[] pixels = new int[CAMERA_WIDTH * CAMERA_HEIGHT];
+        Bitmap bitmap = Bitmap.createBitmap(Cfg.thermal_cam_width, Cfg.thermal_cam_height, Bitmap.Config.ARGB_8888);
+        int[] pixels = new int[Cfg.thermal_cam_width * Cfg.thermal_cam_height];
 
         float range = max - min;
 
-        for (int y = 0; y < CAMERA_HEIGHT; y++) {
-            for (int x = 0; x < CAMERA_WIDTH; x++) {
-                int index = y * CAMERA_WIDTH + x;
+        for (int y = 0; y < Cfg.thermal_cam_height; y++) {
+            for (int x = 0; x < Cfg.thermal_cam_width; x++) {
+                int index = y * Cfg.thermal_cam_width + x;
                 float normalized = (data[index] - min) / range;
                 int color = plasmaColorMap(normalized);
                 pixels[index] = color;
             }
         }
 
-        bitmap.setPixels(pixels, 0, CAMERA_WIDTH, 0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
+        bitmap.setPixels(pixels, 0, Cfg.thermal_cam_width, 0, 0, Cfg.thermal_cam_width, Cfg.thermal_cam_height);
         return bitmap;
     }
 
@@ -616,9 +616,9 @@ public class P1 {
 
 
             float ondoDiff = (maxOndo - minOndo);
-            float[] mOndoBuf = new float[CAMERA_WIDTH * CAMERA_HEIGHT];
+            float[] mOndoBuf = new float[Cfg.thermal_cam_width * Cfg.thermal_cam_height];
 
-            System.arraycopy(x1.ondoBuf, 0, mOndoBuf, 0, CAMERA_WIDTH * CAMERA_HEIGHT);
+            System.arraycopy(x1.ondoBuf, 0, mOndoBuf, 0, Cfg.thermal_cam_width * Cfg.thermal_cam_height);
 
             //중앙점 온도 계산
             float pointx = (1920-CENTER_TARGET_SIZE) / 2;//905f;
@@ -630,17 +630,17 @@ public class P1 {
             //Log.d("bobopro", "point "+Float.toString(pointx) + ", "+Float.toString(pointy));
 
             float indexX = (pointx);
-            indexX = (indexX / ondoViewWidth)*(CAMERA_WIDTH-1);
+            indexX = (indexX / ondoViewWidth)*(Cfg.thermal_cam_width-1);
 
             float indexY = (pointy);
-            indexY = (indexY / ondoViewHeight)*CAMERA_HEIGHT;
+            indexY = (indexY / ondoViewHeight)*Cfg.thermal_cam_height;
 
-            int ondoIndex = (int)indexX+((int)indexY*CAMERA_WIDTH);
+            int ondoIndex = (int)indexX+((int)indexY*Cfg.thermal_cam_width);
             float pointMax = -20.0f;
             float pointMin = 999.0f;
-            for(int i=0; i<(((float)CENTER_TARGET_SIZE/(float)SCREEN_HEIGHT)*(float)CAMERA_HEIGHT); i++){
-                int y = i*CAMERA_WIDTH;
-                for( int j=0; j<(((float)CENTER_TARGET_SIZE/(float)SCREEN_WIDTH)*(float)CAMERA_WIDTH); j++) {
+            for(int i=0; i<(((float)CENTER_TARGET_SIZE/(float)SCREEN_HEIGHT)*(float)Cfg.thermal_cam_height); i++){
+                int y = i*Cfg.thermal_cam_width;
+                for( int j=0; j<(((float)CENTER_TARGET_SIZE/(float)SCREEN_WIDTH)*(float)Cfg.thermal_cam_width); j++) {
                     if (pointMax<mOndoBuf[ondoIndex+y+j]) { pointMax = mOndoBuf[ondoIndex+y+j]; }
                 }
             }
@@ -649,10 +649,10 @@ public class P1 {
             isPlayingAlarm = false;
 
             // 전체 영역에서 최고 및 최저 온도 계산
-            int heightGap = (int)((180.0/SCREEN_HEIGHT) * CAMERA_HEIGHT);
-            for (int y = 0; y < CAMERA_HEIGHT - heightGap; y++) {
-                for (int x = 0; x < CAMERA_WIDTH; x++) {
-                    float value = mOndoBuf[y * CAMERA_WIDTH + x];
+            int heightGap = (int)((180.0/SCREEN_HEIGHT) * Cfg.thermal_cam_height);
+            for (int y = 0; y < Cfg.thermal_cam_height - heightGap; y++) {
+                for (int x = 0; x < Cfg.thermal_cam_width; x++) {
+                    float value = mOndoBuf[y * Cfg.thermal_cam_width + x];
                     if (value < minVal) {
                         minOndoX = x;
                         minOndoY = y;
@@ -678,21 +678,21 @@ public class P1 {
                     //Log.d("bobopro", "point "+Float.toString(pointx) + ", "+Float.toString(pointy));
 
                     indexX = (pointx);
-                    indexX = (indexX / ondoViewWidth)*(CAMERA_WIDTH-1);
-                    if (indexX>CAMERA_WIDTH-11) { indexX = (CAMERA_WIDTH-1)-11; }
+                    indexX = (indexX / ondoViewWidth)*(Cfg.thermal_cam_width-1);
+                    if (indexX>Cfg.thermal_cam_width-11) { indexX = (Cfg.thermal_cam_width-1)-11; }
                     indexX -= 1;
                     if ( indexX<0 ) {indexX = 0;}
 
                     indexY = (pointy);
-                    indexY = (indexY / ondoViewHeight)*CAMERA_HEIGHT;
+                    indexY = (indexY / ondoViewHeight)*Cfg.thermal_cam_height;
                     if ( indexY<0 ) {indexY = 0;}
-                    if (indexY>CAMERA_HEIGHT-11) { indexY = CAMERA_HEIGHT-11; }
-                    ondoIndex = (int)indexX+((int)indexY*CAMERA_WIDTH);
+                    if (indexY>Cfg.thermal_cam_height-11) { indexY = Cfg.thermal_cam_height-11; }
+                    ondoIndex = (int)indexX+((int)indexY*Cfg.thermal_cam_width);
 
                     pointMax = -20f;
                     pointMin = 999f;
                     for(int i=0; i<8; i++){
-                        int y = i*CAMERA_WIDTH;
+                        int y = i*Cfg.thermal_cam_width;
                         // 선택된 범위의 최저 온도 계산
                         if (pointMin>mOndoBuf[ondoIndex+y]) { pointMin = mOndoBuf[ondoIndex+y]; }
                         if (pointMin>mOndoBuf[ondoIndex+y+1]) { pointMin = mOndoBuf[ondoIndex+y+1]; }
@@ -758,10 +758,10 @@ public class P1 {
                 }
             }
 
-            minOndoX = (minOndoX * SCREEN_WIDTH) / CAMERA_WIDTH;
-            minOndoY = (minOndoY * SCREEN_HEIGHT) / CAMERA_HEIGHT;
-            maxOndoX = (maxOndoX * SCREEN_WIDTH) / CAMERA_WIDTH;
-            maxOndoY = (maxOndoY * SCREEN_HEIGHT) / CAMERA_HEIGHT;
+            minOndoX = (minOndoX * SCREEN_WIDTH) / Cfg.thermal_cam_width;
+            minOndoY = (minOndoY * SCREEN_HEIGHT) / Cfg.thermal_cam_height;
+            maxOndoX = (maxOndoX * SCREEN_WIDTH) / Cfg.thermal_cam_width;
+            maxOndoY = (maxOndoY * SCREEN_HEIGHT) / Cfg.thermal_cam_height;
 
             int xMinOffset = 0;
             int yMinOffset = 0;
@@ -1015,9 +1015,9 @@ public class P1 {
             }
 
             float ondoDiff = (maxOndo - minOndo);
-            float[] mOndoBuf = new float[CAMERA_WIDTH * CAMERA_HEIGHT];
+            float[] mOndoBuf = new float[Cfg.thermal_cam_width * Cfg.thermal_cam_height];
 
-            System.arraycopy(x1.ondoBuf, 0, mOndoBuf, 0, CAMERA_WIDTH * CAMERA_HEIGHT);
+            System.arraycopy(x1.ondoBuf, 0, mOndoBuf, 0, Cfg.thermal_cam_width * Cfg.thermal_cam_height);
 
             int ondoViewWidth = (int) ((float) 1280 * hRatio);
             int ondoViewHeight = (int) ((float) 1024 * vRatio);
@@ -1040,17 +1040,17 @@ public class P1 {
             //Log.d("bobopro", "point "+Float.toString(pointx) + ", "+Float.toString(pointy));
 
             float indexX = (pointx - xOrg);
-            indexX = (indexX / ondoViewWidth)*(CAMERA_WIDTH-1);
+            indexX = (indexX / ondoViewWidth)*(Cfg.thermal_cam_width-1);
 
             float indexY = (pointy - yOrg);
-            indexY = (indexY / ondoViewHeight)*CAMERA_HEIGHT;
+            indexY = (indexY / ondoViewHeight)*Cfg.thermal_cam_height;
 
-            int ondoIndex = (int)indexX+((int)indexY*CAMERA_WIDTH);
+            int ondoIndex = (int)indexX+((int)indexY*Cfg.thermal_cam_width);
 //
             float pointMax = -20.0f;
-            for(int i=0; i<(((float)CENTER_TARGET_SIZE/1080.0)*(float)CAMERA_HEIGHT); i++){
-                int y = i*CAMERA_WIDTH;
-                for( int j=0; j<(((float)CENTER_TARGET_SIZE/1920.0)*(float)CAMERA_WIDTH); j++) {
+            for(int i=0; i<(((float)CENTER_TARGET_SIZE/1080.0)*(float)Cfg.thermal_cam_height); i++){
+                int y = i*Cfg.thermal_cam_width;
+                for( int j=0; j<(((float)CENTER_TARGET_SIZE/1920.0)*(float)Cfg.thermal_cam_width); j++) {
                     if (pointMax<mOndoBuf[ondoIndex+y+j]) { pointMax = mOndoBuf[ondoIndex+y+j]; }
                 }
             }
@@ -1074,21 +1074,21 @@ public class P1 {
                     //Log.d("bobopro", "point "+Float.toString(pointx) + ", "+Float.toString(pointy));
 
                     indexX = (pointx - xOrg);
-                    indexX = (indexX / ondoViewWidth)*(CAMERA_WIDTH-1);
-                    if (indexX>ondoViewWidth-11) { indexX = CAMERA_WIDTH-11; }
+                    indexX = (indexX / ondoViewWidth)*(Cfg.thermal_cam_width-1);
+                    if (indexX>ondoViewWidth-11) { indexX = Cfg.thermal_cam_width-11; }
                     indexX -= 1;
                     if ( indexX<0 ) {indexX = 0;}
 
                     indexY = (pointy - yOrg);
-                    indexY = (indexY / ondoViewHeight)*CAMERA_HEIGHT;
+                    indexY = (indexY / ondoViewHeight)*Cfg.thermal_cam_height;
                     if ( indexY<0 ) {indexY = 0;}
-                    if (indexY>ondoViewHeight-11) { indexY = CAMERA_HEIGHT-11; }
-                    ondoIndex = (int)indexX+((int)indexY*CAMERA_WIDTH);
+                    if (indexY>ondoViewHeight-11) { indexY = Cfg.thermal_cam_height-11; }
+                    ondoIndex = (int)indexX+((int)indexY*Cfg.thermal_cam_width);
 
                     isPlayingAlarm = false;
                     pointMax = -20.0f;
                     for(int i=0; i<8; i++){
-                        int y = i*CAMERA_WIDTH;
+                        int y = i*Cfg.thermal_cam_width;
                         if (pointMax<mOndoBuf[ondoIndex+y]) { pointMax = mOndoBuf[ondoIndex+y]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+1]) { pointMax = mOndoBuf[ondoIndex+y+1]; }
                         if (pointMax<mOndoBuf[ondoIndex+y+2]) { pointMax = mOndoBuf[ondoIndex+y+2]; }
@@ -1132,7 +1132,7 @@ public class P1 {
                 }
             }
 
-            Bitmap backbit = Bitmap.createBitmap(CAMERA_WIDTH, CAMERA_HEIGHT, Bitmap.Config.ARGB_8888);
+            Bitmap backbit = Bitmap.createBitmap(Cfg.thermal_cam_width, Cfg.thermal_cam_height, Bitmap.Config.ARGB_8888);
             Paint pnt = new Paint();
             pnt.setAntiAlias(false);
 
@@ -1144,7 +1144,7 @@ public class P1 {
             int xr = (int) xOrg;
             int yr = (int) yOrg;
 
-            int[] pixels = new int[CAMERA_WIDTH * CAMERA_HEIGHT]; // 오프스크린 버퍼
+            int[] pixels = new int[Cfg.thermal_cam_width * Cfg.thermal_cam_height]; // 오프스크린 버퍼
             float invOndoDiff = 1.0f / ondoDiff; // 나눗셈 제거
 
             for (int i = 0; i < mOndoBuf.length; i++) {
@@ -1174,7 +1174,7 @@ public class P1 {
                 pixels[i] = color;
             }
 
-            backbit.setPixels(pixels, 0, CAMERA_WIDTH, 0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
+            backbit.setPixels(pixels, 0, Cfg.thermal_cam_width, 0, 0, Cfg.thermal_cam_width, Cfg.thermal_cam_height);
 
             if ((arrangeMode) || (ondoSelectMode) ) {
                 pnt.setFilterBitmap(false);
@@ -1211,10 +1211,10 @@ public class P1 {
 
 
                 // 전체 영역에서 최고 및 최저 온도 계산
-                int heightGap = (int)((190.0/height) * CAMERA_HEIGHT);
-                for (int y = 0; y < CAMERA_HEIGHT - heightGap; y++) {
-                    for (int x = 0; x < CAMERA_WIDTH; x++) {
-                        float value = mOndoBuf[y * CAMERA_WIDTH + x];
+                int heightGap = (int)((190.0/height) * Cfg.thermal_cam_height);
+                for (int y = 0; y < Cfg.thermal_cam_height - heightGap; y++) {
+                    for (int x = 0; x < Cfg.thermal_cam_width; x++) {
+                        float value = mOndoBuf[y * Cfg.thermal_cam_width + x];
                         if (value < minVal) {
                             minOndoX = x;
                             minOndoY = y;
@@ -1228,10 +1228,10 @@ public class P1 {
                     }
                 }
 
-                minOndoX = (minOndoX * ondoViewWidth) / CAMERA_WIDTH;
-                minOndoY = (minOndoY * ondoViewHeight) / CAMERA_HEIGHT;
-                maxOndoX = (maxOndoX * ondoViewWidth) / CAMERA_WIDTH;
-                maxOndoY = (maxOndoY * ondoViewHeight) / CAMERA_HEIGHT;
+                minOndoX = (minOndoX * ondoViewWidth) / Cfg.thermal_cam_width;
+                minOndoY = (minOndoY * ondoViewHeight) / Cfg.thermal_cam_height;
+                maxOndoX = (maxOndoX * ondoViewWidth) / Cfg.thermal_cam_width;
+                maxOndoY = (maxOndoY * ondoViewHeight) / Cfg.thermal_cam_height;
 
                 int xMinOffset = 0;
                 int yMinOffset = 0;
